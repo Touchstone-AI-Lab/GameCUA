@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "sts-victory-v3",
+  "game_id": "slay-the-spire",
+  "version": 3,
+  "calibrated": false,
+  "milestones": [
+    {
+      "id": "act-1-boss-reached",
+      "description": "Reach the act one boss floor alive",
+      "predicate": "act_1_boss_reached",
+      "points": 20
+    },
+    {
+      "id": "act-one",
+      "description": "Defeat the act one boss",
+      "predicate": "act_1_complete",
+      "points": 20,
+      "prerequisites": [
+        "act-1-boss-reached"
+      ]
+    },
+    {
+      "id": "act-2-boss-reached",
+      "description": "Reach the act two boss floor alive",
+      "predicate": "act_2_boss_reached",
+      "points": 20,
+      "prerequisites": [
+        "act-one"
+      ]
+    },
+    {
+      "id": "act-two",
+      "description": "Defeat the act two boss",
+      "predicate": "act_2_complete",
+      "points": 20,
+      "prerequisites": [
+        "act-2-boss-reached"
+      ]
+    },
+    {
+      "id": "run-complete",
+      "description": "Defeat the act three boss: the run history records victory",
+      "predicate": "run_victory",
+      "points": 20,
+      "prerequisites": [
+        "act-two"
+      ]
+    }
+  ]
+}

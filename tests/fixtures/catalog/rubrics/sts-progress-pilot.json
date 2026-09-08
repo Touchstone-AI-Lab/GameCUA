@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "sts-progress-pilot",
+  "game_id": "slay-the-spire",
+  "version": 1,
+  "calibrated": false,
+  "milestones": [
+    {"id": "first-combat", "description": "Win a combat after verified setup", "predicate": "combat_victory", "points": 10},
+    {"id": "first-elite", "description": "Win an elite combat in one episode", "predicate": "elite_victory", "points": 15},
+    {"id": "act-one", "description": "Complete act one in one episode", "predicate": "act_1_complete", "points": 20},
+    {"id": "act-two", "description": "Complete act two in the same episode as act one", "predicate": "act_2_complete", "points": 20, "prerequisites": ["act-one"]},
+    {"id": "act-three", "description": "Complete act three in the same episode as act two", "predicate": "act_3_complete", "points": 20, "prerequisites": ["act-two"]},
+    {"id": "run-complete", "description": "Game run history records victory for the same episode", "predicate": "run_victory", "points": 15, "prerequisites": ["act-three"]}
+  ]
+}

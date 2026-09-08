@@ -1,0 +1,142 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "id": {
+      "pattern": "^[a-z0-9][a-z0-9._-]+$",
+      "title": "Id",
+      "type": "string"
+    },
+    "game_id": {
+      "title": "Game Id",
+      "type": "string"
+    },
+    "model_id": {
+      "default": "deepseek-flash",
+      "title": "Model Id",
+      "type": "string"
+    },
+    "rubric_id": {
+      "title": "Rubric Id",
+      "type": "string"
+    },
+    "total_seconds": {
+      "exclusiveMinimum": 0,
+      "title": "Total Seconds",
+      "type": "number"
+    },
+    "episode_limit": {
+      "anyOf": [
+        {
+          "maximum": 5,
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Episode Limit"
+    },
+    "condition": {
+      "const": "pure_image_no_rules",
+      "default": "pure_image_no_rules",
+      "title": "Condition",
+      "type": "string"
+    },
+    "downtime_policy": {
+      "const": "charged",
+      "default": "charged",
+      "title": "Downtime Policy",
+      "type": "string"
+    },
+    "provider_failure_policy": {
+      "default": "charged_retry_then_interrupt",
+      "enum": [
+        "charged_retry_then_interrupt",
+        "freeze_retry_timeout_credit"
+      ],
+      "title": "Provider Failure Policy",
+      "type": "string"
+    },
+    "episode_context": {
+      "default": "trial_memory",
+      "enum": [
+        "fresh",
+        "trial_memory"
+      ],
+      "title": "Episode Context",
+      "type": "string"
+    },
+    "recording_fps": {
+      "default": 2,
+      "maximum": 30,
+      "minimum": 1,
+      "title": "Recording Fps",
+      "type": "integer"
+    },
+    "action_execution": {
+      "default": "live",
+      "enum": [
+        "live",
+        "frozen_steps"
+      ],
+      "title": "Action Execution",
+      "type": "string"
+    },
+    "step_seconds": {
+      "anyOf": [
+        {
+          "maximum": 3,
+          "minimum": 0.2,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Step Seconds"
+    },
+    "inputs_id": {
+      "anyOf": [
+        {
+          "pattern": "^[a-z0-9][a-z0-9._-]+$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Inputs Id"
+    },
+    "observation_age_limit_seconds": {
+      "default": 30.0,
+      "exclusiveMinimum": 0,
+      "title": "Observation Age Limit Seconds",
+      "type": "number"
+    },
+    "stale_pixel_delta": {
+      "default": 15.0,
+      "maximum": 255,
+      "minimum": 0,
+      "title": "Stale Pixel Delta",
+      "type": "number"
+    }
+  },
+  "required": [
+    "id",
+    "game_id",
+    "rubric_id",
+    "total_seconds"
+  ],
+  "title": "TrialSpec",
+  "type": "object"
+}

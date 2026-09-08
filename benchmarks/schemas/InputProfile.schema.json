@@ -1,0 +1,201 @@
+{
+  "$defs": {
+    "InputButton": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "description": {
+          "maxLength": 400,
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "keys": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8,
+          "title": "Keys",
+          "type": "array"
+        },
+        "click": {
+          "anyOf": [
+            {
+              "maxItems": 2,
+              "minItems": 2,
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Click"
+        },
+        "drag": {
+          "anyOf": [
+            {
+              "maxItems": 4,
+              "minItems": 4,
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Drag"
+        },
+        "scroll": {
+          "anyOf": [
+            {
+              "maximum": 8,
+              "minimum": -8,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Scroll"
+        },
+        "pointer": {
+          "anyOf": [
+            {
+              "enum": [
+                "left",
+                "right",
+                "move",
+                "drag"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pointer"
+        }
+      },
+      "required": [
+        "description"
+      ],
+      "title": "InputButton",
+      "type": "object"
+    },
+    "InputGroup": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "instructions": {
+          "default": "",
+          "maxLength": 400,
+          "title": "Instructions",
+          "type": "string"
+        },
+        "buttons": {
+          "additionalProperties": {
+            "$ref": "#/$defs/InputButton"
+          },
+          "maxProperties": 256,
+          "minProperties": 2,
+          "title": "Buttons",
+          "type": "object"
+        }
+      },
+      "required": [
+        "buttons"
+      ],
+      "title": "InputGroup",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "id": {
+      "pattern": "^[a-z0-9][a-z0-9._-]+$",
+      "title": "Id",
+      "type": "string"
+    },
+    "game_id": {
+      "title": "Game Id",
+      "type": "string"
+    },
+    "version": {
+      "exclusiveMinimum": 0,
+      "title": "Version",
+      "type": "integer"
+    },
+    "step_seconds": {
+      "maximum": 3,
+      "minimum": 0.2,
+      "title": "Step Seconds",
+      "type": "number"
+    },
+    "instructions": {
+      "maxLength": 1200,
+      "minLength": 1,
+      "title": "Instructions",
+      "type": "string"
+    },
+    "groups": {
+      "additionalProperties": {
+        "$ref": "#/$defs/InputGroup"
+      },
+      "maxProperties": 4,
+      "minProperties": 1,
+      "title": "Groups",
+      "type": "object"
+    }
+  },
+  "required": [
+    "id",
+    "game_id",
+    "version",
+    "step_seconds",
+    "instructions",
+    "groups"
+  ],
+  "title": "InputProfile",
+  "type": "object"
+}

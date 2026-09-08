@@ -1,0 +1,200 @@
+{
+  "$defs": {
+    "ProviderLedger": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "timeout_count": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Timeout Count",
+          "type": "integer"
+        },
+        "timeout_credit_seconds": {
+          "default": 0.0,
+          "minimum": 0,
+          "title": "Timeout Credit Seconds",
+          "type": "number"
+        },
+        "request_failures": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Request Failures",
+          "type": "integer"
+        },
+        "freezes": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Freezes",
+          "type": "integer"
+        },
+        "frozen_seconds": {
+          "default": 0.0,
+          "minimum": 0,
+          "title": "Frozen Seconds",
+          "type": "number"
+        },
+        "operator_reports": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Operator Reports",
+          "type": "integer"
+        },
+        "operator_pause_seconds": {
+          "default": 0.0,
+          "minimum": 0,
+          "title": "Operator Pause Seconds",
+          "type": "number"
+        },
+        "state": {
+          "default": "ready",
+          "enum": [
+            "ready",
+            "frozen",
+            "operator_paused"
+          ],
+          "title": "State",
+          "type": "string"
+        }
+      },
+      "title": "ProviderLedger",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "evidence_gaps": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Evidence Gaps",
+      "type": "array"
+    },
+    "status": {
+      "default": "preparing",
+      "enum": [
+        "preparing",
+        "running",
+        "interrupted",
+        "completed",
+        "cancelled"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason"
+    },
+    "started_at": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Started At"
+    },
+    "deadline": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Deadline"
+    },
+    "last_seen": {
+      "default": 0,
+      "title": "Last Seen",
+      "type": "number"
+    },
+    "elapsed_seconds": {
+      "default": 0,
+      "title": "Elapsed Seconds",
+      "type": "number"
+    },
+    "chargeable_seconds": {
+      "default": 0,
+      "title": "Chargeable Seconds",
+      "type": "number"
+    },
+    "infrastructure_downtime_seconds": {
+      "default": 0,
+      "title": "Infrastructure Downtime Seconds",
+      "type": "number"
+    },
+    "effective_seconds": {
+      "default": 0,
+      "title": "Effective Seconds",
+      "type": "number"
+    },
+    "eligible": {
+      "default": true,
+      "title": "Eligible",
+      "type": "boolean"
+    },
+    "protocol_failures": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Protocol Failures",
+      "type": "array"
+    },
+    "episodes": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Episodes",
+      "type": "array"
+    },
+    "provider_recovery": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ProviderLedger"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "id"
+  ],
+  "title": "TrialRecord",
+  "type": "object"
+}

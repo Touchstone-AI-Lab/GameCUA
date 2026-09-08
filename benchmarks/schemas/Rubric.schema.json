@@ -1,0 +1,117 @@
+{
+  "$defs": {
+    "Milestone": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "id": {
+          "pattern": "^[a-z0-9][a-z0-9._-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "description": {
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "predicate": {
+          "minLength": 1,
+          "title": "Predicate",
+          "type": "string"
+        },
+        "points": {
+          "exclusiveMinimum": 0,
+          "maximum": 100,
+          "title": "Points",
+          "type": "integer"
+        },
+        "prerequisites": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Prerequisites",
+          "type": "array"
+        },
+        "duplicate_credit": {
+          "const": "once_per_trial",
+          "default": "once_per_trial",
+          "title": "Duplicate Credit",
+          "type": "string"
+        },
+        "scope": {
+          "const": "episode",
+          "default": "episode",
+          "title": "Scope",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "predicate",
+        "points"
+      ],
+      "title": "Milestone",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "id": {
+      "pattern": "^[a-z0-9][a-z0-9._-]+$",
+      "title": "Id",
+      "type": "string"
+    },
+    "game_id": {
+      "title": "Game Id",
+      "type": "string"
+    },
+    "version": {
+      "exclusiveMinimum": 0,
+      "title": "Version",
+      "type": "integer"
+    },
+    "calibrated": {
+      "const": false,
+      "default": false,
+      "title": "Calibrated",
+      "type": "boolean"
+    },
+    "assessment": {
+      "default": "milestones",
+      "enum": [
+        "milestones",
+        "endpoint"
+      ],
+      "title": "Assessment",
+      "type": "string"
+    },
+    "milestones": {
+      "items": {
+        "$ref": "#/$defs/Milestone"
+      },
+      "minItems": 1,
+      "title": "Milestones",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "game_id",
+    "version",
+    "milestones"
+  ],
+  "title": "Rubric",
+  "type": "object"
+}

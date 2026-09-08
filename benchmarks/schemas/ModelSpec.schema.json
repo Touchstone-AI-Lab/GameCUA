@@ -1,0 +1,121 @@
+{
+  "$defs": {
+    "ContextSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "window_tokens": {
+          "anyOf": [
+            {
+              "maximum": 4194304,
+              "minimum": 4096,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Window Tokens"
+        },
+        "summary_tokens": {
+          "default": 2048,
+          "maximum": 8192,
+          "minimum": 256,
+          "title": "Summary Tokens",
+          "type": "integer"
+        },
+        "recent_turns": {
+          "default": 8,
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Recent Turns",
+          "type": "integer"
+        },
+        "recent_images": {
+          "default": 3,
+          "maximum": 16,
+          "minimum": 1,
+          "title": "Recent Images",
+          "type": "integer"
+        },
+        "image_tokens": {
+          "default": 1536,
+          "maximum": 32768,
+          "minimum": 256,
+          "title": "Image Tokens",
+          "type": "integer"
+        }
+      },
+      "title": "ContextSpec",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "id": {
+      "pattern": "^[a-z0-9][a-z0-9._-]+$",
+      "title": "Id",
+      "type": "string"
+    },
+    "provider": {
+      "enum": [
+        "together",
+        "openai_compatible",
+        "typesafe"
+      ],
+      "title": "Provider",
+      "type": "string"
+    },
+    "model": {
+      "title": "Model",
+      "type": "string"
+    },
+    "base_url": {
+      "title": "Base Url",
+      "type": "string"
+    },
+    "api_key_env": {
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Api Key Env",
+      "type": "string"
+    },
+    "status": {
+      "default": "configured",
+      "enum": [
+        "verified",
+        "configured",
+        "template"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "vision": {
+      "default": true,
+      "title": "Vision",
+      "type": "boolean"
+    },
+    "generation": {
+      "additionalProperties": true,
+      "title": "Generation",
+      "type": "object"
+    },
+    "context": {
+      "$ref": "#/$defs/ContextSpec"
+    }
+  },
+  "required": [
+    "id",
+    "provider",
+    "model",
+    "base_url",
+    "api_key_env"
+  ],
+  "title": "ModelSpec",
+  "type": "object"
+}

@@ -1,0 +1,29 @@
+name: Offline validation
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.lock.txt
+      - run: python -m pip install -e . --no-deps
+      - run: ruff check gamecua tests scripts
+      - run: ruff format --check gamecua tests scripts
+      - run: python -m pytest -q
+      - run: python -m gamecua.cli validate
+      - if: github.event_name == 'pull_request' || github.ref_name == 'main' || github.ref_name == 'experiments'
+        run: python scripts/check_repository_layout.py
+  harbor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.lock.txt
+      - run: python -m pip install -e . --no-deps
+      - run: python -m pip install "harbor==0.23.0" "uv==0.12.19"
+      - run: python -m pytest -q tests/test_harbor.py

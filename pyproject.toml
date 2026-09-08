@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gamecua"
+version = "0.7.14"
+description = "Pure-image commercial game agent research harness"
+requires-python = ">=3.12"
+dependencies = ["python-xlib>=0.33", "Pillow>=10", "numpy>=1.26", "pydantic>=2,<3", "httpx>=0.27,<1", "imageio-ffmpeg>=0.6,<1", "aiohttp>=3.13,<4", "qrcode>=8,<9", "openai-agents==0.23.1", "cryptography>=46"]
+
+[project.scripts]
+gamecua = "gamecua.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["gamecua*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[project.optional-dependencies]
+harbor = ["harbor==0.23.0; python_version >= '3.12'", "uv==0.12.19"]
+dev = ["pytest>=9", "ruff>=0.16"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/*.py" = ["E402"]
+
+[tool.setuptools.package-data]
+"gamecua.games.dont_starve" = ["*.lua"]
+gamecua = ["environments/assets/*", "games/left_4_dead_2/*.nut", "games/left_4_dead_2/*.json", "games/left_4_dead_2/*.cfg"]

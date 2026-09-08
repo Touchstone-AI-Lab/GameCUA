@@ -1,0 +1,182 @@
+{
+  "$defs": {
+    "PauseSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "method": {
+          "enum": [
+            "process",
+            "native"
+          ],
+          "title": "Method",
+          "type": "string"
+        },
+        "settle_seconds": {
+          "default": 0.0,
+          "maximum": 2,
+          "minimum": 0,
+          "title": "Settle Seconds",
+          "type": "number"
+        }
+      },
+      "required": [
+        "method"
+      ],
+      "title": "PauseSpec",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "id": {
+      "pattern": "^[a-z0-9][a-z0-9._-]+$",
+      "title": "Id",
+      "type": "string"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    },
+    "status": {
+      "default": "configured",
+      "enum": [
+        "verified",
+        "configured",
+        "template"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "steam_app_id": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Steam App Id"
+    },
+    "window_title": {
+      "title": "Window Title",
+      "type": "string"
+    },
+    "window_title_prefix": {
+      "default": false,
+      "title": "Window Title Prefix",
+      "type": "boolean"
+    },
+    "input_backend": {
+      "default": "auto",
+      "enum": [
+        "auto",
+        "xsend",
+        "xtest"
+      ],
+      "title": "Input Backend",
+      "type": "string"
+    },
+    "resolution": {
+      "default": [
+        1280,
+        720
+      ],
+      "maxItems": 2,
+      "minItems": 2,
+      "prefixItems": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        }
+      ],
+      "title": "Resolution",
+      "type": "array"
+    },
+    "mouse_mode": {
+      "default": "cursor",
+      "enum": [
+        "cursor",
+        "captured"
+      ],
+      "title": "Mouse Mode",
+      "type": "string"
+    },
+    "timing": {
+      "default": "turn_based",
+      "enum": [
+        "turn_based",
+        "realtime"
+      ],
+      "title": "Timing",
+      "type": "string"
+    },
+    "budget": {
+      "anyOf": [
+        {
+          "enum": [
+            "attempts",
+            "time"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Budget"
+    },
+    "pause": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/PauseSpec"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "notes": {
+      "default": "",
+      "title": "Notes",
+      "type": "string"
+    },
+    "introduction": {
+      "default": "",
+      "maxLength": 2000,
+      "title": "Introduction",
+      "type": "string"
+    },
+    "controls": {
+      "default": "",
+      "maxLength": 2000,
+      "title": "Controls",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "window_title"
+  ],
+  "title": "GameSpec",
+  "type": "object"
+}
