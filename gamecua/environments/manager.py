@@ -37,12 +37,19 @@ def build():
                 ROOT / name, context / name, ignore=shutil.ignore_patterns("__pycache__")
             )
         shutil.copyfile(Path(__file__).parent / "assets/Dockerfile", context / "Dockerfile")
+        cache = os.getenv("GAMECUA_BUILD_CACHE")
+        if cache:
+            shutil.copytree(cache, context / "build-cache")
+        else:
+            (context / "build-cache").mkdir()
+        mirror = os.getenv("GAMECUA_REGISTRY_MIRROR")
         subprocess.run(
             [
                 "docker",
                 "build",
                 *("--build-arg", f"HOST_UID={os.getuid()}"),
                 *("--build-arg", f"HOST_GID={os.getgid()}"),
+                *(["--build-arg", f"BASE_REGISTRY={mirror.rstrip('/')}"] if mirror else []),
                 *("-t", IMAGE, folder),
             ],
             check=True,
