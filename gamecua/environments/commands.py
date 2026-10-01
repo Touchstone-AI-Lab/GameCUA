@@ -86,6 +86,7 @@ def execute_environment(args):
             memory=args.memory,
             steam=args.steam,
             steam_environment=args.steam_environment,
+            gpu=args.gpu,
         )
     environment = Environment(args.environment)
     if action in ("status", "start", "connect", "stop", "clean"):

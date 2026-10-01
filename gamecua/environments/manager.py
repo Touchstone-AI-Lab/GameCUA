@@ -117,6 +117,7 @@ class Environment:
         steam=False,
         steam_environment=None,
         mounts=(),
+        gpu="0",
     ):
         steam_home = None
         if steam_environment:

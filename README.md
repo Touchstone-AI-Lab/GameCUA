@@ -10,7 +10,7 @@ The 15 games of the GameCUA V1 paper.
 
 | Game | Contributors | Category | Guide |
 | --- | --- | --- | --- |
-| Slay the Spire | [Zhuhan Bao](https://github.com/BaoZhuhan) | Card strategy | [guide](gamecua/games/slay_the_spire/README.md) |
+| Slay the Spire | [Zhuhan Bao](https://github.com/BaoZhuhan), [Sihan Xu](https://github.com/SihanXU) | Card strategy | [guide](gamecua/games/slay_the_spire/README.md) |
 
 ### V2
 
@@ -19,7 +19,7 @@ Games integrated for the next release; they are not in the V1 paper, and their i
 | Game | Contributors | Category |
 | --- | --- | --- |
 
-Core harness: [Zhuhan Bao](https://github.com/BaoZhuhan).
+Core harness: [Zhuhan Bao](https://github.com/BaoZhuhan), [Sihan Xu](https://github.com/SihanXU).
 
 ## Protocol
 
