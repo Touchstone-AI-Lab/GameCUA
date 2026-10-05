@@ -142,6 +142,8 @@ def nvidia_run_arguments(monkeypatch, tmp_path, runtimes):
 
     def fake_docker(*args, **kwargs):
         calls.append(args)
+        if args[0] == "info":
+            return json.dumps(runtimes)
         if args[0] == "run":
             raise RuntimeError("stop after container arguments")
         return "image-id"

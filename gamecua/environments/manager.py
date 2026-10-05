@@ -77,6 +77,10 @@ def inspect_host():
     }
 
 
+def nvidia_runtime():
+    return "nvidia" in json.loads(docker("info", "--format", "{{json .Runtimes}}") or "{}")
+
+
 def apparmor_profile(path=Path("/proc/self/attr/current")):
     return path.read_text().replace("\0", "").split(" (")[0].strip()
 
@@ -177,6 +181,7 @@ class Environment:
                 "mode": mode,
                 "renderer": renderer,
                 "render_device": render_device,
+                "gpu_access": gpu_access,
                 "egl_device": "egl0" if renderer in ("egl", "nvidia") else None,
                 "cpus": cpus,
                 "memory": memory,

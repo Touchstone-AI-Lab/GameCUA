@@ -20,7 +20,7 @@ Games integrated for the next release; they are not in the V1 paper, and their i
 | Game | Contributors | Category |
 | --- | --- | --- |
 
-Core harness: [Zhuhan Bao](https://github.com/BaoZhuhan), [Sihan Xu](https://github.com/SihanXU).
+Core harness: [Zhuhan Bao](https://github.com/BaoZhuhan), [Xingzhi Li](https://github.com/moeleak), [Sihan Xu](https://github.com/SihanXU).
 
 ## Protocol
 
