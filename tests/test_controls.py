@@ -101,6 +101,22 @@ def test_dynamic_game_caption_requires_explicit_prefix_matching():
     assert not instance.matches_title("Other game") and not instance.matches_title(None)
 
 
+def test_window_titles_prefer_ewmh_utf8_names():
+    from Xlib import Xatom
+
+    instance = object.__new__(X11Desktop)
+    instance.d = SimpleNamespace(intern_atom=lambda name: {"_NET_WM_NAME": 1001}[name])
+    properties = {1001: "PORTAL 2 - OpenGL", Xatom.WM_NAME: ""}
+    window = SimpleNamespace(get_full_text_property=lambda name: properties.get(name))
+    instance.title, instance.title_prefix = "PORTAL 2", True
+    assert instance.window_title(window) == "PORTAL 2 - OpenGL"
+    assert instance.matches_title(instance.window_title(window))
+    properties.update({1001: None, Xatom.WM_NAME: b"Slay the Spire"})
+    assert instance.window_title(window) == "Slay the Spire"
+    properties.update({Xatom.WM_NAME: None})
+    assert instance.window_title(window) is None
+
+
 def test_mouse_release_checks_server_state_and_retries(monkeypatch):
     from Xlib import X
 

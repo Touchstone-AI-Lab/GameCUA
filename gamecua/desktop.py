@@ -58,6 +58,15 @@ class X11Desktop:
             name.startswith(self.title) if self.title_prefix else name == self.title
         )
 
+    def window_title(self, window):
+        for name in (self.d.intern_atom("_NET_WM_NAME"), Xatom.WM_NAME):
+            value = window.get_full_text_property(name)
+            if isinstance(value, bytes):
+                value = value.decode("utf-8", "replace")
+            if value:
+                return value
+        return None
+
     def find(self):
         if self.window is not None:
             try:
