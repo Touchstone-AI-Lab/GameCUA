@@ -15,6 +15,7 @@ The 15 games of the GameCUA V1 paper.
 | Civilization VI | [Yichi Chen](https://github.com/YiChiChen1106) | 4X strategy | [guide](gamecua/games/civilization_vi/README.md) |
 | Oxygen Not Included | [Zhuoran Yin](https://github.com/PrinsYin) | Colony management | [guide](gamecua/games/oxygen_not_included/README.md) |
 | Stardew Valley | [Jianing Ma](https://github.com/CoderMaurice) | Farming simulation | [guide](gamecua/games/stardew_valley/README.md) |
+| The Binding of Isaac: Rebirth | [Changyi Yang](https://github.com/ChangyiYang) | Action roguelike | [guide](gamecua/games/the_binding_of_isaac_rebirth/README.md) |
 
 ### V2
 
