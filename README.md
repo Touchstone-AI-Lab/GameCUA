@@ -18,6 +18,7 @@ The 15 games of the GameCUA V1 paper.
 | Stardew Valley | [Jianing Ma](https://github.com/CoderMaurice) | Farming simulation | [guide](gamecua/games/stardew_valley/README.md) |
 | PEAK | [Guobin Zhang](https://github.com/GreyJohnny) | Physics climbing | [guide](gamecua/games/peak/README.md) |
 | The Binding of Isaac: Rebirth | [Changyi Yang](https://github.com/ChangyiYang) | Action roguelike | [guide](gamecua/games/the_binding_of_isaac_rebirth/README.md) |
+| Left 4 Dead 2 | [Zhuhan Bao](https://github.com/BaoZhuhan) | Cooperative FPS | [guide](gamecua/games/left_4_dead_2/README.md) |
 
 ### V2
 
