@@ -151,6 +151,8 @@ class TrialSpec(Identified):
     recording_fps: int = Field(default=2, ge=1, le=30)
     action_execution: Literal["live", "frozen_steps"] = "live"
     step_seconds: float | None = Field(default=None, ge=0.2, le=3, allow_inf_nan=False)
+    agent: str | None = Field(default=None, pattern=r"^[A-Za-z_][\w.]*:[A-Za-z_]\w*$")
+    agent_options: dict[str, Any] = Field(default_factory=dict)
     inputs_id: str | None = Field(default=None, pattern=r"^[a-z0-9][a-z0-9._-]+$")
     observation_age_limit_seconds: float = Field(default=30.0, gt=0, allow_inf_nan=False)
     stale_pixel_delta: float = Field(default=15.0, ge=0, le=255, allow_inf_nan=False)

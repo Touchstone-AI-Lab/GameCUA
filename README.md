@@ -31,7 +31,7 @@ Games integrated for the next release; they are not in the V1 paper, and their i
 | Slay the Spire 2 | [Guobin Zhang](https://github.com/GreyJohnny) | Card strategy |
 | SUPERHOT | [Yunta Hsieh](https://github.com/Kiky-88) | Tactical FPS |
 
-Core harness: [Zhuhan Bao](https://github.com/BaoZhuhan), [Xingzhi Li](https://github.com/moeleak), [Sihan Xu](https://github.com/SihanXU).
+Core harness: [Zhuhan Bao](https://github.com/BaoZhuhan), [Xingzhi Li](https://github.com/moeleak), [Sihan Xu](https://github.com/SihanXU), [Hui Shen](https://github.com/killthefullmoon).
 
 ## Protocol
 
