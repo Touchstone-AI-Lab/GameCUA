@@ -17,6 +17,7 @@ The 15 games of the GameCUA V1 paper.
 | Oxygen Not Included | [Zhuoran Yin](https://github.com/PrinsYin) | Colony management | [guide](gamecua/games/oxygen_not_included/README.md) |
 | Stardew Valley | [Jianing Ma](https://github.com/CoderMaurice) | Farming simulation | [guide](gamecua/games/stardew_valley/README.md) |
 | PEAK | [Guobin Zhang](https://github.com/GreyJohnny) | Physics climbing | [guide](gamecua/games/peak/README.md) |
+| Hollow Knight: Silksong | [Tongfei Wang](https://github.com/Wang-Tongfei) | Metroidvania | [guide](gamecua/games/hollow_knight_silksong/README.md) |
 | The Binding of Isaac: Rebirth | [Changyi Yang](https://github.com/ChangyiYang) | Action roguelike | [guide](gamecua/games/the_binding_of_isaac_rebirth/README.md) |
 | Left 4 Dead 2 | [Zhuhan Bao](https://github.com/BaoZhuhan) | Cooperative FPS | [guide](gamecua/games/left_4_dead_2/README.md) |
 | art of rally | [Qifeng Chen](https://github.com/QifengChen-007) | Rally racing | [guide](gamecua/games/art_of_rally/README.md) |
