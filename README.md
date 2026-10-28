@@ -16,6 +16,7 @@ The 15 games of the GameCUA V1 paper.
 | Factorio | [Rui Hu](https://github.com/MatchalatteR) | Factory automation | [guide](gamecua/games/factorio/README.md) |
 | Oxygen Not Included | [Zhuoran Yin](https://github.com/PrinsYin) | Colony management | [guide](gamecua/games/oxygen_not_included/README.md) |
 | Stardew Valley | [Jianing Ma](https://github.com/CoderMaurice) | Farming simulation | [guide](gamecua/games/stardew_valley/README.md) |
+| Papers, Please | [Mengjiao Liu](https://github.com/MiraJLiu) | Document inspection | [guide](gamecua/games/papers_please/README.md) |
 | PEAK | [Guobin Zhang](https://github.com/GreyJohnny) | Physics climbing | [guide](gamecua/games/peak/README.md) |
 | Hollow Knight: Silksong | [Tongfei Wang](https://github.com/Wang-Tongfei) | Metroidvania | [guide](gamecua/games/hollow_knight_silksong/README.md) |
 | The Binding of Isaac: Rebirth | [Changyi Yang](https://github.com/ChangyiYang) | Action roguelike | [guide](gamecua/games/the_binding_of_isaac_rebirth/README.md) |
