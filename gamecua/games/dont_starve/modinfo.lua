@@ -1,0 +1,10 @@
+name = "GameCUA Observer"
+description = "Read-only native event recording for research evaluation."
+author = "TouchStone AI researchers"
+version = "0.1.0"
+api_version = 6
+dont_starve_compatible = true
+reign_of_giants_compatible = false
+shipwrecked_compatible = false
+hamlet_compatible = false
+forumthread = ""
