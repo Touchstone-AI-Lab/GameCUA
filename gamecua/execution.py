@@ -54,6 +54,17 @@ def inherited_context(root, episode, episodes, policy):
         }
     records = [json.loads(p.read_text()) for p in sorted(source.glob("[0-9]*.json"))]
     completed = [r for r in records if r.get("execution_status") == "completed"]
+    notes = [
+        r
+        for r in records
+        if r.get("execution_status") == "completed"
+        or (
+            not recovering
+            and r.get("execution_status") == "rejected"
+            and r.get("reason") == "native_terminal"
+            and r.get("native_terminal") == "death"
+        )
+    ]
     initial_path = source / "initial_agent_context.json"
     initial = json.loads(initial_path.read_text()) if initial_path.exists() else {}
     memory = notes[-1]["decision"]["memory"] if notes else initial.get("memory", "")

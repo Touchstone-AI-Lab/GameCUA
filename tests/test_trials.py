@@ -381,6 +381,93 @@ def test_typed_model_death_ends_the_trial_without_a_new_episode(tmp_path):
     assert result["completion_status"] == "completed"
 
 
+@pytest.mark.parametrize("terminal", ["death", "victory"])
+@pytest.mark.parametrize("model_id", ["deepseek-flash", "jev-1-14"])
+@pytest.mark.parametrize("frozen", [False, True])
+@pytest.mark.parametrize("arrival", ["inference", "pre_execution_capture"])
+def test_native_terminal_rejects_returned_input_before_dispatch(
+    tmp_path, terminal, model_id, frozen, arrival
+):
+    reports = []
+
+    class TerminalBackend(FakeBackend):
+        native_terminal = None
+        captures = 0
+        paused = False
+
+        def capture(self):
+            self.captures += 1
+            if arrival == "pre_execution_capture" and self.captures == 2:
+                self.native_terminal = terminal
+            return super().capture()
+
+        def poll(self, elapsed):
+            return self.native_terminal
+
+        def freeze(self):
+            self.paused = True
+
+        def thaw(self):
+            self.paused = False
+
+    class TerminalAgent(InterruptedAgent):
+        def decide(self, image, memory, history, stop, deadline):
+            assert backend.paused == frozen
+            if arrival == "inference":
+                backend.native_terminal = terminal
+            return {
+                "observation": "screen",
+                "hypothesis": "guess",
+                "memory": "unexecuted decision",
+                "terminal_candidate": False,
+                "action": {"type": "wait", "seconds": 0.01},
+            }, {"successful_request_seconds": 0.01}
+
+        def record_execution(self, record):
+            reports.append(record.copy())
+
+    spec = TrialSpec(
+        id="native-terminal-before-input",
+        game_id="slay-the-spire",
+        model_id=model_id,
+        rubric_id="sts-victory-v3",
+        inputs_id="sts-grid-v3",
+        total_seconds=10,
+        episode_limit=1,
+        action_execution="frozen_steps" if frozen else "live",
+        step_seconds=0.2 if frozen else None,
+    )
+    trial = Trial(
+        tmp_path / "trial",
+        spec,
+        CATALOG.rubrics[spec.rubric_id],
+        CATALOG.games[spec.game_id],
+        CATALOG.models[spec.model_id],
+        inputs=CATALOG.inputs[spec.inputs_id],
+    )
+    backend = TerminalBackend(trial.root)
+    trial.backend, trial.agent_factory, trial.recorder = backend, TerminalAgent, FakeRecorder
+    trial.run(install_signals=False, acquire_lease=False)
+    episode = trial.state["episodes"][0]
+    assert backend.actions == [] and not backend.paused
+    assert episode["reason"] == episode["segments"][0]["reason"] == terminal
+    assert len(trial.state["episodes"]) == 1
+    expected = (
+        "verified_run_completion"
+        if terminal == "victory"
+        else "death_without_memory"
+        if model_id == "jev-1-14"
+        else "episode_limit"
+    )
+    assert trial.state["status"] == "completed" and trial.state["reason"] == expected
+    assert trial.state["deadline"] - trial.state["started_at"] == pytest.approx(10, abs=0.01)
+    row = json.loads(next(trial.root.glob("episodes/*/segments/*/[0-9]*.json")).read_text())
+    assert row["execution_status"] == "rejected" and not row["executed"]
+    assert row["reason"] == "native_terminal" and row["native_terminal"] == terminal
+    assert row["decision"]["memory"] == "unexecuted decision"
+    assert reports == [row]
+
+
 def test_invalid_model_output_consumes_budget_without_disqualifying(tmp_path):
     from gamecua.provider import ProviderFailure
 
@@ -533,6 +620,43 @@ def test_earned_score_survives_later_failure(tmp_path, reason):
     assert result["trial_reason"] == reason
     score(trial.root)
     assert path.read_bytes() == before
+
+
+def test_death_inherits_rejected_terminal_notes_without_replaying_the_action(tmp_path):
+    from gamecua.execution import MEMORY_LIMIT, NEW_ATTEMPT, inherited_context
+
+    episodes = [
+        {"id": "episode-001", "reason": "death", "segments": [{"id": "segment-001"}]},
+        {"id": "episode-002", "reason": None, "segments": []},
+    ]
+    source = tmp_path / "episodes" / "episode-001" / "segments" / "segment-001"
+    source.mkdir(parents=True)
+    write_json(
+        source / "00001.json",
+        {
+            "step": 1,
+            "execution_status": "completed",
+            "decision": {"memory": "earlier observation", "action": {"type": "wait"}},
+        },
+    )
+    memory = "last observation " + "x" * MEMORY_LIMIT
+    write_json(
+        source / "00002.json",
+        {
+            "step": 2,
+            "execution_status": "rejected",
+            "reason": "native_terminal",
+            "native_terminal": "death",
+            "decision": {"memory": memory, "action": {"type": "hold", "key": "w"}},
+        },
+    )
+    inherited = inherited_context(tmp_path, episodes[1], episodes, "trial_memory")
+    assert inherited["memory"] == memory[:MEMORY_LIMIT]
+    assert inherited["history"] == [] and inherited["attempt_notice"] == NEW_ATTEMPT
+    assert inherited["provenance"]["source"] == str(source.relative_to(tmp_path))
+    recovered = inherited_context(tmp_path, episodes[0], episodes[:1], "trial_memory")
+    assert recovered["memory"] == "earlier observation"
+    assert [r["step"] for r in recovered["history"]] == [1]
 
 
 def test_death_memory_is_bounded_and_drops_old_actions(tmp_path):

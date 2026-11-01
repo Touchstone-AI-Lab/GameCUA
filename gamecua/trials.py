@@ -445,6 +445,14 @@ class Trial:
                     if reason == "deadline":
                         break
                     continue
+                terminal = self.backend.poll(self.budget.elapsed())
+                if terminal:
+                    record.update(reason="native_terminal", native_terminal=terminal)
+                    write_json(path, record)
+                    report(record)
+                    episode.update(status="completed", reason=terminal)
+                    segment.update(status="completed", reason=terminal)
+                    return terminal
                 record["execution_status"] = "pending"
                 write_json(path, record)
                 started = time.monotonic()
