@@ -35,6 +35,7 @@ Games integrated for the next release; they are not in the V1 paper, and their i
 | Celeste | [Zhuhan Bao](https://github.com/BaoZhuhan) | Precision platformer |
 | Slay the Spire 2 | [Guobin Zhang](https://github.com/GreyJohnny) | Card strategy |
 | SUPERHOT | [Yunta Hsieh](https://github.com/Kiky-88) | Tactical FPS |
+| Valheim | [Ruoyu He](https://github.com/dyyfk) | Open-world survival |
 | Balatro | [Muhammad Khaquan](https://github.com/KhaquanS) | Card strategy |
 | Vampire Crawlers | [Omer Tafveez](https://github.com/omertafveez-2001) | Dungeon crawler |
 
