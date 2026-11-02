@@ -5,6 +5,7 @@ import io
 import json
 import random
 import re
+import ssl
 import time
 from dataclasses import dataclass
 from typing import Any
@@ -88,6 +89,11 @@ def retryable(exc):
         or (status is not None and status >= 500)
         or type(exc).__name__ in RETRYABLE_ERRORS
         or isinstance(exc, InvalidResponse)
+        or (
+            isinstance(exc, ssl.SSLError)
+            and not isinstance(exc, ssl.SSLCertVerificationError)
+            and getattr(exc, "reason", None) == "SSLV3_ALERT_BAD_RECORD_MAC"
+        )
     )
 
 
@@ -117,6 +123,8 @@ def with_retries(policy, event, stop, deadline, attempt, purpose="decision"):
                 "status": status,
                 "retryable": retryable(exc),
             }
+            if isinstance(exc, ssl.SSLError):
+                error["tls_reason"] = getattr(exc, "reason", None)
             if category == "model_output":
                 error.update(reason=str(exc), rejected_output_excerpt=exc.excerpt)
             event(error)
