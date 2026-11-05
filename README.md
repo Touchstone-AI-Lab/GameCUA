@@ -34,6 +34,7 @@ Games integrated for the next release; they are not in the V1 paper, and their i
 | --- | --- | --- |
 | Celeste | [Shenyi Wang](https://github.com/eason241008), [Zhuhan Bao](https://github.com/BaoZhuhan) | Precision platformer |
 | Slay the Spire 2 | [Guobin Zhang](https://github.com/GreyJohnny) | Card strategy |
+| Portal 2 | [Yu Zheng](https://github.com/YuZheng0121) | 3D physics puzzle |
 | SUPERHOT | [Yunta Hsieh](https://github.com/Kiky-88) | Tactical FPS |
 | Valheim | [Ruoyu He](https://github.com/dyyfk) | Open-world survival |
 | osu!lazer | [Zongnan Bao](https://github.com/bznick98), [Xianbang Wang](https://github.com/PeppaKing8) | Rhythm |
