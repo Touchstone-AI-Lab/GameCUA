@@ -38,8 +38,8 @@ Games integrated for the next release; they are not in the V1 paper, and their i
 | SUPERHOT | [Yunta Hsieh](https://github.com/Kiky-88) | Tactical FPS |
 | Valheim | [Ruoyu He](https://github.com/dyyfk) | Open-world survival |
 | osu!lazer | [Zongnan Bao](https://github.com/bznick98), [Xianbang Wang](https://github.com/PeppaKing8) | Rhythm |
-| Balatro | [Muhammad Khaquan](https://github.com/KhaquanS) | Card strategy |
-| Vampire Crawlers | [Omer Tafveez](https://github.com/omertafveez-2001) | Dungeon crawler |
+| Balatro | [Muhammad Khaquan](https://github.com/KhaquanS), [Xunuo Xie](https://github.com/XunuoXie) | Card strategy |
+| Vampire Crawlers | [Omer Tafveez](https://github.com/omertafveez-2001), [Xunuo Xie](https://github.com/XunuoXie) | Dungeon crawler |
 
 Core harness: [Zhuhan Bao](https://github.com/BaoZhuhan), [Xingzhi Li](https://github.com/moeleak), [Sihan Xu](https://github.com/SihanXU), [Hui Shen](https://github.com/killthefullmoon), [Yunta Hsieh](https://github.com/Kiky-88).
 
