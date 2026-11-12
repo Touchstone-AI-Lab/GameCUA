@@ -13,7 +13,7 @@ The 15 games of the GameCUA V1 paper.
 | Slay the Spire | [Zhuhan Bao](https://github.com/BaoZhuhan), [Sihan Xu](https://github.com/SihanXU) | Card strategy | [guide](gamecua/games/slay_the_spire/README.md) |
 | Baba Is You | [Danni Luo](https://github.com/DanniLuo1) | Rule puzzle | [guide](gamecua/games/baba_is_you/README.md) |
 | Understand | [Jiawen Bao](https://github.com/BBbb26) | Rule puzzle | [guide](gamecua/games/understand/README.md) |
-| Civilization VI | [Yichi Chen](https://github.com/YiChiChen1106) | 4X strategy | [guide](gamecua/games/civilization_vi/README.md) |
+| Civilization VI | [Guobin Zhang](https://github.com/GreyJohnny), [Yichi Chen](https://github.com/YiChiChen1106) | 4X strategy | [guide](gamecua/games/civilization_vi/README.md) |
 | Factorio | [Rui Hu](https://github.com/MatchalatteR) | Factory automation | [guide](gamecua/games/factorio/README.md) |
 | Oxygen Not Included | [Zhuoran Yin](https://github.com/PrinsYin) | Colony management | [guide](gamecua/games/oxygen_not_included/README.md) |
 | Stardew Valley | [Jianing Ma](https://github.com/CoderMaurice) | Farming simulation | [guide](gamecua/games/stardew_valley/README.md) |
