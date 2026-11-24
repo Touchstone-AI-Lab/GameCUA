@@ -111,3 +111,13 @@ def test_game_process_does_not_receive_api_credentials(tmp_path, monkeypatch):
     assert not any(key.endswith("API_KEY") for key in values)
     assert values["HOME"] == str(tmp_path.resolve() / "home")
     assert values["SteamAppId"] == "550320"
+
+
+def test_plugin_settings_reach_the_pinned_v1_plugin_binary():
+    env = setup.plugin_environment({"PAUSE": "/pause", "BINDING": "b"})
+    assert env == {
+        "GAMECUA_RALLY_PAUSE": "/pause",
+        "GAMECUA_RALLY_BINDING": "b",
+        "GAMESCIENTIST_RALLY_PAUSE": "/pause",
+        "GAMESCIENTIST_RALLY_BINDING": "b",
+    }

@@ -12,7 +12,7 @@ from ...desktop import X11Desktop
 from ...evidence import effective_deadline
 from .pause import NativeStep, Pause, StepAdapter
 from .progress import Writer
-from .setup import BINARY, launch_environment, restore, snapshot_files
+from .setup import BINARY, launch_environment, plugin_environment, restore, snapshot_files
 from .ui import menu_match, title_match
 
 
@@ -61,11 +61,17 @@ class Backend:
             DOORSTOP_ENABLED="1",
             DOORSTOP_TARGET_ASSEMBLY=str(game / "BepInEx/core/BepInEx.Preloader.dll"),
             LD_PRELOAD=str(game / "libdoorstop.so"),
-            GAMECUA_RALLY_OBSERVER=str(self.native),
-            GAMECUA_RALLY_BINDING=self.binding,
-            GAMECUA_RALLY_PAUSE=str(self.pause_directory),
-            GAMECUA_RALLY_CONTROL_POLICY=preparation.get("control_policy", ""),
-            GAMECUA_RALLY_LOADING_EVENTS="1",
+        )
+        env.update(
+            plugin_environment(
+                {
+                    "OBSERVER": str(self.native),
+                    "BINDING": self.binding,
+                    "PAUSE": str(self.pause_directory),
+                    "CONTROL_POLICY": preparation.get("control_policy", ""),
+                    "LOADING_EVENTS": "1",
+                }
+            )
         )
         with (self.profile / "stdout.local.log").open("w") as log:
             self.process = subprocess.Popen(

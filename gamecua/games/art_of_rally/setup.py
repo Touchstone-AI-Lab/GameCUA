@@ -18,7 +18,15 @@ PROFILE_FILES = {
     "prefs": "unknown/unknown/prefs",
 }
 RUNTIME_ENV = "ART_OF_RALLY_SNAPSHOT_RUNTIME"
+PLUGIN_ENV_PREFIXES = ("GAMECUA_RALLY_", "GAMESCIENTIST_RALLY_")
 IMAGE_RUNTIME_ROOT = Path("/opt/gamecua/art-of-rally/snapshot-runtime")
+
+
+def plugin_environment(settings):
+    """Name each plugin setting for the plugin source and for the pinned V1 plugin binary."""
+    return {
+        prefix + key: value for prefix in PLUGIN_ENV_PREFIXES for key, value in settings.items()
+    }
 
 
 def config_dir(profile):
