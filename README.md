@@ -1,6 +1,6 @@
 # GameCUA V1 Experiment Records (slim)
 
-This branch holds the 156 trials of GameCUA V1 without their media: six agents on fifteen commercial games. The complete records, with screenshots and screen recordings, are in the Hugging Face dataset [`Zhuhan/GameCUA-V1-Exp`](https://huggingface.co/datasets/Zhuhan/GameCUA-V1-Exp). The starting states of the trials are on the `v1-snapshot` branch.
+This branch holds the 156 trials of GameCUA V1 without their media: six agents on fifteen commercial games. The complete records, with screenshots and screen recordings, are in the Hugging Face dataset [`Zhuhan/GameCUA-V1-Exp`](https://huggingface.co/datasets/Zhuhan/GameCUA-V1-Exp). The starting states of the trials are in the `snapshots/` directory on `main`.
 
 ## Layout
 
