@@ -1,0 +1,62 @@
+{
+  "step": 501,
+  "decision": {
+    "observation": "Baba moved LEFT to ~(404,449). Baba (white ghost) at (404,449), in the open area. The rock column at x~370 is visible. The text blocks at left:\n- ROCK IS STOP: (213,120)\n- SK/ULL IS DEF/EAT: (213,197) - SKULL IS DEFEAT\n- FL/AG IS WIN: (213,272)\n- Rock row at y~342 (x~220-370)\n\nBaba is now to the RIGHT of the rock column (x~370). From (404,449) to x~213 = ~191px / ~37px per cell = ~5 cells LEFT. But the rock column at x~370 is between Baba (x~404) and the text blocks (x~213). ROCK IS STOP is active, so rocks STOP Baba.\n\nCRITICAL: Rock column at x~370 is STOP. Going LEFT from x~404, Baba will hit the rock column at x~370. Can't go through rocks. The text blocks at x~213-305 are to the LEFT of the rock column (x~370). Baba needs to go AROUND the rock column.\n\nThe rock column runs from y~120 to y~305. The rock row runs from y~342 (x~220-370). Between rock column bottom (y~305) and rock row top (y~342), is there a gap at x~370? The gap is at y~305 to y~342 = ~37px = 1 cell. So there's a 1-cell gap between rock column bottom and rock row top at x~370! But rock row is AT y~342... the column ends at y~305, and the row starts at y~342. At y~342, x~370 is the CORNER where they meet (or the row extends FROM x~370 LEFTWARD to x~220).\n\nActually the rock row is at y~342, x~220-370. So the rightmost rock of the ROW is at (370,342). The bottommost rock of the COLUMN is at (370,305). At (370,342) there's a rock. Between (370,305) and (370,342) at y~315, there might be no rock.\n\nLet me approach from BELOW the rock column: go DOWN to y~449, then LEFT past x~370 (at y~449, the rock column at x~370 only spans y~120-305 and y~342. At y~449, x~370 has NO rock). Baba at y~449 can go LEFT through x~370! Then continue LEFT to x~213.",
+    "hypothesis": "At y~449, the rock column (x~370, y~120-305) and rock row (y~342, x~220-370) don't block x~370, y~449 (below both). Baba can go LEFT through x~370 at y~449! Continue LEFT past x~370 to reach x~213 area. Execute LEFT.",
+    "memory": "LEVEL 06: Baba at (404,449). Rock column at x~370 spans y~120-305, rock row at y~342 spans x~220-370. At y~449, x~370 is clear of rocks. Baba can go LEFT through x~370 at y~449. Continue LEFT to x~213, then UP to push SK/ULL(213,197). Execute LEFT.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Left"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 36128,
+    "completion_tokens": 1454,
+    "total_tokens": 37582,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 700,
+      "cached_creation_tokens": 34784,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 36128,
+    "output_tokens": 1454,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 13.03718503890559,
+  "successful_request_seconds": 13.037182143889368,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 48071,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 8575.353260461241,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00501_before.png",
+  "pre_execution_pixel_delta": 1.150347583912037,
+  "observation_age_seconds": 14.265584389213473,
+  "after": "00501_after.png",
+  "action_seconds": 0.5697114369831979
+}

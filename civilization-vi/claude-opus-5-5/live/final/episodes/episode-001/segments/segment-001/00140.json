@@ -1,0 +1,51 @@
+{
+  "step": 140,
+  "decision": {
+    "observation": "Turn 18/500. Technology Tree open. Astrology has badge '1' (active research, 12 turns). Mining card visible at bottom-left showing '6 TURNS' with pickaxe icon - card body clearly occupies y=0.535-0.625 range. Animal Husbandry tooltip showing again at center screen (hover landed on Animal Husbandry card at y=0.383-0.455, not Mining). Mining card center is at approximately x=0.49, y=0.579 based on visual position in screenshot.",
+    "hypothesis": "The Animal Husbandry tooltip keeps appearing because the cursor is hovering over that completed card area. Mining card is visually below Animal Husbandry. From the screenshot, Mining card top edge is at approximately y=0.535 and center at y=0.579. But clicks at y=0.579-0.608 still trigger Animal Husbandry tooltip. The tooltip popup itself may be intercepting clicks. Try clicking directly on the Mining pickaxe icon at x=0.267, y=0.579 which should be clearly within Mining's card bounds.",
+    "memory": "CRITICAL: Mining card in Tech Tree is at x=0.267 (pickaxe icon), y=0.579. The card label 'Mining' and '6 TURNS' appear in the right portion of the card. Animal Husbandry card is immediately above at y=0.383-0.455. Clicking x=0.49, y=0.579-0.608 triggers Animal Husbandry tooltip - the tooltip popup covers that area. Must click the Mining pickaxe icon on the LEFT side at x=0.267, y=0.579 to avoid the tooltip area.",
+    "action": {
+      "type": "pointer",
+      "x": 0.267,
+      "y": 0.579,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 38857,
+    "completion_tokens": 1077,
+    "total_tokens": 39934,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 22.407577867999862,
+  "successful_request_seconds": 22.407566116999988,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 34209,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 2945.825510246,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00140_before.png",
+  "pre_execution_pixel_delta": 0.0,
+  "observation_age_seconds": 23.164001424999697,
+  "after": "00140_after.png",
+  "action_seconds": 0.8012848519992986
+}

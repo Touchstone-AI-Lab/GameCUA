@@ -1,0 +1,51 @@
+{
+  "step": 373,
+  "decision": {
+    "observation": "Turn 44, Tech Tree open. The filter dropdown is now closed. Visible techs on right column: Sailing (top, dark), Astrology (sun icon, completed), Irrigation (green leaf icon), Writing (blue quill icon), Archery (arrow icon, completed). None are highlighted blue = no active research visible in this view. Right edge shows three partially cut-off cards: at y~0.489 (Masonry with shovel icon, partially visible), y~0.573 (Bronze Working - gold helmet icon at x~0.957), y~0.657 (Wheel - circular icon). The Bronze Working card at the right edge shows just its left portion with the gold helmet icon at approximately pixel (1221, 568) = x=0.954, y=0.789 normalized. Wait - at 1280x720, y=568 normalized = 568/720 = 0.789. The three right-edge cards are at y~0.489 (Masonry), y~0.573 (BW), y~0.657 (Wheel) based on SCREEN normalized coordinates.",
+    "hypothesis": "The Bronze Working tooltip appeared when cursor was at x=0.954, y=0.789 in a previous turn. But looking at this screenshot, the three partially cut-off cards on the right edge appear at y~0.489, y~0.573, y~0.657 as normalized screen coordinates. The middle one (y~0.573) is Bronze Working. I need to try clicking directly at the EXACT center of the Bronze Working partially-visible icon. The icon circle center appears at approximately pixel x=1221, y=568 = normalized x=0.954, y=0.789. Previous click at that position showed the BW tooltip but didn't select it. This time the filter dropdown is CLOSED so the click should go through. Try x=0.954, y=0.789 again.",
+    "memory": "DEFINITIVE: Tech Tree: Bronze Working card's left edge icon is at approximately pixel (1221, 568) = normalized (0.954, 0.789). The tooltip appeared there before. Filter dropdown is now closed (not blocking). Writing row is at y~0.573 of screen normalized. No: the Writing card is NOT at right edge - it is in the main viewport at approximately x=0.75-0.88. The right-edge partially cut-off cards are SEPARATE from the main visible ones. Need to try clicking Bronze Working icon again at x=0.954, y=0.789 with filter closed.",
+    "action": {
+      "type": "pointer",
+      "x": 0.954,
+      "y": 0.789,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 56405,
+    "completion_tokens": 1560,
+    "total_tokens": 57965,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 19.96781044800082,
+  "successful_request_seconds": 19.967797219000204,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 46513,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7845.812976505999,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00373_before.png",
+  "pre_execution_pixel_delta": 0.6440281394675926,
+  "observation_age_seconds": 20.713731808000375,
+  "after": "00373_after.png",
+  "action_seconds": 0.7723221329997614
+}

@@ -1,0 +1,60 @@
+{
+  "step": 530,
+  "decision": {
+    "observation": "Clock advanced to 12:40 pm but the farmer has not changed screen position (~x0.49,y0.42) across many turns — so clock advance is just time passing, not proof of movement. The farmer is boxed in: big stump north-west (~x0.43,y0.24), pine sapling directly south (~x0.49,y0.52), pond east (~x0.57+), leafy tree south-west (~x0.36,y0.43). Sand directly north of the farmer (~x0.49,y0.35) still looks walkable. Energy ~3 segments, 450g, slot 5 scythe.",
+    "hypothesis": "South is blocked by the sapling; north along the sand is likely open. If W moves the camera/farmer visibly, movement works and only south is walled off, so I should route north then east around the pond's north shore.",
+    "memory": "Only camera shift or the farmer's screen position changing proves movement — clock advance alone proves nothing. Farmer pinned at x0.49,y0.42: stump NW, sapling S, pond E, tree SW. Test north with W; if blocked, route around pond north shore (x0.49,y0.30 -> east). Wed Spring 3, 12:40 pm, 450g, rain, energy ~3 segments, slot 5 scythe.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "w"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 2.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 38395,
+    "completion_tokens": 3152,
+    "total_tokens": 41547,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 27.56925248214975,
+  "successful_request_seconds": 27.56924439687282,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 32622,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 9757.470612091944,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00530_before.png",
+  "pre_execution_pixel_delta": 0.0,
+  "observation_age_seconds": 27.668978855013847,
+  "frozen_step": {
+    "host_seconds": 2.008789691142738,
+    "nominal_seconds": 2.0,
+    "action_clamped": false
+  },
+  "after": "00530_after.png",
+  "action_seconds": 2.0414011091925204
+}

@@ -1,0 +1,52 @@
+{
+  "step": 420,
+  "decision": {
+    "observation": "Baba (white figure) stands at the doorway ~(660,483) between the lower rooms. Right room word rows: top interior row ~y378 holds IS(692), ROCK(727), PUSH(762) as inactive outlined glyphs; lower row ~y515 holds FLAG(725), IS(762), WIN(797) glowing (FLAG IS WIN active, but the flag sprite is sealed in the water pool at 443,548). The rock object sits at (695,193) inside the checkered room, reachable via the neck at x~770-800, y~330-345. Word grid ~35px: rows ~378/413/448/483/518/553; columns ~692/727/762/797/832.",
+    "hypothesis": "The flag is unreachable, so the win must be 'ROCK IS WIN': build it vertically in ROCK's column (ROCK 727,378; IS to 727,413; WIN to 727,448) by pushing the bottom IS up three cells and left one, and the bottom WIN up two and left two. Then walk through the neck into the checkered room and touch the rock (which is not PUSH since ROCK IS PUSH isn't currently formed).",
+    "memory": "Level 3 'OUT OF REACH': active BABA IS YOU, BALL IS STOP, FLAG IS WIN. Water pool x425-535,y465-570 deadly?? (WATER IS SINK words stranded in a sealed void pocket, unreachable). Ball at (585,485). Plan: IS(762,518)→up3→(762,413)→left1→(727,413); WIN(797,518)→up2→(797,448)→left2→(727,448); then neck (770-800,330-345) → rock (695,193). Avoid pushing words in the FLAG row accidentally; descend via column 692. Z=undo, R=restart.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Right"
+      ],
+      "duration": 0.12,
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 148026,
+    "completion_tokens": 13157,
+    "total_tokens": 161183,
+    "prompt_tokens_details": {
+      "cached_tokens": 144896
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 12672
+    },
+    "prompt_cache_hit_tokens": 144896,
+    "prompt_cache_miss_tokens": 3130
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 78.74472674797289,
+  "successful_request_seconds": 78.74472439405508,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 175711,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 5360.272676706314,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00420_before.png",
+  "pre_execution_pixel_delta": 0.7529861111111111,
+  "observation_age_seconds": 79.0405958420597,
+  "after": "00420_after.png",
+  "action_seconds": 0.4840183458290994
+}

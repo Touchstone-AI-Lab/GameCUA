@@ -1,0 +1,45 @@
+{
+  "step": 91,
+  "decision": {
+    "observation": "Deselected again; turn still 2; 'UNIT NEEDS ORDERS'. The unit still at the tile just above the city. Every button click deselects rather than issuing the action. The eagle icon at ~0.49,0.31 is unchanged.",
+    "hypothesis": "The action button clicks are just barely missing the button hitboxes and land on empty panel space, causing deselect. The buttons sit at y~0.535 which is near text I approximated. Earlier screenshot showed them at y around 535/720 = 0.74 in normalized... wait, normalized y for 535px = 0.74, not 0.535! I made a coordinate conversion error: pixel y 535 / 720 = 0.74. My clicks at y=0.535 correspond to pixel ~385, far above the buttons. That is why they always deselected! Correct button y is ~0.74.",
+    "memory": "Coordinate bug: buttons are at pixel y~535 => normalized y~0.74, not 0.535. All prior button clicks were too high.",
+    "action": {
+      "type": "pointer",
+      "x": 0.947,
+      "y": 0.875,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 29593,
+    "completion_tokens": 281,
+    "total_tokens": 29874,
+    "prompt_tokens_details": {
+      "cached_tokens": 26496
+    },
+    "prompt_cache_hit_tokens": 26496,
+    "prompt_cache_miss_tokens": 3097
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 3.2936732019879855,
+  "successful_request_seconds": 3.293657947011525,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 43012,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 493.72678513702704,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00091_before.png",
+  "pre_execution_pixel_delta": 0.6681897424768518,
+  "observation_age_seconds": 4.290177132003009,
+  "after": "00091_after.png",
+  "action_seconds": 0.8687176830135286
+}

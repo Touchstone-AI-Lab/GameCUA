@@ -1,0 +1,55 @@
+{
+  "step": 406,
+  "decision": {
+    "observation": "Clock still 6:20 am, identical frame. Farmer holding Tortilla above head in eat-ready pose for 4+ consecutive turns. C key not consuming the food despite focus restore clicks. Energy critically low. 450g. The left-click floor restore may be swinging a tool and cancelling the eat animation each time.",
+    "hypothesis": "A buttonless hover (no click) should restore focus without triggering a tool swing that might be cancelling the eat animation. Then C should finally consume the Tortilla.",
+    "memory": "Left-click on floor restores focus BUT also swings the equipped tool (slot 4 = pickaxe is equipped). Swinging a tool while in the eat-hold-up pose likely cancels the eat each turn. Solution: use a buttonless pointer hover to restore focus without swinging, then C. Eating sequence: select slot 8, hover to restore focus (no click), C to eat.",
+    "action": {
+      "type": "pointer",
+      "x": 0.42,
+      "y": 0.38
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 15364,
+    "completion_tokens": 4844,
+    "total_tokens": 20208,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 23.364757171832025,
+  "successful_request_seconds": 23.36475178739056,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 13126,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 6981.5622427403,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00406_before.png",
+  "pre_execution_pixel_delta": 0.0,
+  "observation_age_seconds": 23.44234473677352,
+  "frozen_step": {
+    "host_seconds": 2.019941244274378,
+    "nominal_seconds": 2.0,
+    "action_clamped": false
+  },
+  "after": "00406_after.png",
+  "action_seconds": 2.0478896922431886
+}

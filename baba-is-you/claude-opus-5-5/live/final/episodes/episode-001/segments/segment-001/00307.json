@@ -1,0 +1,62 @@
+{
+  "step": 307,
+  "decision": {
+    "observation": "Baba (white ghost) moved LEFT to approximately (511,232). I now have a VERY CLEAR view. Let me reconsider the whole level with fresh analysis:\n\n- The rock that was pushed into the chamber earlier is NOW GONE from the chamber! Looking at the right chamber: SK ULL(765,298), IS(765,342), DEF EAT(765,378) and ONE golden rock at (692,305). Wait, there IS a rock at (692,305) on the left interior of the chamber. \n\n- Top rocks: (440,160) and (440,198)\n- ROCK IS PUSH: RO CK(295,305) IS(332,305) PU SH(368,305)\n- FLAG IS WIN: FL AG(220,125) IS(258,125) WIN(295,125)\n- BABA IS YOU: BA BA(220,160) IS(258,160) YOU(295,160)\n- FLAG(878,447) in right chamber (the flag moved down slightly / or it's at 878,447)\n\nKEY NEW IDEA looking at this clearly: The rock at (692,305) is on the chamber's LEFT INTERIOR. SK ULL is at (765,298). The rock needs to go 2 cells right to hit SK ULL. But Baba can't enter the skull border to push it. \n\nHOWEVER - I realize I should make ROCK IS WIN. Let me finally execute it properly. The simplest manipulation given all positions: Move the PU SH block out and the WIN block into the ROCK IS _ slot.",
+    "hypothesis": "Let me make ROCK IS WIN efficiently. I'll move the WIN block. The key insight for accessing WIN: WIN is at (295,125), top-right of the FLAG IS WIN rule. I can push WIN DOWNWARD if I'm above it, but the top edge blocks that. \n\nHOWEVER - I can push WIN to the RIGHT (nothing to its right). To do that, Baba must be to WIN's LEFT. WIN at (295,125), IS at (258,125) to its left. Baba can't fit between them. BUT if I approach from further left and push the whole chain: Baba at (221,125) [left of IS, right of FL AG... wait FL AG is at 220,125]. Hmm, FL AG(220) IS(258) WIN(295) are all adjacent. \n\nTo push WIN right, I'd push the whole rule right. Baba to the left of FL AG at (183,125), push right: FL AG→258, IS→295, WIN→332. The rule shifts right by 1, still FLAG IS WIN (adjacent). WIN now at (332,125). \n\nThen push again: FL AG→295, IS→332, WIN→369. WIN at (369,125). Keep pushing right until WIN is at x=368 (above PU SH). Then... I'd need WIN to go DOWN to the ROCK IS row. \n\nThis is really convoluted. Given the time spent, let me try the DIRECT approach: navigate Baba to be able to push the WIN block down by approaching it. Actually, let me reconsider: the flag at (878,447) - is there possibly a GAP in the skull rectangle near the flag that I missed? Let me look at the right chamber bottom-right. \n\nActually - let me just carefully try ROCK IS WIN by moving RO CK and IS UP into the FLAG IS WIN row to reuse WIN. I'll push RO CK(295,305) up. Baba needs to be below RO CK. Navigate there. But RO CK moving up 5 rows to y=125 and the FL AG is there... \n\nI'm going to make a decision and commit: navigate to the top rocks, push one DOWN and leftward to eventually... no. \n\nFINAL DECISION: The rock at (692,305) inside the chamber is the key. I'll bring the 2 top rocks over and form a CHAIN: ",
+    "memory": "LEVEL 04: Baba at (511,232). SOLUTION via ROCK CHAIN: Line up rocks in row y=305 from outside the chamber (x<685) through to near SK ULL(765). The rock at (692,305) is inside. If I add rocks at (655,305), (618,305)... forming a continuous line, then Baba pushes from the left END of the line (outside skulls at x<685). Each push moves the whole line right 1 cell. After 2 pushes, the innermost rock (692→728→765) hits SK ULL and pushes it, breaking SKULL IS DEFEAT. Baba stays at the outside end (never enters skull cells). \n\nI have 2 more rocks (440,160/198). Need to bring them to (655,305) and (618,305) to extend the chain. Then push right twice. \n\nBUT this requires precise rock positioning. Alternatively - simpler: maybe just ONE more rock behind the (692) rock suffices if Baba can push from (655) which is... (655,305) - is that a skull? The left border skulls are at x~685. (655,305) is OUTSIDE the border (x<685) = safe! So if I place a rock at (655,305), Baba at (618,305) pushes it: rock(655)→(692), rock(692)→(728). Baba moves to (655,305)=safe (outside border). Then push again: Baba(655)→(692)=BORDER SKULL=death! Hmm, 2nd push Baba enters border. \n\nUnless the chain is longer. If rocks at (655),(618),(581)... Baba pushes from (544,305). After push: Baba→581(safe), rocks shift. Need Baba to never reach x=685. With a chain of N rocks ending at (692), Baba starts at (692 - N*37 - 37). For 2 pushes to get innermost rock from 692 to 765, Baba ends at start+2cells. Need Baba's end position < 685. \n\nThis is workable but complex. Let me START by bringing a top rock toward the chamber row. Navigate to a top rock. Go UP-LEFT to (440,198). Actually, let me reconsider - this is extremely tedious. Let me just try pushing the rock at (692) via a 2-rock chain and see. First bring a rock to (655,305). Navigate to top rock (440,198): go UP and LEFT.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Up"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 249510,
+    "completion_tokens": 2812,
+    "total_tokens": 252322,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 1062,
+      "cached_creation_tokens": 247600,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 249510,
+    "output_tokens": 2812,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 39.3299750383012,
+  "successful_request_seconds": 39.32997157005593,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 257291,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 5737.771893374156,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00307_before.png",
+  "pre_execution_pixel_delta": 0.5861375144675925,
+  "observation_age_seconds": 39.72223884379491,
+  "after": "00307_after.png",
+  "action_seconds": 0.6390619906596839
+}

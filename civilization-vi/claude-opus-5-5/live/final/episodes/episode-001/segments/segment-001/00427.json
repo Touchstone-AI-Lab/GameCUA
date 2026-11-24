@@ -1,0 +1,50 @@
+{
+  "step": 427,
+  "decision": {
+    "observation": "Turn 46/500, 2200 BC, 5:27 AM. Game fully loaded. NEXT TURN button text clearly visible at right panel. Looking carefully at pixel positions: the 'NEXT TURN' text button is at approximately x=0.937, y=0.728 (not y=0.524 as I've been repeatedly attempting). y=0.524 in normalized coords would be ~377 pixels down in a 720p screenshot, which is the MAP area, NOT the NEXT TURN button. The NEXT TURN button is at ~524 pixels down = y≈0.728. City bottom panel: Eagle Warrior '2 TURNS UNTIL COMPLETED', 3 Buildings, -1 Amenities, 5/8 Housing, 2 Turns Until Growth. World Tracker: Bronze Working 14t (Kill 3 Barbarians), Early Empire 5t (Grow to 6 pop). Gold 308 (+7.6). 'Barbarians - Warrior' tooltip NE. Circular NEXT TURN arrow button at bottom-right at x~0.937, y~0.885.",
+    "hypothesis": "CRITICAL COORDINATE ERROR IDENTIFIED: I have been clicking y=0.524 for NEXT TURN, but in a 720p screenshot that is pixel 377 which is MAP SPACE near the city. The actual NEXT TURN text button is at pixel ~524 = y≈0.728. This explains all the stale rejections - I was clicking the wrong area entirely! Try x=0.937, y=0.728.",
+    "memory": "CRITICAL FIX: NEXT TURN text button is at x=0.937, y=0.728 (NOT y=0.524). y=0.524 in normalized coords = ~377px in 720p = city banner/map area. The NEXT TURN text panel sits at ~524px down = y≈0.728. Circular NEXT TURN arrow at x=0.937, y=0.885. City production opens at x=0.590, y=0.428 (confirmed). Eagle Warrior in production queue (2 turns remaining). Bronze Working 14t, Early Empire 5t. City: -1 Amenities, 5/8 Housing, 2 turns growth.",
+    "action": {
+      "type": "pointer",
+      "x": 0.937,
+      "y": 0.728,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 26087,
+    "completion_tokens": 3974,
+    "total_tokens": 30061,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 29.84829533500124,
+  "successful_request_seconds": 29.848282765000477,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 22084,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 9353.47569292,
+  "execution_status": "rejected",
+  "executed": false,
+  "before": "00427_before.png",
+  "pre_execution_pixel_delta": 55.8674193431713,
+  "observation_age_seconds": 30.415823353001542,
+  "reason": "stale_observation"
+}

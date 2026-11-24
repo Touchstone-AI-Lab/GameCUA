@@ -1,0 +1,50 @@
+{
+  "step": 565,
+  "decision": {
+    "observation": "Research screen open. Electronics (Available) shows craft 10 Copper plates requirement. Empty research queue (four empty slots). Start research button visible at bottom of left panel. Technology tree unchanged on right. Small character standing on dirt directly beside large yellow crashed machine in background world view. Previous pointer click at x=0.272 y=0.479 was rejected due to observation_age_limit (game state not updated).",
+    "hypothesis": "The observation_age_limit is preventing click processing; a 1-second wait will allow game update, after which the exact same click at x=0.272 y=0.479 will queue Electronics and fill the research queue.",
+    "memory": "Electronics requires crafting 10 copper plates from the yellow wreck. Last mining action with J dx=0.5 completed successfully (plates gathered). Queue still empty in snapshot. Character near yellow wreckage on dirt. Multiple prior Start research clicks around x=0.27-0.28 y=0.48 range have failed to fill the queue due to observation_age_limit or imprecise targeting. Last action was pointer click at x=0.272 y=0.479 (rejected with observation_age_limit). Research screen still open with no queue progress.",
+    "action": {
+      "type": "wait",
+      "seconds": 1.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "completion_tokens": 3178,
+    "completion_tokens_details": {
+      "reasoning_tokens": 2898
+    },
+    "context_details": {
+      "input_tokens": 7518,
+      "output_tokens": 3185
+    },
+    "cost_in_usd_ticks": 338160000,
+    "num_server_side_tools_used": 0,
+    "num_sources_used": 0,
+    "prompt_tokens": 7518,
+    "prompt_tokens_details": {
+      "cached_tokens": 192
+    },
+    "total_tokens": 10696
+  },
+  "purpose": "decision",
+  "returned_model": "grok-4.7",
+  "attempts": 1,
+  "latency_seconds": 52.88321947865188,
+  "successful_request_seconds": 52.883216209709644,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 11501,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 10234.107836810872,
+  "execution_status": "rejected",
+  "executed": false,
+  "before": "00565_before.png",
+  "pre_execution_pixel_delta": 0.0,
+  "observation_age_seconds": 53.799516174942255,
+  "reason": "observation_age_limit"
+}

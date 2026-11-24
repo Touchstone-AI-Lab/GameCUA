@@ -1,0 +1,52 @@
+{
+  "step": 692,
+  "decision": {
+    "observation": "Brick player at (730,520), directly right of the pen IS word (700,520). FLAG word at (655,480); left column WALL/BA(480,480), IS(475,520), pink YOU(475,555), tan WIN(505,555). Flags passable.",
+    "hypothesis": "Push IS left to (655,520) so it sits under FLAG; then shift the WALL/IS/YOU column up one cell (from below at 475,590) to free (475,555), and push WIN right along row 555 to column ~655, completing vertical 'FLAG IS WIN'; touching any flag then wins.",
+    "memory": "Level 2 'NOW WHAT IS THIS?': player = grey wall bricks (WALL IS YOU, must stay vertically aligned; can shift whole column). Flags passable (FLAG IS STOP broken). Grid ~35px: columns 475/510/545/580/615/650/685/730; rows 445/480/520/555/590/625. Words: FLAG(655,480), IS(700,520), WALL(480,480), IS(475,520), YOU(475,555), WIN(505,555). Plan: Left (IS→655); descend to (700,590); Left to (475,590); Up (column shifts, brick at 475,555); Right×~4 (WIN→655,555); touch flag. Z=undo, R=restart.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Left"
+      ],
+      "duration": 0.12,
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 251090,
+    "completion_tokens": 1319,
+    "total_tokens": 252409,
+    "prompt_tokens_details": {
+      "cached_tokens": 247808
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 928
+    },
+    "prompt_cache_hit_tokens": 247808,
+    "prompt_cache_miss_tokens": 3282
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 9.67138920398429,
+  "successful_request_seconds": 9.671386199072003,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 294176,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 8672.906033277512,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00692_before.png",
+  "pre_execution_pixel_delta": 1.3979868344907407,
+  "observation_age_seconds": 10.004699268843979,
+  "after": "00692_after.png",
+  "action_seconds": 0.48853306798264384
+}

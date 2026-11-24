@@ -1,0 +1,62 @@
+{
+  "step": 310,
+  "decision": {
+    "observation": "PERFECT CLEAR VIEW! Baba (white ghost, collision animation) moved LEFT and is now directly to the RIGHT of the upper rock at approximately (476,161). Baba is at (476,161) showing bump animation (hit something = rock to its left at 440,161). The upper rock is at (440,161), lower rock at (440,198). Rock inside chamber at (692,305). SKULL IS DEFEAT: SK ULL(765,298)/IS(765,342)/DEF EAT(765,378). ROCK IS PUSH (RO CK 295,305/IS 332,305/PU SH 368,305). FLAG IS WIN, BABA IS YOU. FLAG(878,447).\n\nBaba is at (476,161) ADJACENT to the right of the upper rock (440,161). To push the upper rock RIGHT (toward the chamber at x~618-655), I need to be to ITS LEFT. Currently to the right. Need to get to the LEFT of the rock. The upper rock is at (440,161). The level left edge is ~x=208. To the left of the rock is open space (FL AG rule is at x=220-295, y=125, different row). At (403,161) = left of rock. Navigate: UP to (476,125), LEFT to (403,125), DOWN to (403,161).",
+    "hypothesis": "Navigate to the left of the upper rock at (440,161). From (476,161): UP to (476,125) [same row as FLAG IS WIN rule], LEFT to (403,125), DOWN to (403,161) = left of upper rock. Then push it RIGHT toward the chain position. The chain needs rocks at y=305. The upper rock is at y=161 - need to push it down to y=305 = 144px/37px ≈ 4 rows down. So I'll push the rock right first to an x position where I can then push it down to y=305 safely (avoiding skulls). Target: push upper rock to (440,305) initially... wait that's the same x=440 but y=305. I could push it straight down by staying above it. Let me push it down to y=305 first, then right to x=618-655.\n\nActually let me just START: navigate to the left of upper rock. Go UP.",
+    "memory": "LEVEL 04: Baba at (476,161) right of upper rock(440,161). Navigate to left of rock: UP to (476,125), LEFT to (403,125), DOWN to (403,161). Then push rock DOWN to y=305 (4 rows), then RIGHT to x=655. That places it at (655,305). Then similarly bring lower rock (440,198) to (618,305). Then chain push to SK ULL. Execute navigation.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Up"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 189362,
+    "completion_tokens": 1342,
+    "total_tokens": 190704,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 790,
+      "cached_creation_tokens": 187940,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 189362,
+    "output_tokens": 1342,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 15.113234014716,
+  "successful_request_seconds": 15.113230438902974,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 261818,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 5812.163351317402,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00310_before.png",
+  "pre_execution_pixel_delta": 0.5608973524305556,
+  "observation_age_seconds": 15.564022690989077,
+  "after": "00310_after.png",
+  "action_seconds": 0.5389560367912054
+}

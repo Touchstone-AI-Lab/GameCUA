@@ -1,0 +1,57 @@
+{
+  "step": 1550,
+  "decision": {
+    "observation": "19:37.332: W+left mouse sweep left the van pixel-identical (0 mph, gear 1, dots blue at idle). The sprite has never rotated under steering inputs and the scenery never shifts under throttle, though the HUD dots always react to keys — behavior consistent with the camera being detached from a car that is still being processed.",
+    "hypothesis": "If the visible van is not being driven but the HUD still reacts, a simultaneous opposite-input combo (brake+throttle, S+W) may trigger a built-in car reset/restart that single keys never did.",
+    "memory": "Sprite immobile + HUD reactive across ~3h; test unusual simultaneous combos for hidden reset.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "s",
+        "w"
+      ],
+      "duration": 1.0,
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 16818,
+    "completion_tokens": 1526,
+    "total_tokens": 18344,
+    "prompt_tokens_details": {
+      "cached_tokens": 14208
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1307
+    },
+    "prompt_cache_hit_tokens": 14208,
+    "prompt_cache_miss_tokens": 2610
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 11.960362716003146,
+  "successful_request_seconds": 11.960360853998282,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 23785,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 10262.85496591121,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "01550_before.png",
+  "pre_execution_pixel_delta": 0.45333984375,
+  "observation_age_seconds": 12.408589275997656,
+  "frozen_step": {
+    "game_seconds": 1.7851504769932944,
+    "action_clamped": false
+  },
+  "after": "01550_after.png",
+  "action_seconds": 1.978120913998282
+}

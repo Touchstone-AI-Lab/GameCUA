@@ -1,0 +1,45 @@
+{
+  "step": 954,
+  "decision": {
+    "observation": "The Camp tooltip is showing but the Builder still has 2/2 movement and 3 builds; the click didn't start the build. The improvement card grid (5x2) is at the bottom-left of the portrait, pixel x~630-790, y~565-670. The Builder stands near a resource. Hovering works, clicking doesn't activate the build.",
+    "hypothesis": "The Builder is on a tile not adjacent to a valid camp resource, so all cards show tooltips but aren't actionable. I've spent an enormous number of turns. To make the turn progress, I'll advance despite the pending order by clicking a valid move. Actually clicking the Camp card should build if valid. Let me try clicking the second card (deer/camp icon at ~0.52,0.75). Given the persistent block, the sure way to advance the turn is to move the Builder via the '>' Move To arrow (~0.74,0.74) then a destination.",
+    "memory": "Camp card not building. Use Move To arrow ~0.74,0.74 then destination to clear orders.",
+    "action": {
+      "type": "pointer",
+      "x": 0.744,
+      "y": 0.738,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 243276,
+    "completion_tokens": 284,
+    "total_tokens": 243560,
+    "prompt_tokens_details": {
+      "cached_tokens": 240512
+    },
+    "prompt_cache_hit_tokens": 240512,
+    "prompt_cache_miss_tokens": 2764
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 4.351523705001455,
+  "successful_request_seconds": 4.351505065016681,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 333088,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 5564.191891444469,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00954_before.png",
+  "pre_execution_pixel_delta": 1.6594596354166666,
+  "observation_age_seconds": 5.207976859004702,
+  "after": "00954_after.png",
+  "action_seconds": 0.8078762310033198
+}

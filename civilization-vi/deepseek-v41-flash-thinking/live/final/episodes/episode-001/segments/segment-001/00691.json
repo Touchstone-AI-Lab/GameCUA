@@ -1,0 +1,45 @@
+{
+  "step": 691,
+  "decision": {
+    "observation": "The hover now shows 'Build Improvement: Farm' at the same cursor position (~0.582,0.833). The tooltip changes depending on which card the cursor is over, but clicking doesn't trigger the build—it just re-hovers. The Builder still has 2/2 movement, 3 builds. The improvement cards are greyed stone-colored, suggesting NONE are actually valid on the Builder's current tile (the Builder is on a city tile).",
+    "hypothesis": "The improvement cards are all greyed (invalid) because the Builder stands on the city center tile, which can't be improved. To build, it must move to a valid tile. I've repeatedly failed here; the productive path is to move the Builder off the city and then build next turn. Let me use Move To (the blue arrow at ~0.772,0.75) and send it to a nearby hill/grass tile.",
+    "memory": "Cards greyed because Builder on city tile. Move it onto a valid tile via Move To first, then build.",
+    "action": {
+      "type": "pointer",
+      "x": 0.772,
+      "y": 0.75,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 176039,
+    "completion_tokens": 270,
+    "total_tokens": 176309,
+    "prompt_tokens_details": {
+      "cached_tokens": 173312
+    },
+    "prompt_cache_hit_tokens": 173312,
+    "prompt_cache_miss_tokens": 2727
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 4.830479240015848,
+  "successful_request_seconds": 4.830457587988349,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 242095,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 3983.296846205427,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00691_before.png",
+  "pre_execution_pixel_delta": 0.8130729166666667,
+  "observation_age_seconds": 5.712538763007615,
+  "after": "00691_after.png",
+  "action_seconds": 0.816007212997647
+}

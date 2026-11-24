@@ -1,0 +1,57 @@
+{
+  "step": 1502,
+  "decision": {
+    "observation": "At 18:49.332 the car is idle: 0 mph, gear 1, five blue/white dots (heading aligned with route while no throttle is held). It stands at the verge with the pine trunk at its rear and the pale road running past its left side, bridge road to the lower right.",
+    "hypothesis": "Dot color tracks heading vs route (blue when idle/aligned, red under blocked throttle); arrow keys form a separate working input path (Up changed dots, Down engaged R), so Up+Left arrow steering is worth testing to rotate the nose along the road.",
+    "memory": "Blue dots while idle = on-route; red appears when throttle is held while blocked.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Up",
+        "Left"
+      ],
+      "duration": 1.0,
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 33947,
+    "completion_tokens": 2330,
+    "total_tokens": 36277,
+    "prompt_tokens_details": {
+      "cached_tokens": 31232
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2120
+    },
+    "prompt_cache_hit_tokens": 31232,
+    "prompt_cache_miss_tokens": 2715
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 17.51638298400212,
+  "successful_request_seconds": 17.516380016997573,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 46577,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 9467.621307310212,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "01502_before.png",
+  "pre_execution_pixel_delta": 0.44755280671296294,
+  "observation_age_seconds": 17.956723344002967,
+  "frozen_step": {
+    "game_seconds": 1.855192086994066,
+    "action_clamped": false
+  },
+  "after": "01502_after.png",
+  "action_seconds": 2.05180605899659
+}

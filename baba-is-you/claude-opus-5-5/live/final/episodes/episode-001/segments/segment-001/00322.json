@@ -1,0 +1,62 @@
+{
+  "step": 322,
+  "decision": {
+    "observation": "Baba (white ghost) moved RIGHT and is now at approximately (660,125). The upper rock that I was pushing is now at (655,161) - directly below Baba! Wait, looking at the screenshot: Baba is at (660,125) and there's a rock at (655,161) below it. The lower rock is at (440,198). The rock inside the chamber is at (690,305). SKULL IS DEFEAT: SK ULL(765,298)/IS(765,342)/DEF EAT(765,378). FLAG(878,447). \n\nActually, I notice there are now only: upper rock at (655,161), lower rock at (440,198), and the chamber rock at (690,305). Baba at (660,125) is above the upper rock (655,161). \n\nHmm wait - the rock I pushed right is at (655,161) and Baba is at (660,125) directly above it. If I press DOWN, Baba pushes this rock down toward (655,198), (655,235), (655,272), (655,305). 4 downs to get it to y=305. Let me push DOWN.",
+    "hypothesis": "Press DOWN x4 to push the upper rock from (655,161) down to (655,305). Baba follows above it. Then the rock is at (655,305), 1 cell left-ish of the chamber rock (690,305)? Actually (655) and (690) are ~1 cell apart. Hmm, I wanted (655) and (618) behind the (692). Let me reconsider the chain. Actually the chamber rock is at (690,305) and I'm placing a rock at (655,305) = adjacent left of it! That forms a 2-rock chain: (655)-(690). Then I need one more rock at (618,305) for the 3-chain. Then Baba at (581) pushes right x2.\n\nLet me push this rock DOWN to (655,305) first. Press DOWN.",
+    "memory": "LEVEL 04: Baba at (660,125) above upper rock(655,161). Press DOWN x4 to push rock to (655,305) = adjacent left of chamber rock(690,305). Forms 2-chain. Then bring lower rock(440,198) to (618,305) for 3-chain. Then Baba at (581,305) push RIGHT x2: chain pushes, chamber rock(690)→(727)→(764)=SK ULL(765). SK ULL pushed, SKULL IS DEFEAT broken. Baba ends safely outside. Walk to flag=WIN. Execute DOWN x4.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Down"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 263396,
+    "completion_tokens": 1218,
+    "total_tokens": 264614,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 932,
+      "cached_creation_tokens": 261608,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 263396,
+    "output_tokens": 1218,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 19.348150216974318,
+  "successful_request_seconds": 19.34814721206203,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 269336,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 6012.584011160303,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00322_before.png",
+  "pre_execution_pixel_delta": 0.5919744646990741,
+  "observation_age_seconds": 19.765207433141768,
+  "after": "00322_after.png",
+  "action_seconds": 0.5208331090398133
+}

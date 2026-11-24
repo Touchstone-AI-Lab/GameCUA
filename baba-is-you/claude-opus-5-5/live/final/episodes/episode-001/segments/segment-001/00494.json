@@ -1,0 +1,62 @@
+{
+  "step": 494,
+  "decision": {
+    "observation": "EXCELLENT! Baba pushed WALL DOWN! Now the layout shows:\n- Baba (white ghost) at (659,449)\n- WA/LL text at (659,486) - pushed DOWN one cell\n- IS text at (697,449) - same row as Baba\n- ST/OP text at (730,449) - same row\n\nNow the text blocks: IS(697,449) and STOP(730,449) are still adjacent (same row). But WALL(659,486) is in a DIFFERENT ROW (y~486) from IS(697,449) - they are NOT adjacent! WALL IS STOP is BROKEN!\n\nThe '+' sparkle is visible near FLAG(843,232) indicating a rule changed.\n\nWall tiles should now be passable! Also notice: IS(697,449) and STOP(730,449) are still adjacent - they form '? IS STOP' only if a noun is left of IS. WA/LL is below at (659,486), not adjacent to IS(697,449). So IS STOP is currently incomplete - no active rule.\n\nWith WALL IS STOP broken, stone walls are passable! Now I need to:\n1. Navigate LEFT through the stone walls to reach x~213\n2. Go UP at x~213 to push SK/ULL(213,197) up, breaking SKULL IS DEFEAT\n3. Then walk to FLAG(843,232) through harmless skulls\n\nBaba is at (659,449). Go LEFT through the stone walls.",
+    "hypothesis": "WALL IS STOP broken! WA/LL at (659,486), IS at (697,449), STOP at (730,449) - not adjacent. Stone walls now passable. Navigate LEFT from (659,449) through stone walls toward x~213, then UP to push SK/ULL text and break SKULL IS DEFEAT. Execute LEFT.",
+    "memory": "LEVEL 06: WALL IS STOP BROKEN! WA/LL pushed to (659,486), IS at (697,449), STOP at (730,449). Stone walls passable. Baba at (659,449). Plan: LEFT to x~213, UP to push SK/ULL(213,197) up to break SKULL IS DEFEAT, then walk to FLAG(843,232). Execute LEFT repeatedly.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Left"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 34318,
+    "completion_tokens": 1078,
+    "total_tokens": 35396,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 1062,
+      "cached_creation_tokens": 32604,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 34318,
+    "output_tokens": 1078,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 9.151413609739393,
+  "successful_request_seconds": 9.151410933583975,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 44438,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 8513.307423908263,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00494_before.png",
+  "pre_execution_pixel_delta": 1.1449269386574075,
+  "observation_age_seconds": 9.581697853747755,
+  "after": "00494_after.png",
+  "action_seconds": 1.1872730776667595
+}

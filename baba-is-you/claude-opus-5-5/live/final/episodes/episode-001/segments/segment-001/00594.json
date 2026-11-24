@@ -1,0 +1,62 @@
+{
+  "step": 594,
+  "decision": {
+    "observation": "Baba moved RIGHT to ~(361,417)! Baba (white ghost) is now at approximately (361,417). I can see:\n\n- Baba at (361,417) - white ghost clearly visible, just LEFT of the rock column (x~370)\n- WA/LL text at (287,453) area - now to the left-below\n- Rock row: y~343, rocks at x~213-370 (5 rocks visible)\n- Rock column: x~370, y~120-305 (6 rocks visible - column bottom at y~305, but wait: the last rock in the column appears to be at y~305, not y~343)\n- ALL TEXT BLOCKS INTACT: ROCK IS STOP, SK/ULL IS DEFEAT, FL/AG IS WIN\n- FLAG at (843,232) in flag chamber with a tiny dot/sparkle at (843,268)\n\nWAIT - looking at this screenshot very carefully: the rock column appears to be at x~370, y~120-305 (6 rocks). The bottom of the column is at y~305. And the rock row is at y~343. Looking at the junction: there's a rock at (370,305) and then the CORNER rock at (370,343). So the column DOES reach y~343 (the L-corner)!\n\nBaba at (361,417), just to the LEFT of x~370. One more RIGHT: (398,417) - past the rock column at x~370? At y~417, x~370 has NO rock (column ends at y~343, row at y~343). So at y~417, x~370 is CLEAR!\n\nFrom (361,417) going RIGHT to (398,417): passes x~370 at y~417 - CLEAR! Then (435,417), (472,417) - inside stone chamber territory, passable with walls broken.\n\nNeed 2 more RIGHT to reach x~435. Execute RIGHT!",
+    "hypothesis": "Baba at (361,417). 2 more RIGHT to reach x~435. Then UP through passable walls to y~120. Then LEFT to push rock cascade. Execute RIGHT.",
+    "memory": "LEVEL 06: Baba at (361,417). 2 more RIGHT to x~435, then UP to y~120, LEFT to push rock cascade -> ROCK IS STOP BROKEN. Execute RIGHT.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Right"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 48986,
+    "completion_tokens": 1088,
+    "total_tokens": 50074,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 736,
+      "cached_creation_tokens": 47572,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 48986,
+    "output_tokens": 1088,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 9.27958971587941,
+  "successful_request_seconds": 9.279586910735816,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 61691,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 10115.769035052508,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00594_before.png",
+  "pre_execution_pixel_delta": 1.1967574508101853,
+  "observation_age_seconds": 9.760153288021684,
+  "after": "00594_after.png",
+  "action_seconds": 0.5229711309075356
+}

@@ -1,0 +1,62 @@
+{
+  "step": 326,
+  "decision": {
+    "observation": "Now I see TWO rocks side by side at approximately (655,305) and (690,305)! Baba (white ghost) is at (655,270) above them. The two golden rocks are adjacent at (655,305) and (690,305), both on the SK ULL row (y=305). SK ULL(765,305)/IS(765,342)/DEF EAT(765,378). FLAG(878,447). \n\nWait - the rock I pushed down is at (655,305) and the chamber rock is at (690,305). They're adjacent! This forms a 2-rock chain at (655)-(690). SK ULL is at (765,305). Between the rock(690) and SK ULL(765): 765-690=75px = 2 cells. So there's a gap of 2 cells (one empty cell at ~727).\n\nSo the chain (655)-(690) needs to push the far rock from (690) to (765) = 2 cells. For a 2-rock chain pushed right twice: (690)→(727)→(764≈765). After 2 pushes, far rock at (765)=SK ULL, pushing it. Baba pushes from left of (655). Baba at (618,305) pushes right: rocks (655→690),(690→727). Baba→(655). Push again: (690→727),(727→764). Baba→(690)=is that a skull? (690) is the chamber's left interior... (690,305) - the left wall skulls are at x~685. So (690) is just inside the border = could be interior (safe) or border. Risky.\n\nTo be safe, I want a 3-rock chain so Baba ends further left. Let me bring the lower rock(440,198) to (618,305) to extend the chain to (618)-(655)-(690). Then Baba at (581,305) pushes right x2, ending at (655) which is outside the border (x<685) = safe!",
+    "hypothesis": "I have a 2-rock chain at (655,305)-(690,305). I need to extend it with the lower rock to (618,305) for a safe 3-chain. Then Baba at (581,305) pushes RIGHT x2 to push the far rock into SK ULL(765), breaking SKULL IS DEFEAT, while Baba ends at (655,305) [safe, x<685]. \n\nFirst, bring the lower rock (440,198) to (618,305). Navigate Baba to push it. Baba at (655,270). This is a lot of navigation. Let me go get the lower rock. Navigate LEFT toward (440,198). \n\nActually, let me reconsider: maybe a 2-chain is enough if Baba can stop at a safe cell. After pushing the 2-chain right twice, Baba would be at (690,305). Is (690,305) a skull? The left border of the chamber is at x~685 (the leftmost skull column). (690) is just right of 685 = INSIDE the border = interior = NOT a skull (interior is open). Wait, but to GET to (690), Baba passes through... Baba moves from (655) to (690) in one step. (690) is interior (open, past the border). But the border skull at x~685 is BETWEEN (655) and (690)? If the border is a single column at x=685, and cells are at 655, 690... then there's a skull cell at ~685 between them? Cells are 37px apart: 655, 692, 729... Hmm, my x-estimates are rough. \n\nLet me just extend to a 3-chain to be safe. Bring the lower rock to (618,305). Navigate to the lower rock. Go LEFT and up to reach (440,198)'s left side.",
+    "memory": "LEVEL 04: 2-rock chain at (655,305)-(690,305) on SK ULL row. SK ULL at (765,305), 2 cells right of the (690) rock. Need to push the far rock 2 cells right into SK ULL. For SAFE push (Baba stays outside border x<685), extend to 3-chain by adding lower rock(440,198) at (618,305). Then Baba at (581,305) push RIGHT x2 → far rock (690→727→764≈765)=SK ULL pushed, SKULL IS DEFEAT broken. Baba ends at (655)=safe. \n\nNavigate to bring lower rock(440,198) to (618,305). Baba at (655,270). Go get the lower rock: navigate LEFT to its left side at (403,198), push RIGHT to (618,198), then DOWN to (618,305). Tedious but necessary. Start navigating LEFT/UP toward lower rock.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Up"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 265570,
+    "completion_tokens": 1820,
+    "total_tokens": 267390,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 928,
+      "cached_creation_tokens": 263788,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 265570,
+    "output_tokens": 1820,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 31.715181385166943,
+  "successful_request_seconds": 31.715177377220243,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 272127,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 6217.799285350367,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00326_before.png",
+  "pre_execution_pixel_delta": 0.5762915943287037,
+  "observation_age_seconds": 32.18152019986883,
+  "after": "00326_after.png",
+  "action_seconds": 0.5704292650334537
+}

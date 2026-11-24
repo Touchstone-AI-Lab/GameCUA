@@ -1,0 +1,62 @@
+{
+  "step": 528,
+  "decision": {
+    "observation": "Baba moved LEFT to ~(370,120)! Baba (white ghost) pushed the topmost rock LEFT and is now at (370,120). The topmost rock moved from (370,120) to (333,120).\n\nLooking at the screenshot:\n- Baba at (370,120) - now AT the top of where the rock column was\n- The rock that was at (370,120) moved to (333,120) - now part of the top row\n- Rock column: now has a GAP at the top (370,120) because Baba pushed that rock left\n- ROCK IS STOP: still visible at (213,120) area\n- The rock column at x~370 now starts at y~160 (one cell lower), since the top rock moved to (333,120)\n\nCRITICAL: Baba is now at (370,120) - the position where the top rock was. The rock column gap is now at y~120. But the column continues at y~160 with rocks.\n\nNow: going LEFT from (370,120):\n- (333,120) has a rock (the one I just pushed there)\n- BLOCKED again!\n\nHmm. The rock I pushed is now at (333,120), blocking my path LEFT at y~120.\n\nBut WAIT - looking at the screenshot more carefully: there's now a gap in the rock column at y~120 (Baba's position). The rock went to (333,120). If I continue LEFT, I push the rock from (333,120) to (296,120). Then (296,120) to (259,120), etc. \n\nActually I can push the rock all the way LEFT until it reaches the ST/OP text at (305,120) or the IS text at (258,120). The rock will bump into text blocks!\n\nBUT the key insight: if I push the rock at (333,120) further LEFT, eventually it reaches the RO/CK text chain at (213-305, 120). The rock would push into the ROCK IS STOP text, potentially disrupting the text arrangement.\n\nOR - since Baba is at (370,120), going DOWN: at y~160, x~370 has the next rock of the column. Baba can't go down through it.\n\nWAIT - the rock column had the top rock pushed to (333,120). So the column now goes: (370,160), (370,197), (370,232), (370,268), (370,305). The",
+    "hypothesis": "NEW ROUTE: From (370,120) go RIGHT to (407,120), DOWN to (407,305), DOWN to (407,320) [between rock column bottom y~305 and rock row y~342], LEFT through the gap to (185,320), UP to (185,160), RIGHT to (213,160), DOWN to push SK/ULL(213,197) down. \n\nBut first, from (370,120) I need to get back to (407,120). Execute RIGHT.",
+    "memory": "LEVEL 06 NEW ROUTE DISCOVERED: Gap between rock column bottom (y~305) and rock row (y~342) at x~370 area. At y~315-340 (between y~305 and y~342), x~213-370 is OPEN - no rocks! Reach this gap by: (407,120) -> DOWN to (407,320) -> LEFT to (185,320) [passing through x~370 since no rock at y~320] -> UP to (185,160) -> RIGHT to (213,160) -> DOWN to push SK/ULL(213,197) down. SKULL IS DEFEAT BROKEN! \n\nFirst need to get from (370,120) to (407,120). Rock at (333,120) is there from previous push. Baba pushed top rock left, now at (370,120). Press RIGHT to go back to (407,120).",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Right"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 48960,
+    "completion_tokens": 3196,
+    "total_tokens": 52156,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 680,
+      "cached_creation_tokens": 47656,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 48960,
+    "output_tokens": 3196,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 27.48363282904029,
+  "successful_request_seconds": 27.48362986277789,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 67873,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 8935.564368787222,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00528_before.png",
+  "pre_execution_pixel_delta": 1.141371166087963,
+  "observation_age_seconds": 27.85556052578613,
+  "after": "00528_after.png",
+  "action_seconds": 0.5321056400425732
+}

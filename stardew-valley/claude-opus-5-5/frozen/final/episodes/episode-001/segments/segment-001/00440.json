@@ -1,0 +1,60 @@
+{
+  "step": 440,
+  "decision": {
+    "observation": "Escape opened the inventory/game menu — KEYBOARD IS FUNCTIONAL. Screen shows the inventory grid (mostly empty, slot8=Decorative Bowl), and the farm stats panel: 'Research Farm', Current Funds 450g, Total Earnings 0g, Day 3 of Spring Year 1. Wed 3, 8:00 am. This proves S key failures were NOT due to broken keyboard input — focus was dropping before S registered movement.",
+    "hypothesis": "Keyboard works (Escape fired). Closing this menu with Escape, then immediately pressing S before focus can drop, should finally move the farmer south. The menu being open may actually give a clean focus-restore moment — the game is fully receiving keyboard input right now.",
+    "memory": "CONFIRMED: Keyboard IS functional — Escape opened the inventory menu. S was failing due to focus loss before registering, not broken keyboard. Farm name: Research Farm. 450g, Day 3 Spring Year 1. Inventory mostly empty. Slot 8 has Decorative Bowl (picked up from table by accident). After closing menu, try S immediately — the menu-close event may leave focus live for one frame. Exit notch at bottom center of farmhouse room.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Escape"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 35164,
+    "completion_tokens": 2316,
+    "total_tokens": 37480,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 13.657039613928646,
+  "successful_request_seconds": 13.65703145088628,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 30454,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7792.472884338815,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00440_before.png",
+  "pre_execution_pixel_delta": 0.0,
+  "observation_age_seconds": 13.732866375241429,
+  "frozen_step": {
+    "host_seconds": 2.022750694770366,
+    "nominal_seconds": 2.0,
+    "action_clamped": false
+  },
+  "after": "00440_after.png",
+  "action_seconds": 2.0426627951674163
+}

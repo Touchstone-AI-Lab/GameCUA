@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "id": "baba-victory-v4",
+  "game_id": "baba-is-you",
+  "version": 4,
+  "calibrated": false,
+  "milestones": [
+    {
+      "schema_version": 1,
+      "id": "level-0",
+      "description": "Clear the opening level",
+      "predicate": "level_0",
+      "points": 10,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "level-1",
+      "description": "Clear the first two levels",
+      "predicate": "level_1",
+      "points": 10,
+      "prerequisites": [
+        "level-0"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "opening-3",
+      "description": "Clear the first two levels and one of the two levels after them",
+      "predicate": "opening_3",
+      "points": 10,
+      "prerequisites": [
+        "level-1"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "opening-4",
+      "description": "Also clear one of the two levels before the first numbered area",
+      "predicate": "opening_4",
+      "points": 10,
+      "prerequisites": [
+        "opening-3"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "area-level",
+      "description": "Clear a level inside a numbered area",
+      "predicate": "area_level",
+      "points": 10,
+      "prerequisites": [
+        "opening-4"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "area-levels-4",
+      "description": "Clear four levels inside numbered areas",
+      "predicate": "area_levels_4",
+      "points": 10,
+      "prerequisites": [
+        "area-level"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "area-1",
+      "description": "Complete a numbered area",
+      "predicate": "area_1",
+      "points": 10,
+      "prerequisites": [
+        "area-levels-4"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "areas-2",
+      "description": "Complete two numbered areas",
+      "predicate": "areas_2",
+      "points": 10,
+      "prerequisites": [
+        "area-1"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "areas-3",
+      "description": "Complete three numbered areas, which opens the gate to the final level",
+      "predicate": "areas_3",
+      "points": 10,
+      "prerequisites": [
+        "areas-2"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "finale",
+      "description": "Clear the final level, a way out?",
+      "predicate": "finale_cleared",
+      "points": 10,
+      "prerequisites": [
+        "areas-3"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "step": 310,
+  "decision": {
+    "observation": "Car at 4 mph, but the bale cluster, the packet on the verge and the diagonal pole are at essentially identical screen positions as the previous frame — so almost no real displacement despite the speed readout. A blue post/barrel sits immediately at the car's front-right, and the car is on the lane's left edge while the road sweeps up-right.",
+    "hypothesis": "The car is caught on the post at its front-right rather than moving; the speed number is misleading. Backing off should clear the post so the right-hand sweep of the lane becomes reachable.",
+    "memory": "Frozen landmark positions across frames are the surest sign of a pin, even when mph reads non-zero. The blue post front-right is the likely obstruction.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "s",
+        "d"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.8
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 22435,
+    "completion_tokens": 1078,
+    "total_tokens": 23513,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 10.432158827999956,
+  "successful_request_seconds": 10.432152542998665,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 20853,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 3783.4432542948343,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00310_before.png",
+  "pre_execution_pixel_delta": 4.403981119791666,
+  "observation_age_seconds": 10.842174731005798,
+  "after": "00310_after.png",
+  "action_seconds": 1.2846710550002172
+}

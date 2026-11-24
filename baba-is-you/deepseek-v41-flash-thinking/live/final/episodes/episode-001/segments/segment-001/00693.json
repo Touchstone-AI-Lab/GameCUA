@@ -1,0 +1,52 @@
+{
+  "step": 693,
+  "decision": {
+    "observation": "Brick player at (593,520); pen IS word at (690,520) with a grey brick right of it (700,520); FLAG word at (655,480); left column WALL/BA(480,480), IS(475,520), pink YOU(475,555), WIN(505,555). Flags passable.",
+    "hypothesis": "Push IS left from (690,520) to (655,520) to sit under FLAG, then move WIN right along row 555 to column 655, forming vertical 'FLAG IS WIN'; touching any flag then wins. The WALL/IS/YOU column can be shifted up one cell if needed to free (475,555).",
+    "memory": "Level 2 'NOW WHAT IS THIS?': player = grey wall bricks (WALL IS YOU, all bricks move together); flags passable (FLAG IS STOP broken). Grid ~35px: columns 475/510/545/580/615/650/690; rows 445/480/520/555/590. Words: FLAG(655,480), IS(690,520), WALL(480,480), IS(475,520), YOU(475,555), WIN(505,555). Plan: Left×1-2 (IS→655); go below WIN, Up? No—WIN at row 555; push WIN right by standing left of it at (475,555)? YOU is there. Shift column up first: stand (475,590), push Up, then (475,555) free → push WIN Right×4. Z=undo, R=restart.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Right"
+      ],
+      "duration": 0.5,
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 251559,
+    "completion_tokens": 652,
+    "total_tokens": 252211,
+    "prompt_tokens_details": {
+      "cached_tokens": 248192
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 234
+    },
+    "prompt_cache_hit_tokens": 248192,
+    "prompt_cache_miss_tokens": 3367
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 6.7616010929923505,
+  "successful_request_seconds": 6.761597826844081,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 294699,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 8680.576587200165,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00693_before.png",
+  "pre_execution_pixel_delta": 1.3656969762731481,
+  "observation_age_seconds": 7.076609610114247,
+  "after": "00693_after.png",
+  "action_seconds": 0.9074763190001249
+}

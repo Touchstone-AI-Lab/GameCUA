@@ -1,0 +1,60 @@
+{
+  "step": 448,
+  "decision": {
+    "observation": "Clock 8:20 am, identical frame to before Escape. Furniture placement ghost (TV, yellow-green) still visible at ~x0.58,y0.37 in center of room. Slot 9 still selected with furniture item (red outline). Farmer at ~x0.50,y0.57 on the rug, just above the exit notch at ~x0.47,y0.87. Energy bar critically low (green sliver). 450g. Escape opened inventory and closed it but did NOT cancel furniture placement mode.",
+    "hypothesis": "Pressing '1' to switch to slot 1 (axe) should deselect the furniture item and exit furniture placement mode, restoring normal WASD farmer movement. This worked briefly before until a stray left-click on furniture re-entered placement mode.",
+    "memory": "FURNITURE PLACEMENT MODE ROOT CAUSE CONFIRMED: Slot 9 furniture item selected = WASD moves ghost not farmer. Fix: press '1' to switch to axe (slot 1). Then DO NOT left-click near any furniture items (TV at x~0.58,y~0.37; chair at x~0.44,y~0.22; backpack at x~0.37,y~0.45; plant at x~0.28,y~0.55). After exiting placement mode, only click on clearly empty floor tiles to restore focus. Exit notch at x0.47,y0.87 south wall. Research Farm, 450g, Day 3 Spring Year 1, Wed 8:20 am, rain, energy critically low.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "1"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 40573,
+    "completion_tokens": 3586,
+    "total_tokens": 44159,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 18.66891761403531,
+  "successful_request_seconds": 18.668910800945014,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 35083,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7968.035544893704,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00448_before.png",
+  "pre_execution_pixel_delta": 0.0,
+  "observation_age_seconds": 18.749742310028523,
+  "frozen_step": {
+    "host_seconds": 2.0136779192835093,
+    "nominal_seconds": 2.0,
+    "action_clamped": false
+  },
+  "after": "00448_after.png",
+  "action_seconds": 2.033829396124929
+}

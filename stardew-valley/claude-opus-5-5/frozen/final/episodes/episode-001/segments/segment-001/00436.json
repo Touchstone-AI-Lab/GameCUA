@@ -1,0 +1,56 @@
+{
+  "step": 436,
+  "decision": {
+    "observation": "Clock advanced to 7:50 am — s+left registered. Farmer is STILL at ~x0.50,y0.79, identical position for 50+ consecutive turns. The farmer has never moved south despite S advancing the clock every time. S advances game time but produces zero sprite movement. This means S is registering as a game input but NOT as movement.",
+    "hypothesis": "S has never produced actual movement in this session at all — it only advances the clock. The farmer may never have moved via WASD; all previous 'movement' was likely camera context. Testing W (north) this turn will confirm whether any WASD key produces sprite movement. If W also produces zero movement but advances the clock, all directional input is broken for movement in this session.",
+    "memory": "CRITICAL: S key advances clock but NEVER moves the farmer sprite. 50+ turns of S from x0.50,y0.79 and position is completely unchanged. This is a fundamental input issue, not a direction/tile block. Must test W to verify. If W also fails, keyboard movement is broken entirely and may need a different recovery (Escape menu, or waiting for compaction to reset state). Rain Spring 3 Wed 7:50 am, 450g, energy low-green. Exit notch at x0.49,y0.90.",
+    "action": {
+      "type": "pointer",
+      "x": 0.5,
+      "y": 0.4,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 32533,
+    "completion_tokens": 5610,
+    "total_tokens": 38143,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 35.816129849758,
+  "successful_request_seconds": 35.81612123595551,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 28161,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7689.944737702142,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00436_before.png",
+  "pre_execution_pixel_delta": 0.0,
+  "observation_age_seconds": 35.89548585796729,
+  "frozen_step": {
+    "host_seconds": 2.0061114500276744,
+    "nominal_seconds": 2.0,
+    "action_clamped": false
+  },
+  "after": "00436_after.png",
+  "action_seconds": 2.0386380227282643
+}

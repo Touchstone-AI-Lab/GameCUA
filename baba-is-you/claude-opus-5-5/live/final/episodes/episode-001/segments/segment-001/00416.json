@@ -1,0 +1,62 @@
+{
+  "step": 416,
+  "decision": {
+    "observation": "Baba moved UP to ~(406,194) - alive! Baba (white ghost) is visible at approximately (406,194), just to the RIGHT of the SK/ULL text blocks at x~213-295,y~188-206. Baba is now at y~194, adjacent to the SK/ULL IS DEF/EAT text (y~188-206).\n\nROCK IS STOP text is at y~109-125 (above), SK/ULL IS DEF/EAT at y~188-206 (near Baba). \n\nBaba is at (406,194). The IS block of ROCK IS STOP is at (258,117). Baba needs to go UP 2 more cells to reach y~120 (same level as ROCK IS STOP text), then LEFT to x~221.\n\nActually: From y~194: UP to y~157 then y~120 = 2 more UPs. Then LEFT to x~258. But wait - the rocks are at x~369 going UP from y~109. Baba at x~406 going LEFT: x~369 (rock!). The rock column at x~369 runs from y~109 to y~342. At y~120-194, the rock column at x~369 BLOCKS Baba from going LEFT past x~369!\n\nTo get LEFT of x~369 while at y~120-194, Baba must approach from ABOVE the rock column top (y~109). The rock column TOP is at y~109. If Baba is at y~72 (one cell above y~109), then going LEFT from x~406 to x~258 is clear (no rock at y~72, x~258-406).",
+    "hypothesis": "Baba at (406,194). The rock vertical column at x~369, y~109-342 blocks leftward movement at y~109-342. To get LEFT of x~369 at the ROCK IS STOP text level, Baba needs to be ABOVE y~109. Go UP 2 more times to y~120, then check if LEFT is blocked. If rock top is at y~109, then at y~120 Baba going LEFT hits rock at x~369,y~120. Must go UP to y~83 (above rock top at y~109) before going LEFT. Execute UP.",
+    "memory": "LEVEL 06: Baba at (406,194). Rock column at x~369, y~109-342. Must get to y~83 (above rock top at y~109) before going LEFT to x~258. Then DOWN 1 to y~120 to align with IS block of ROCK IS STOP at (258,117). Execute UP x2 to reach y~120, then UP once more to y~83. Check where to position to push IS.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Up"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 47426,
+    "completion_tokens": 1184,
+    "total_tokens": 48610,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 708,
+      "cached_creation_tokens": 46068,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 47426,
+    "output_tokens": 1184,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 10.837975725065917,
+  "successful_request_seconds": 10.837972990237176,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 63368,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7372.206162939314,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00416_before.png",
+  "pre_execution_pixel_delta": 0.003644024884259259,
+  "observation_age_seconds": 11.11566548096016,
+  "after": "00416_after.png",
+  "action_seconds": 0.4852947578765452
+}

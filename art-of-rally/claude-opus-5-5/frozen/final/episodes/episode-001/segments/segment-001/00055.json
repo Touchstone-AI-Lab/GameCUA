@@ -1,0 +1,60 @@
+{
+  "step": 55,
+  "decision": {
+    "observation": "Car at 0 mph, timer 01:14.627. Still at the same logging yard junction. Orange barrier fence with barrels blocks the upper area. Lane markings visible below car. Truck road goes upper-right. Car has been stuck at 0 mph for 10+ consecutive actions despite W+D combinations at various durations.",
+    "hypothesis": "Root cause: car is wedged between barrels and cannot turn right from current position. All W+D attempts have failed. Need a fundamentally different approach. Trying pure W (straight throttle, no steer) to test if the car can move at all in its current orientation before attempting a turn.",
+    "memory": "STUCK DIAGNOSIS: 10+ actions at 0 mph at this junction. W+D at 0.4s/0.5s/0.6s/1.0s all fail. Reverse (S) briefly achieved 2 mph. W+D 0.5s got 1 mph once. Car appears wedged against barrels. New strategy: try pure W to find if any direction of movement is possible, then assess road layout from resulting position.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "w"
+      ],
+      "duration": 1.0,
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 17814,
+    "completion_tokens": 2341,
+    "total_tokens": 20155,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 17.328139001001546,
+  "successful_request_seconds": 17.32813155400072,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 15476,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 1581.6563924225647,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00055_before.png",
+  "pre_execution_pixel_delta": 0.4899674479166667,
+  "observation_age_seconds": 17.760010137999416,
+  "frozen_step": {
+    "host_seconds": 1.6436491579988797,
+    "nominal_seconds": 1.0,
+    "action_clamped": false
+  },
+  "after": "00055_after.png",
+  "action_seconds": 1.8307853659989632
+}

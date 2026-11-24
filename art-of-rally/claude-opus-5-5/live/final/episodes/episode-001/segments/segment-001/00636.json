@@ -1,0 +1,55 @@
+{
+  "step": 636,
+  "decision": {
+    "observation": "0 mph, gear 1, timer 27:50.174 - about 41 s later than the last frame, and the rejected-input pattern again left the car stopped dead on the gravel centreline. Nose up-frame, road curving left then right ahead between white posts, pines close on both sides.",
+    "hypothesis": "Same as earlier rejections: the car ends stationary and centred, so this is a stall rather than a crash. Plain W from gear 1 with no steer should roll it forward and rebuild speed along the curve.",
+    "memory": "Rejected inputs ('observation_age_limit') reliably leave the car at 0 mph, gear 1, centred, at a cost of 15-40 s of stage time - the zeroing is not a driving error, so just convert to motion again.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "w"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 1.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 11302,
+    "completion_tokens": 377,
+    "total_tokens": 11679,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 9.045923630001198,
+  "successful_request_seconds": 9.045916790993942,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 10187,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7298.175052952836,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00636_before.png",
+  "pre_execution_pixel_delta": 0.5662702546296297,
+  "observation_age_seconds": 9.49143205799919,
+  "after": "00636_after.png",
+  "action_seconds": 1.506658887003141
+}

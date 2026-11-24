@@ -1,0 +1,62 @@
+{
+  "step": 395,
+  "decision": {
+    "observation": "Baba moved LEFT to ~(362,378) - alive! Now clearly to the LEFT of the main chamber and between the rock column (x~390) and the open area. The rock L-shape: vertical column at x~390 (y~125-342), horizontal row at y~342 (x~213-390). Baba at (362,378) is LEFT of the rock vertical column (x~390) and BELOW the rock horizontal row (y~342). \n\nSK/ULL IS DEF/EAT is at top-left: SK(213,188), ULL(213,206), IS(251,197), DEF(289,188), EAT(289,206). \n\nBaba is at x~362, and needs to reach x~251 (to push IS). Going LEFT: x~325, x~288, x~251. The rocks at y~342 (horizontal row from x~213 to x~390) are ABOVE Baba's current y~378. Going LEFT at y~378 is clear of rocks.\n\nFrom x~251,y~378: going UP to y~160 (above IS at y~197). Rocks at y~342 are horizontal from x~213-390. At x~251, y~342 - there's a ROCK! The horizontal rock row extends from x~213 to x~390, and x~251 is within that range. So going UP from (251,378) would hit the rock at (251,342)!\n\nBaba needs to go around the rock row. The leftmost rock is at x~213. Baba needs to be at x < 213 (e.g., x~176) to go UP past y~342 freely.",
+    "hypothesis": "Baba at (362,378). Rock horizontal row at y~342 spans x~213-390. To go UP past y~342, Baba must be at x~176 (left of x~213). Continue LEFT past x~213 to x~176, then UP to y~160, then RIGHT to x~251, then DOWN to push IS.",
+    "memory": "LEVEL 06: Baba at (362,378). Rock horizontal row at y~342, x~213-390 blocks upward movement between x~213-390. Must reach x~176 (left of all rocks) before going UP. Then UP to y~160, RIGHT to x~251, DOWN to move IS block down, breaking SKULL IS DEFEAT. Continue LEFT.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Left"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 34670,
+    "completion_tokens": 1072,
+    "total_tokens": 35742,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 700,
+      "cached_creation_tokens": 33328,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 34670,
+    "output_tokens": 1072,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 10.802559483796358,
+  "successful_request_seconds": 10.80255676805973,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 46626,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7118.5791374715045,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00395_before.png",
+  "pre_execution_pixel_delta": 0.003436053240740741,
+  "observation_age_seconds": 11.147796514909714,
+  "after": "00395_after.png",
+  "action_seconds": 0.5320657473057508
+}

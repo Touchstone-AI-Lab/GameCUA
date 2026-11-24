@@ -1,0 +1,56 @@
+{
+  "step": 434,
+  "decision": {
+    "observation": "Clock still frozen at 7:40 am, identical frame. Farmer at ~x0.50,y0.79, 40+ turns stuck. S key fires when focus is live (clock advances) but farmer sprite never moves south at all. Looking at the room layout: the exit notch is the indentation at the bottom center wall at ~x0.49,y0.90. Farmer is two tiles north of it.",
+    "hypothesis": "Previously tried s+left button with cursor at y0.55 (north): clock advanced, no movement. The cursor pointed NORTH while S pointed SOUTH — conflicting directions likely cancelled movement. If cursor is positioned SOUTH at y0.95 (below the exit notch), then holding left mouse button (pathfind toward cursor = south) PLUS S key (also south) gives both inputs the same direction and should finally move the farmer south through the exit.",
+    "memory": "KEY INSIGHT: s+left_button combo previously failed because cursor was north of farmer (y0.55). Left-button pathfinds TOWARD cursor, S moves SOUTH — they conflicted. Solution: first click cursor to y0.95 (south of exit notch), THEN fire s+left combo so both inputs agree on going south. Farmer at x0.50,y0.79, exit notch at x0.49,y0.90. Rain Spring 3 Wed 7:40 am, 450g, energy low-green.",
+    "action": {
+      "type": "pointer",
+      "x": 0.5,
+      "y": 0.95,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 31240,
+    "completion_tokens": 5758,
+    "total_tokens": 36998,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 27.662299305200577,
+  "successful_request_seconds": 27.6622924846597,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 27035,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7628.245510715526,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00434_before.png",
+  "pre_execution_pixel_delta": 0.0,
+  "observation_age_seconds": 27.739840461872518,
+  "frozen_step": {
+    "host_seconds": 2.0008655139245093,
+    "nominal_seconds": 2.0,
+    "action_clamped": false
+  },
+  "after": "00434_after.png",
+  "action_seconds": 2.048566753976047
+}

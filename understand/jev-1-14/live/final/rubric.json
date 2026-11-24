@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "understand-ending-v2",
+  "game_id": "understand",
+  "version": 2,
+  "calibrated": false,
+  "milestones": [
+    {
+      "schema_version": 1,
+      "id": "opening-group",
+      "description": "Complete native numbered group 1-1.",
+      "predicate": "spine_1_1",
+      "points": 20,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "opening-spine",
+      "description": "Complete native group 1-4 and its mandatory earlier groups 1-1, 1-2 and 1-3 in the same slot.",
+      "predicate": "spine_1_4",
+      "points": 20,
+      "prerequisites": [
+        "opening-group"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "second-spine",
+      "description": "Complete native group 2-2 and all mandatory earlier spine groups in the same slot.",
+      "predicate": "spine_2_2",
+      "points": 20,
+      "prerequisites": [
+        "opening-spine"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "ending-gate",
+      "description": "Complete native EX-10, the mandatory gate adjacent to END, with all earlier spine groups in the same slot.",
+      "predicate": "spine_ex_10",
+      "points": 20,
+      "prerequisites": [
+        "second-spine"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "ending",
+      "description": "Complete native END with the entire mandatory spine in the same slot.",
+      "predicate": "ending",
+      "points": 20,
+      "prerequisites": [
+        "ending-gate"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    }
+  ]
+}

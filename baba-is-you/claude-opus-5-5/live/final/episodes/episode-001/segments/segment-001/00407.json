@@ -1,0 +1,62 @@
+{
+  "step": 407,
+  "decision": {
+    "observation": "Baba moved RIGHT to ~(369,378) - now just to the RIGHT of the rock vertical column (x~356)! Baba is alive at (369,378). The rock vertical column's rightmost position is at x~356, and Baba is now at x~369, clear of all rocks. \n\nNow looking at the rock L-shape carefully from this screenshot:\n- Vertical column: rightmost rock column at x~356 runs from y~125 to y~342\n- Horizontal row: at y~342 from x~213 to x~356\n\nFrom Baba at (369,378), going UP:\n- (369,342): No rock at x~369 (vertical column at x~356, horizontal row ends at x~356)\n- (369,305), (369,268), (369,231), (369,194), (369,157), (369,120), (369,83): All CLEAR!\n\nROCK IS STOP text at top:\n- RO(213,109), CK(213,125): leftmost, vertical pair\n- IS(258,117): middle, single block\n- ST(295,109), OP(295,125): rightmost, vertical pair\n\nBaba needs to go UP from (369,378) to y~117 (IS row), then LEFT to x~221 (one cell left of IS at x~258), then push RIGHT to shift IS-ST-OP chain right, leaving CK(213) and IS(295) not adjacent. ROCK IS STOP broken!\n\nExecute: UP multiple times.",
+    "hypothesis": "Baba at (369,378) clear of rocks. Go UP to y~117 (ROCK IS STOP text row), then LEFT to x~221 (left of IS at x~258), push RIGHT to break ROCK IS STOP. Execute UP.",
+    "memory": "LEVEL 06: Baba at (369,378) right of rock column. UP path clear to y~83. Target: reach (221,117) then push RIGHT to break ROCK IS STOP. IS at (258,117): pushing RIGHT moves IS→295, ST→332, OP→369; CK stays at 213. CK-IS gap = 82px = 2+ cells = NOT adjacent = ROCK IS STOP BROKEN. Execute multiple UPs.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Up"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 64630,
+    "completion_tokens": 1044,
+    "total_tokens": 65674,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 880,
+      "cached_creation_tokens": 63102,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 64630,
+    "output_tokens": 1044,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 8.747572967782617,
+  "successful_request_seconds": 8.747570153791457,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 57935,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7275.007215350401,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00407_before.png",
+  "pre_execution_pixel_delta": 1.1222847945601853,
+  "observation_age_seconds": 9.064594517927617,
+  "after": "00407_after.png",
+  "action_seconds": 0.5008927723392844
+}

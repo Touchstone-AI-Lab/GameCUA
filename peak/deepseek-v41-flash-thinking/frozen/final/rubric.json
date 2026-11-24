@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "id": "peak-progress-v2",
+  "game_id": "peak",
+  "version": 2,
+  "calibrated": false,
+  "milestones": [
+    {
+      "schema_version": 1,
+      "id": "rise-10m",
+      "description": "Reach 10 native meters above the verified beach starting height while conscious in the same expedition",
+      "predicate": "rise_10m",
+      "points": 10,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "rise-25m",
+      "description": "Reach 25 native meters above the verified beach starting height while conscious in the same expedition",
+      "predicate": "rise_25m",
+      "points": 10,
+      "prerequisites": [
+        "rise-10m"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "rise-50m",
+      "description": "Reach 50 native meters above the verified beach starting height while conscious in the same expedition",
+      "predicate": "rise_50m",
+      "points": 10,
+      "prerequisites": [
+        "rise-25m"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "rise-100m",
+      "description": "Reach 100 native meters above the verified beach starting height while conscious in the same expedition",
+      "predicate": "rise_100m",
+      "points": 10,
+      "prerequisites": [
+        "rise-50m"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "rise-200m",
+      "description": "Reach 200 native meters above the verified beach starting height while conscious in the same expedition",
+      "predicate": "rise_200m",
+      "points": 10,
+      "prerequisites": [
+        "rise-100m"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "shore-complete",
+      "description": "Complete SHORE and advance the native map segment to the second region while conscious",
+      "predicate": "shore_complete",
+      "points": 10,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "second-region-complete",
+      "description": "Complete the day's second region, including its native variant, and advance to ALPINE in the same expedition",
+      "predicate": "second_region_complete",
+      "points": 10,
+      "prerequisites": [
+        "shore-complete"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "alpine-complete",
+      "description": "Complete ALPINE and advance to CALDERA in the same expedition",
+      "predicate": "alpine_complete",
+      "points": 10,
+      "prerequisites": [
+        "second-region-complete"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "caldera-complete",
+      "description": "Complete CALDERA and advance to THE KILN or beyond in the same expedition",
+      "predicate": "caldera_complete",
+      "points": 10,
+      "prerequisites": [
+        "alpine-complete"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "summit-victory",
+      "description": "The native local character statistics confirm expedition victory after the final ascent; a model claim or entering the summit scene is insufficient",
+      "predicate": "summit_victory",
+      "points": 10,
+      "prerequisites": [
+        "caldera-complete"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    }
+  ]
+}

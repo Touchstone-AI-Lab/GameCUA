@@ -1,0 +1,62 @@
+{
+  "step": 413,
+  "decision": {
+    "observation": "Baba moved UP to ~(406,305) - alive! Baba is at x~406, y~305, to the right of the rock vertical column (x~369). The rocks are clearly visible: vertical column at x~369 (7 rocks from y~109 to y~342), horizontal row at y~342 (x~213-369). Baba is above the horizontal row's level and to the right of the vertical column - clear path continuing UP.\n\nROCK IS STOP text at top:\n- RO at (213,109), CK at (213,125)\n- IS at (258,117)\n- ST at (295,109), OP at (295,125)\n\nBaba is at y~305, needs to reach y~117 (IS block). From y~305: UP to y~268, y~231, y~194, y~157, y~120, y~83 = 6 more UP presses but IS is at y~117 so stopping at y~120 is close enough.\n\nActually cell grid: if y~342 is one row, y~305 is next above, y~268, y~231, y~194, y~157, y~120, y~83, y~46. The ROCK IS STOP text at y~109-125 corresponds to y~120 (one cell from top, first cell at y~83 from border, or y~109 is the first cell). \n\nLet me count: From y~305, each UP press moves ~37px: 305→268→231→194→157→120→=83. The text at y~109-125 is between y~83 and y~120, so Baba needs to stop at y~120 area.",
+    "hypothesis": "Baba at (406,305). Continue UP 5 more times to reach y~120 (ROCK IS STOP text level). Then LEFT 4 cells to x~258 area (IS block), then push RIGHT to break rule. Execute UP.",
+    "memory": "LEVEL 06: Baba at (406,305). 5 more UPs needed to reach y~120 where ROCK IS STOP text is. Then LEFT 4 cells to IS block at x~258, push RIGHT to break ROCK IS STOP. Execute UP x5.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Up"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 53202,
+    "completion_tokens": 998,
+    "total_tokens": 54200,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 884,
+      "cached_creation_tokens": 51666,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 53202,
+    "output_tokens": 998,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 14.213728053029627,
+  "successful_request_seconds": 14.213725437875837,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 61598,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7339.238869259134,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00413_before.png",
+  "pre_execution_pixel_delta": 1.1320243778935186,
+  "observation_age_seconds": 14.523589218966663,
+  "after": "00413_after.png",
+  "action_seconds": 0.49205607967451215
+}

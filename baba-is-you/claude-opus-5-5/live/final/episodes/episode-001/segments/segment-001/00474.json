@@ -1,0 +1,62 @@
+{
+  "step": 474,
+  "decision": {
+    "observation": "Baba (white ghost) is at approximately (585,342) - doesn't appear to have moved down. Baba seems stuck at the right gap exit position. Looking at the stone structure: the inner chamber has its right gap at y~342, and below the chamber (y~415) is the U-corridor. But between y~342 and y~415 at x~585, there may be a stone wall blocking downward movement.\n\nLooking at the screenshot carefully: Baba is at (585,342), and there appears to be stone wall tiles at (585,378) and (585,415) blocking the downward path. The right corridor from the inner chamber's gap appears to only allow RIGHT movement, not DOWN.\n\nThe U-corridor is accessible from the INNER chamber's bottom. The inner chamber's bottom wall is at y~415 with an opening at some x position. Looking at the stone structure, the U-corridor (y~415-520) connects to the inner chamber via an opening at the bottom of the chamber.\n\nActually, Baba is OUTSIDE the right gap. The path from the right gap goes to the U-corridor via going DOWN along the RIGHT outside wall. The right side corridor at x~585 - looking at the stone walls, there seems to be a passage going DOWN from (585,342) to (585,415).\n\nBut Baba can't move DOWN. This means there's a stone wall at (585,378) - the outer right wall of the structure blocks downward movement at x~585.\n\nI need to go RIGHT from the exit, then DOWN around the outside of the stone structure, then LEFT to the U-corridor entrance.",
+    "hypothesis": "The path from the right gap (585,342) goes RIGHT (not DOWN). Need to go RIGHT to get around the stone structure, then DOWN, then LEFT into the U-corridor. OR, from inside the chamber, go DOWN through the chamber floor into the U-corridor. But chamber floor is STOP.\n\nLet me think about how I got to the U-corridor before: I went RIGHT from (585,342) to (621,342), then DOWN to (621,415). That worked! The passage down was at x~621 (outside right wall of inner chamber). \n\nGo RIGHT to x~621, then DOWN.",
+    "memory": "LEVEL 06: Baba at (585,342), can't go DOWN here (stone wall). Need to go RIGHT first to x~621, then DOWN to (621,415). Previously worked: RIGHT to (621,342) then DOWN to (621,415). Execute RIGHT.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Right"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 21066,
+    "completion_tokens": 1408,
+    "total_tokens": 22474,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 696,
+      "cached_creation_tokens": 19728,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 21066,
+    "output_tokens": 1408,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 10.332478307187557,
+  "successful_request_seconds": 10.332475842908025,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 27569,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 8245.822396630421,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00474_before.png",
+  "pre_execution_pixel_delta": 1.1420366753472222,
+  "observation_age_seconds": 10.64138030121103,
+  "after": "00474_after.png",
+  "action_seconds": 0.5133036291226745
+}

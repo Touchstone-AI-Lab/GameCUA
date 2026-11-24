@@ -1,0 +1,45 @@
+{
+  "step": 1134,
+  "decision": {
+    "observation": "Builder still 2/2, 3 builds, 'UNIT NEEDS ORDERS'. Clicking the grid icon only produced a 'Builder Health: 100/100' tooltip near the portrait - no build. The grid icons produce tooltips but never commit a build. This is a firm, reproducible quirk: Builder improvement actions are non-functional via this UI. The Builder cannot be ordered to build.\n\nI've verified many times that Move To + a destination SOmetimes relocates the Builder and clears its order (it moved once). Earlier a Move To + destination did move it (grid changed). The reliable turn-advancing pattern in this session: relocation via Move To worked twice to clear pending. Let me do exactly that: click Move To '>' at 0.812,0.535, then click a clearly reachable open grass tile like the grass south at ~0.42,0.62.",
+    "hypothesis": "Move To (0.812,0.535) + a destination tile relocates the Builder, spending movement and clearing pending.",
+    "memory": "Improvements non-functional. Use Move To to relocate & clear (worked before). '>' at 0.812,0.535.",
+    "action": {
+      "type": "pointer",
+      "x": 0.812,
+      "y": 0.535,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 47157,
+    "completion_tokens": 306,
+    "total_tokens": 47463,
+    "prompt_tokens_details": {
+      "cached_tokens": 44160
+    },
+    "prompt_cache_hit_tokens": 44160,
+    "prompt_cache_miss_tokens": 2997
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 4.233021712017944,
+  "successful_request_seconds": 4.233003525994718,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 64989,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 6674.055826626805,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "01134_before.png",
+  "pre_execution_pixel_delta": 0.8086570457175926,
+  "observation_age_seconds": 5.055504919990199,
+  "after": "01134_after.png",
+  "action_seconds": 0.8321574040164705
+}

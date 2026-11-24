@@ -1,0 +1,45 @@
+{
+  "step": 39,
+  "decision": {
+    "observation": "Still showing Eagle Warrior 2/2 movement. A tooltip 'Garrison Defense Strength: 13' appeared, meaning my click hovered/selected the city's garrison. The unit icon (round red Eagle Warrior) is at the tile at ~0.5,0.42 (the tile the unit is on). The unit panel still shows 2/2 moves, so it hasn't moved. My clicks around the city keep hitting the city. The unit is actually ON the city tile (stacked). That's why clicking selects the city/garrison.",
+    "hypothesis": "The Eagle Warrior is garrisoned in the city. To move it out, I should click an adjacent tile outside the city center; clicking on the city center just reselects the garrison. Let me pick a clearly adjacent tile to the NW, e.g., ~0.44,0.40 (a plains tile) while unit selected. But my earlier adjacent clicks failed. Perhaps moves work but the panel doesn't refresh until movement. Actually the unit is stacked with the city; to move it I click a neighboring tile. Let me try clicking the tile southeast at ~0.57,0.47 (jungle) clearly outside city center.",
+    "memory": "Eagle Warrior garrisoned in city; clicks on center select city. Move to a clearly adjacent non-city tile.",
+    "action": {
+      "type": "pointer",
+      "x": 0.55,
+      "y": 0.49,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 11905,
+    "completion_tokens": 329,
+    "total_tokens": 12234,
+    "prompt_tokens_details": {
+      "cached_tokens": 9088
+    },
+    "prompt_cache_hit_tokens": 9088,
+    "prompt_cache_miss_tokens": 2817
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 3.686058402992785,
+  "successful_request_seconds": 3.6860438940057065,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 19122,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 194.5584589120117,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00039_before.png",
+  "pre_execution_pixel_delta": 0.6249305555555555,
+  "observation_age_seconds": 4.6727963570156135,
+  "after": "00039_after.png",
+  "action_seconds": 0.8922677939990535
+}

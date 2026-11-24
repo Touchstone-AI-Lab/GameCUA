@@ -1,0 +1,56 @@
+{
+  "step": 432,
+  "decision": {
+    "observation": "Clock still frozen at 7:30 am, identical frame for 30+ turns. Farmer stuck at ~x0.50,y0.72 between the rug and the exit notch. S advances the clock when it registers but the farmer sprite never moves south. The farmer may be stuck on the rug tile or there's a one-tile obstacle I'm not seeing. Cursor at x0.50,y0.93 outside the room wall.",
+    "hypothesis": "S key fires but movement is physically blocked at this specific tile. Moving W (west) or W (north) to dislodge the farmer from this stuck tile, then trying S again from a fresh position, should break the deadlock. First restore focus with a click at mid-room open floor, then W.",
+    "memory": "STUCK TILE: Farmer at x0.50,y0.72 has not moved south for 30+ turns despite S advancing the clock. This is a movement block at that specific position, not just a focus issue. Strategy: move north (W key) or west (A key) off the stuck tile to open floor, then try S again. Exit notch at x0.50,y0.87. Rain day Spring 3 Wed 7:30 am, 450g, energy low-green. Clicking at y0.93 (outside room wall) advances clock but does not pathfind farmer.",
+    "action": {
+      "type": "pointer",
+      "x": 0.35,
+      "y": 0.55,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 30039,
+    "completion_tokens": 5638,
+    "total_tokens": 35677,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 26.254682417027652,
+  "successful_request_seconds": 26.25467588379979,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 25976,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7572.50967380777,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00432_before.png",
+  "pre_execution_pixel_delta": 0.0,
+  "observation_age_seconds": 26.336022756062448,
+  "frozen_step": {
+    "host_seconds": 2.0086245322600007,
+    "nominal_seconds": 2.0,
+    "action_clamped": false
+  },
+  "after": "00432_after.png",
+  "action_seconds": 2.0272877141833305
+}

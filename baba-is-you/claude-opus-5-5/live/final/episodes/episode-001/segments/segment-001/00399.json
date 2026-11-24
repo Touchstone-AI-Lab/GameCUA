@@ -1,0 +1,62 @@
+{
+  "step": 399,
+  "decision": {
+    "observation": "Baba moved LEFT to ~(214,378) - alive! Baba is now at x~214, y~378, right at the leftmost edge of the rock horizontal row (rock at x~213,y~342). Baba is JUST to the right of the leftmost rock position. The leftmost rock in the horizontal row appears to be at x~213.\n\nLooking at the screenshot carefully: Baba is at approximately (214,378). The horizontal rock row's leftmost rock is at x~213. Baba at x~214 is essentially at the SAME x-column as the leftmost rock. Going UP from (214,378) would hit the rock at (213,342) if they're in the same cell.\n\nBut Baba appears to be slightly RIGHT of the leftmost rock. Let me check: if cell size is ~37px, then cell columns are at x~213, 250, 287, 324, 361, 388. Baba at x~214 = same cell as x~213 (the leftmost rock). So going UP from x~213/214 would hit the rock at y~342.\n\nI need to go ONE MORE LEFT to get to x~176 (the cell to the LEFT of the leftmost rock at x~213). Execute LEFT one more time.",
+    "hypothesis": "Baba at (214,378) is at the same x-column as leftmost rock (x~213). Need one more LEFT to reach x~176 (clear of all rocks). Then UP to y~160, RIGHT to x~251, DOWN to push IS block.",
+    "memory": "LEVEL 06: Baba at (214,378). One more LEFT to x~176 (left of rock row). Then UP multiple times to y~160. Then RIGHT to x~251. Then DOWN to push IS block down from (251,197), breaking SKULL IS DEFEAT.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Left"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 37162,
+    "completion_tokens": 922,
+    "total_tokens": 38084,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 950,
+      "cached_creation_tokens": 35564,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 37162,
+    "output_tokens": 922,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 7.954893073998392,
+  "successful_request_seconds": 7.954890418797731,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 49323,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7154.515711097512,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00399_before.png",
+  "pre_execution_pixel_delta": 1.1370818865740742,
+  "observation_age_seconds": 8.372030145023018,
+  "after": "00399_after.png",
+  "action_seconds": 0.4630646579898894
+}

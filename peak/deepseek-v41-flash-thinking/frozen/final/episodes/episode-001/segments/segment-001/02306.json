@@ -1,0 +1,51 @@
+{
+  "step": 2306,
+  "decision": {
+    "observation": "Hovering the '???' marker gives no highlight or tooltip; the overlay is unchanged across ~85 steps and all tested inputs (clicks, drag, Space, Return, Escape, E, W, J, scroll, waits).",
+    "hypothesis": "The boarding transition is soft-locked on an endless loading card (likely offline/network failure), so the episode cannot be entered from here. This is best recorded as a blocked episode outcome for review.",
+    "memory": "Boarding flow: kiosk quick E tap → BOARDING PASS panel → START click → star-burst → endless flight-map LOADING screen. No restart path; Escape ignored. Future runs: expect the load step to be the failure point and don't burn budget waiting past ~20 steps.",
+    "action": {
+      "type": "wait",
+      "seconds": 5.0
+    },
+    "terminal_candidate": true,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 7048,
+    "completion_tokens": 486,
+    "total_tokens": 7534,
+    "prompt_tokens_details": {
+      "cached_tokens": 4608
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 289
+    },
+    "prompt_cache_hit_tokens": 4608,
+    "prompt_cache_miss_tokens": 2440
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 5.051127604001522,
+  "successful_request_seconds": 5.05112541500057,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 10729,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 19288.466806648867,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "02306_before.png",
+  "pre_execution_pixel_delta": 0.0,
+  "observation_age_seconds": 5.7245519059979415,
+  "frozen_step": {
+    "host_seconds": 1.0083819669998775,
+    "nominal_seconds": 1.0,
+    "action_clamped": true
+  },
+  "after": "02306_after.png",
+  "action_seconds": 1.1554134840007464
+}

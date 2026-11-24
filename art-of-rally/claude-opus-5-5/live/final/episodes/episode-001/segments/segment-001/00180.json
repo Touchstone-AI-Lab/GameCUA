@@ -1,0 +1,79 @@
+{
+  "step": 180,
+  "decision": {
+    "observation": "Speed 8 mph, gear 1, car centred on the lane with barrels along both verges. Ahead the lit lane runs up-screen and bends right past a grey boulder on its left and a blue puddle on its right, with pines closing in; all dots dark, no red X. Timer 37:33.",
+    "hypothesis": "The car is carrying speed and tracking well, but the bend ahead is to the right and the verge barrels are close on that side, so a short right-steered throttle now should follow the bend rather than letting plain throttle run wide into the left verge.",
+    "memory": "At 8+ mph steering corrections need to stay short (~0.4s) or the car overshoots into the barrels. This barrel-lined bend matches the earlier 'bending right past a boulder and puddles' stretch.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "w",
+        "d"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.4
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 10159,
+    "completion_tokens": 681,
+    "total_tokens": 10840,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 7.894788265999523,
+  "successful_request_seconds": 53.43546984100249,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [
+      {
+        "usage": {
+          "prompt_tokens": 15243,
+          "completion_tokens": 2142,
+          "total_tokens": 17385,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          },
+          "completion_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0
+          }
+        },
+        "purpose": "compaction",
+        "returned_model": "claude-opus-5-5",
+        "attempts": 1,
+        "latency_seconds": 45.54069280200201,
+        "successful_request_seconds": 45.54068771900347
+      }
+    ],
+    "estimated_input_tokens": 9293,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 2186.635747052831,
+  "execution_status": "rejected",
+  "executed": false,
+  "before": "00180_before.png",
+  "pre_execution_pixel_delta": 10.010169994212964,
+  "observation_age_seconds": 53.860985241997696,
+  "reason": "observation_age_limit"
+}

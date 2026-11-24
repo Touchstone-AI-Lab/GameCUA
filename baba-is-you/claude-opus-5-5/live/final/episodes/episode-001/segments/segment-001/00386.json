@@ -1,0 +1,62 @@
+{
+  "step": 386,
+  "decision": {
+    "observation": "Baba moved LEFT to ~(547,231) - now clearly OUTSIDE the main stone chamber, in the open dark area to the LEFT of the chamber. Baba is alive! The stone chamber is visible to Baba's right. The rock vertical column is at x~370 (y~125-342). Baba at x~547 is between the stone chamber and the rock column.\n\nThe SK/ULL IS DEF/EAT text is visible at the far left: SK/ULL at x~213, IS at x~251, DEF/EAT at x~289. These are at y~188-206.\n\nBaba at (547,231) needs to reach x~213-289 (the SKULL IS DEFEAT text blocks). The rock column at x~370 blocks LEFT movement at y~231. Baba must go around the rock column BELOW (go DOWN to y~415+) or push a rock out of the way.\n\nBut wait - ROCK IS STOP means rocks cannot be pushed (STOP prevents pushing). So Baba cannot push rocks. Must navigate around them.\n\nPath: From (547,231), go DOWN to y~378 (skull row starts at x~658, Baba at x~547 is safe), then DOWN to y~415, then DOWN to y~452 (below rock column bottom at y~342), then LEFT past x~370 to x~250, then UP to y~197 to reach SK/ULL IS DEF/EAT.\n\nActually the rock horizontal row is at y~342 (x~213-370). The rocks go from y~125 to y~342 in the vertical column AND y~342 (x~213 to x~370) in the horizontal row. So at y~378, x~370 has NO rock (rock horizontal row ends at y~342). Baba can go to y~378 at x~370 and then LEFT.\n\nBut skull row at y~378 starts at x~658. At x~370, y~378 - no skull! Baba can be at (370,378) safely.",
+    "hypothesis": "Path to SK/ULL IS DEF/EAT: From (547,231), go DOWN to y~378 (safe at x~547, left of skull row start x~658), then LEFT to x~370 (safe, below rock column which ends at y~342), then LEFT to x~213, then UP to y~197. Execute DOWN to start.",
+    "memory": "LEVEL 06: Baba at (547,231). Path to SKULL IS DEFEAT text: DOWN to y~378 (safe at x~547), LEFT past x~370 (rock column ends at y~342, so y~378 is clear), LEFT to x~213, UP to y~197 to reach SK/ULL IS DEF/EAT. Execute DOWN.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Down"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 42982,
+    "completion_tokens": 1254,
+    "total_tokens": 44236,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 684,
+      "cached_creation_tokens": 41670,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 42982,
+    "output_tokens": 1254,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 10.08732968242839,
+  "successful_request_seconds": 10.08732683584094,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 39864,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7020.405602969229,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00386_before.png",
+  "pre_execution_pixel_delta": 0.0038306568287037037,
+  "observation_age_seconds": 10.266162507236004,
+  "after": "00386_after.png",
+  "action_seconds": 0.5003063008189201
+}

@@ -1,0 +1,49 @@
+{
+  "step": 343,
+  "decision": {
+    "observation": "Turn 43/500, 2320 BC, 4:52 AM. CHOOSE PRODUCTION panel open. Units visible: Settler 9t, Builder 7t, (Scout/Trader rows partially obscured by Trader tooltip), Slinger 3t (grayed), Eagle Warrior 5t at bottom. Trader tooltip visible: 'May make and maintain a single Trade Route. Cost 46 Production. Your Civilization needs more Trade Route capacity.' Eagle Warrior row clearly visible at bottom of panel at approximately y=0.671. Map shows large yellow fog-of-war revealed areas in upper portion - map has scrolled/panned. City: 3 Buildings, -1 Amenities, Housing 5/8, 5 Turns Until Growth, Nothing being produced, 0 Turns Until Completed.",
+    "hypothesis": "The Trader tooltip is appearing because the cursor at x=0.969, y=0.680 is hovering over the Trader row (y~0.499) but the actual Eagle Warrior row is at the bottom of the visible panel. Looking carefully at the screenshot: Settler is at y~0.384, Builder y~0.441, then a cut-off row y~0.499, Scout y~0.557, Slinger y~0.615, Eagle Warrior y~0.671. But the tooltip says TRADER, suggesting x=0.969 at y~0.680 is hitting the Trader row. The panel may have scrolled. Eagle Warrior is at the very bottom at y~0.671 normalized. Try clicking at x=0.960, y=0.671 - slightly to the left to avoid the tooltip area.",
+    "memory": "CRITICAL: Trader tooltip appears when clicking at x=0.969, y=0.671-0.680 - this means the TRADER row is at that position, not Eagle Warrior. Eagle Warrior row must be BELOW the visible area - need to SCROLL DOWN in the production panel. The panel shows: Settler y~0.384, Builder y~0.441, (cut-off) y~0.499 = Trader, Scout y~0.557, Slinger y~0.615, Eagle Warrior y~0.671. But Trader tooltip showing at y=0.671 suggests Eagle Warrior is below visible area. OR: The panel has only Settler/Builder/Trader/Scout/Slinger/Eagle Warrior visible and Eagle Warrior IS at y~0.671 but cursor hover is triggering Trader tooltip from previous position. Try scrolling down in panel 2-3 steps to reveal Eagle Warrior.",
+    "action": {
+      "type": "scroll",
+      "steps": -3
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 30781,
+    "completion_tokens": 1482,
+    "total_tokens": 32263,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 21.06789029600077,
+  "successful_request_seconds": 21.06787819800047,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 26027,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7203.402122737999,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00343_before.png",
+  "pre_execution_pixel_delta": 13.537978877314815,
+  "observation_age_seconds": 21.629491061999943,
+  "after": "00343_after.png",
+  "action_seconds": 0.6511258709997492
+}

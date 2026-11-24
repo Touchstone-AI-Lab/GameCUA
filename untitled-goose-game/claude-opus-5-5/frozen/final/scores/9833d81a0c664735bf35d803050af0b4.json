@@ -1,0 +1,50 @@
+{
+  "trial_id": "42c25076dfc4449795f98d978bdefffc",
+  "trial_status": "completed",
+  "trial_reason": "deadline",
+  "score": 0,
+  "scoreable": true,
+  "completion_status": "completed",
+  "manual_stop": false,
+  "comparison_eligible": true,
+  "protocol_failures": [],
+  "awards": [],
+  "episodes": [
+    {
+      "episode_id": "episode-001",
+      "outcome": "unknown",
+      "milestones": [],
+      "termination_reason": "deadline"
+    }
+  ],
+  "failures": [],
+  "rubric_id": "untitled-goose-game-native-tasks-v5",
+  "rubric_version": 5,
+  "evaluator_version": "untitled-goose-game-native-save-2",
+  "elapsed_seconds": 11400.83694010651,
+  "chargeable_seconds": 11400.0,
+  "infrastructure_downtime_seconds": 0.0,
+  "effective_seconds": 10427.167968947011,
+  "evidence_gaps": [],
+  "provider_recovery": {
+    "schema_version": 1,
+    "timeout_count": 1,
+    "timeout_credit_seconds": 600.0,
+    "request_failures": 7,
+    "freezes": 3,
+    "frozen_seconds": 112.42231471999548,
+    "operator_reports": 0,
+    "operator_pause_seconds": 0.0,
+    "state": "ready"
+  },
+  "time_allowance_seconds": 11400.0,
+  "interview": {
+    "expected_score": 18,
+    "expected_score_probability": 40,
+    "full_score_probability": 2,
+    "hardest_part": "Any task that requires reacting to NPC movement in real time — stealing an item while a villager watches and immediately gives chase, then keeping it long enough to complete the task. The one-action-per-second loop means I see a single frozen frame, pick an action, and the game advances a full second before I see the result. Fast NPCs can close distance, reclaim items, or block paths in that blind interval, making it very hard to stay ahead of them once alerted.",
+    "likely_failure": "I expect to get stuck in loops where I steal an item, an NPC reclaims it before I can reach the goal, and I cannot re-steal it quickly enough because I cannot track the NPC's inter-frame movement. Tasks that require holding an item across a long path under active pursuit — such as the keys or hat tasks — are where I am most likely to run out of time or give up progress. I am also likely to misread spatial depth from a 2D screenshot and click past the intended target, sending the goose the wrong way.",
+    "helpful_mechanics": "The game pauses while I choose each action, so I have unlimited planning time per frame — I can read the scene carefully before committing. Left-click walking is simple to issue. The task list on Tab gives me a clear checklist of what remains. The environment is fixed, so spatial knowledge I build in early turns carries forward. Some tasks can be completed while NPCs are distracted or off-screen, which the pause-to-think model actually suits.",
+    "harmful_mechanics": "One screenshot per second is far too coarse for a real-time game: moving NPCs, thrown objects, and timed gates all change state between my observations. The beak and neck actions require precise pointer targeting at specific small objects, and depth ambiguity in top-down perspective shots makes that unreliable. Many tasks chain several interactions in sequence — if I fail mid-chain, the game state partially resets and I must restart the sub-sequence, burning time. The three-hour wall-clock budget sounds long but includes my thinking time, and a single stuck puzzle can consume it."
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "step": 221,
+  "decision": {
+    "observation": "The WALL brick (gray block) moved LEFT and is now at approximately (655, 448). The brick is in the lower-center area. FL AG(618,485), IS(655,520), STOP(655,555). WA LL(477,485), IS(477,520), YOU(477,555). 'IS WIN' at top (y=197). The brick is at (655, 448), which is directly ABOVE IS(655,520) of the FLAG IS STOP rule (now broken). The brick is one cell above-right of FL AG(618,485). Need to get to (618, 522) = below FL AG. Brick at (655,448). FL AG at (618,485). Move LEFT to (618,448) = above FL AG, then DOWN 2 to (618,522)? Wait, FL AG is at (618,485), so below FL AG = (618,522). From (618,448) go DOWN to (618,485)=FL AG position pushes FL AG down - wrong! I need to be BELOW FL AG to push it UP. So go to (618,522) WITHOUT passing through FL AG. From (655,448): go DOWN to (655,485), (655,522), then LEFT to (618,522). That avoids pushing FL AG.",
+    "hypothesis": "Navigate to (618,522) below FL AG without pushing it. From (655,448): DOWN to (655,485), DOWN to (655,522), LEFT to (618,522). Then UP to push FL AG up. But going DOWN from (655,448): is (655,485) occupied by IS? IS(FLAG rule) is at (655,520). So (655,485) is empty (FL AG moved to 618). Go DOWN to (655,485), then the next DOWN to (655,520) would hit IS - push IS down. Avoid that. Instead from (655,485) go LEFT to (618,485)=FL AG position - pushes FL AG left. Hmm. Let me go a different route: from (655,448) go LEFT to (618,448), then I'm above FL AG. I need to get below it. Go further: from (618,448), the cell below is FL AG(618,485). Can't pass through without pushing. Go around: from (618,448) LEFT to (581,448), DOWN to (581,522), RIGHT to (618,522) below FL AG. Let me start going LEFT.",
+    "memory": "Brick at (655,448). FL AG at (618,485). Need to get BELOW FL AG at (618,522) without pushing it. Route: go LEFT to (581,448), DOWN to (581,522), RIGHT to (618,522). Then UP x8 pushes FL AG from (618,485) to (618,197) forming FLAG IS WIN with IS(655,197)+WIN(691,197). Then brick touches flag=WIN.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Left"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 176852,
+    "completion_tokens": 1296,
+    "total_tokens": 178148,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 928,
+      "cached_creation_tokens": 175072,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 176852,
+    "output_tokens": 1296,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 57.17253748420626,
+  "successful_request_seconds": 57.17253444902599,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 181570,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 3402.9833762720227,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00221_before.png",
+  "pre_execution_pixel_delta": 1.4072432002314814,
+  "observation_age_seconds": 57.57332517299801,
+  "after": "00221_after.png",
+  "action_seconds": 0.5049283229745924
+}

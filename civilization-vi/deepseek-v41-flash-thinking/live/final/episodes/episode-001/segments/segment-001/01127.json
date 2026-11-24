@@ -1,0 +1,45 @@
+{
+  "step": 1127,
+  "decision": {
+    "observation": "Top-left icon = 'Build Improvement: Camp (+1 Gold, Provides 0.5 Housing)'. Still only hover, no build. The Builder is on a forest/hill tile near Tenochtitlan. 2/2 movement, 3 builds unchanged.\n\nThe Builder is on a forest tile - 'Remove Feature' (chop) would be valid there, and the top-row icons include chop. But all just hover. This is a genuine, repeated UI quirk.\n\nThe improvement buttons require the improvement to be VALID for the tile under/adjacent the builder. Camp needs a resource (deer/fur/ivory). If no resource is reachable, the Camp icon would be greyed but still shows tooltip.\n\nGiven I truly cannot build, the priority is ending the turn. The '>' Move To at ~1.09,0.723 is visible (blue arrow far right). Earlier Move To + destination MOVED the builder once (grid changed to 2 water icons). So Move To does work. The issue is choosing a VALID destination. Let me click Move To (1.09,0.723) then click a grass tile that's within 2 tiles and clearly open.\n\nActually, the far-right blue '>' at 1.09,0.723 - but that x=1.09 is off-screen (max 1.0). The visible blue '>' is at ~0.95,0.723 (the one with the arrow). There are two blue buttons at ~0.945 and ~0.985.",
+    "hypothesis": "Move To is the leftmost blue chevron ~0.945,0.723. Click it, then a nearby open grass tile.",
+    "memory": "Move To worked once. Blue chevron ~0.945,0.723.",
+    "action": {
+      "type": "pointer",
+      "x": 0.945,
+      "y": 0.723,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 44600,
+    "completion_tokens": 434,
+    "total_tokens": 45034,
+    "prompt_tokens_details": {
+      "cached_tokens": 41344
+    },
+    "prompt_cache_hit_tokens": 41344,
+    "prompt_cache_miss_tokens": 3256
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 5.264360786008183,
+  "successful_request_seconds": 5.264345129020512,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 61632,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 6630.077240810002,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "01127_before.png",
+  "pre_execution_pixel_delta": 1.4361725983796296,
+  "observation_age_seconds": 6.088553892011987,
+  "after": "01127_after.png",
+  "action_seconds": 0.812752101017395
+}

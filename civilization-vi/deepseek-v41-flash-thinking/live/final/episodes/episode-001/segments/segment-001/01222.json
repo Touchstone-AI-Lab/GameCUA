@@ -1,0 +1,45 @@
+{
+  "step": 1222,
+  "decision": {
+    "observation": "Builder still 2/2, 2 builds, 'UNIT NEEDS ORDERS'. The Builder figure (soldier with green circle) is at ~0.435,0.605 (below Atzcapotzalco, next to the white rock/hill). The right-click at 0.44,0.605 didn't clear it. The command buttons are clearly at y~0.73: '+' (0.923), '>' Move To (0.958), blue swirl-circle (0.99), cyan crescent Sleep (1.0). \n\nI realize the issue: right-clicking the unit's own hex only skips when it actually lands on the unit. The Builder figure center looks like ~0.437,0.605. Let me look — the soldier icon is at x~0.435, y~0.605. But maybe the precise hex center is slightly left, ~0.43,0.605. The right-click deselected the panel (panel still showing though). Actually the panel is STILL showing = not skipped.\n\nLet me try the '>' Move To button (0.958,0.73) - clicking it arms Move To, then I click a destination tile that the builder CAN reach (adjacent). Two adjacent grass tiles exist. This relocated the builder reliably once (grid changed).",
+    "hypothesis": "Click '>' Move To (0.958,0.73) to arm, then click an adjacent reachable grass tile to force a move.",
+    "memory": "Move To '>' at 0.958,0.73.",
+    "action": {
+      "type": "pointer",
+      "x": 0.958,
+      "y": 0.73,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 78473,
+    "completion_tokens": 385,
+    "total_tokens": 78858,
+    "prompt_tokens_details": {
+      "cached_tokens": 75520
+    },
+    "prompt_cache_hit_tokens": 75520,
+    "prompt_cache_miss_tokens": 2953
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 4.589309200004209,
+  "successful_request_seconds": 4.589293308992637,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 104269,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7222.761357881274,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "01222_before.png",
+  "pre_execution_pixel_delta": 6.860729890046296,
+  "observation_age_seconds": 5.505678994988557,
+  "after": "01222_after.png",
+  "action_seconds": 0.8545648519939277
+}

@@ -1,0 +1,49 @@
+{
+  "step": 20,
+  "decision": {
+    "observation": "Car stationary at 0 mph on winding forest road; log pile visible on left side; timer 17:59.187; gear 1 shown; road curves right ahead.",
+    "hypothesis": "Previous throttle hold rejected due to observation_age_limit; wait action will refresh the stale frame allowing a subsequent W throttle to succeed and advance the car.",
+    "memory": "W throttle 1.0s rejected multiple times for observation_age_limit; prior successful W throttle reached 6 mph; wait 1.0s rejected; controls W=throttle, A/D=steer, Space=handbrake, Enter=confirm.",
+    "action": {
+      "type": "wait",
+      "seconds": 1.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 8379,
+    "completion_tokens": 1293,
+    "total_tokens": 9672,
+    "prompt_tokens_details": {
+      "cached_tokens": 3520,
+      "audio_tokens": 0,
+      "text_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1131,
+      "audio_tokens": 0,
+      "text_tokens": 162,
+      "image_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "grok-4.7",
+  "attempts": 1,
+  "latency_seconds": 53.332944896999834,
+  "successful_request_seconds": 53.33293675899995,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 10511,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 1191.9568159689604,
+  "execution_status": "rejected",
+  "executed": false,
+  "before": "00020_before.png",
+  "pre_execution_pixel_delta": 0.82142578125,
+  "observation_age_seconds": 53.837177195000095,
+  "reason": "observation_age_limit"
+}

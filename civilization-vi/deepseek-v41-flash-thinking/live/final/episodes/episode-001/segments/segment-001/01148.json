@@ -1,0 +1,47 @@
+{
+  "step": 1148,
+  "decision": {
+    "observation": "Panel closed (deselected) again; 'UNIT NEEDS ORDERS' persists. The '>>' click deselected rather than automating. The Builder is at ~0.375,0.60. The recurring result: ANY button click deselects the Builder without committing an order.\n\nThere's a big round blue '!' dial at bottom-right (~0.94,0.87). The unit still pending. Maybe this is a bug where the Builder's order cannot be issued because it's in an invalid state (e.g., stacked with another unit — a Settler maybe, since 0/1 movement top-left could indicate a Settler in the stack). Actually! Top-left shows '0/1' — maybe there's a Settler packed with the Builder. The Builder grid might not work because the SELECTED unit is something else in a stack.\n\nLet me try a different decisive input: press 'b' is settler-found. But let me try right-click drag on the Builder to a tile — drag move can sometimes force a move order.",
+    "hypothesis": "A drag from the Builder's tile to an adjacent grass tile issues a move and clears orders.",
+    "memory": "Standard clicks deselect without ordering. Try drag move.",
+    "action": {
+      "type": "drag",
+      "x": 0.375,
+      "y": 0.6,
+      "to_x": 0.42,
+      "to_y": 0.65,
+      "duration": 0.5
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 52013,
+    "completion_tokens": 330,
+    "total_tokens": 52343,
+    "prompt_tokens_details": {
+      "cached_tokens": 49152
+    },
+    "prompt_cache_hit_tokens": 49152,
+    "prompt_cache_miss_tokens": 2861
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 4.534940824989462,
+  "successful_request_seconds": 4.5349263940006495,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 71354,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 6761.835918853962,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "01148_before.png",
+  "pre_execution_pixel_delta": 1.2866959635416666,
+  "observation_age_seconds": 5.428194224979961,
+  "after": "01148_after.png",
+  "action_seconds": 1.1473552359966561
+}

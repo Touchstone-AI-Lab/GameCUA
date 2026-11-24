@@ -1,0 +1,45 @@
+{
+  "step": 212,
+  "decision": {
+    "observation": "The Builder got deselected again (panel closed). Map clicks deselect and never move. The Builder remains at city tile. There are now two distinct unit icons on/around the city: the Eagle Warrior shield (~0.46,0.35) and a worker/Builder shield (~0.52,0.43). 'UNIT NEEDS ORDERS' persists.",
+    "hypothesis": "Map clicks consistently deselect units. The problem may be that clicking on a hex is interpreted as selecting that tile's city (since all these hexes are in the city's territory). This is a real UI quirk. Given I've spent ~40 actions, the productive path is to progress turns. The Builder's orders won't block turn advance if I don't reselect it - wait, the '!' is the end-turn and 'needs orders'. Previously clicking NEXT TURN worked fine when a unit was slept. The builder is blocking next-turn. Let me select the builder via '!' and immediately click its 'sleep' by clicking to the right of the improvement cards. Actually the build improvement cards are the command buttons; there were also two icons: 'Move To' and '+'. Let me just re-select and pick the sleep/skip: earlier when I clicked at 0.85,0.72 it worked to sleep. That button region may still show sleep for builder. Let me reselect and click 0.85,0.72.",
+    "memory": "Map clicks deselect. Try sleep button at 0.85,0.72 after reselect to clear builder orders.",
+    "action": {
+      "type": "pointer",
+      "x": 0.936,
+      "y": 0.86,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 57108,
+    "completion_tokens": 376,
+    "total_tokens": 57484,
+    "prompt_tokens_details": {
+      "cached_tokens": 54272
+    },
+    "prompt_cache_hit_tokens": 54272,
+    "prompt_cache_miss_tokens": 2836
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 4.323465924011543,
+  "successful_request_seconds": 4.323451340023894,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 82012,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 1155.9766494485084,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00212_before.png",
+  "pre_execution_pixel_delta": 1.9132779947916667,
+  "observation_age_seconds": 5.31183318499825,
+  "after": "00212_after.png",
+  "action_seconds": 0.8728977979917545
+}

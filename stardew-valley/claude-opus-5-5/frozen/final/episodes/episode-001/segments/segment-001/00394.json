@@ -1,0 +1,61 @@
+{
+  "step": 394,
+  "decision": {
+    "observation": "Clock hit exactly 2:00 am. Farmer (brown hair, blue overalls) is at x~0.50,y~0.82 on the lower saloon floor. Two black exit openings at the bottom of the screen: left void at x~0.28, right corridor at x~0.68. The pass-out sequence has not triggered yet. Gold 500g.",
+    "hypothesis": "The game may still process one more input at exactly 2:00 am before the pass-out screen fires. The right exit corridor at x~0.68 is closest to the farmer's current position. Pressing D+S diagonal should slide the farmer into that corridor and trigger the exit before the pass-out animation begins.",
+    "memory": "Clock reached 2:00 am while farmer is still inside the saloon. Pass-out at 2 am typically triggers a black screen then wakes the farmer the next morning at the clinic, costing roughly 10% of gold (up to 1000g). With only 500g, penalty would be ~50g. The right exit corridor is at x~0.68,y~0.88+. Farmer at x~0.50 needs D to align with it. If pass-out fires this turn, farmer will wake at Harvey's clinic on Spring 3.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "d",
+        "s"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 1.5
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 43378,
+    "completion_tokens": 1507,
+    "total_tokens": 44885,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 16.515270282980055,
+  "successful_request_seconds": 16.51526261679828,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 37358,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 6757.479238153901,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00394_before.png",
+  "pre_execution_pixel_delta": 0.0,
+  "observation_age_seconds": 16.622277402319014,
+  "frozen_step": {
+    "host_seconds": 2.0023094350472093,
+    "nominal_seconds": 2.0,
+    "action_clamped": false
+  },
+  "after": "00394_after.png",
+  "action_seconds": 2.037609138060361
+}

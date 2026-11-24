@@ -1,0 +1,57 @@
+{
+  "step": 276,
+  "decision": {
+    "observation": "The drag moved an item inside the character grid (to ~613,423) instead of dropping it in the world; the character slots now show drill x2, wood?, item?, ore x8. So inventory drags don't place items in the world.",
+    "hypothesis": "Placement requires selecting the furnace (hotbar 2) so it's in hand, then clicking; earlier world clicks may have been processed at stale cursor positions. Test: close inventory, hover the target tile (no click), then hold LMB 0.5s without moving.",
+    "memory": "Drags starting inside inventory snap back into the grid; only hover-then-click seems to place.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "e"
+      ],
+      "duration": 0.3,
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 62534,
+    "completion_tokens": 1638,
+    "total_tokens": 64172,
+    "prompt_tokens_details": {
+      "cached_tokens": 59904
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1435
+    },
+    "prompt_cache_hit_tokens": 59904,
+    "prompt_cache_miss_tokens": 2630
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 12.742079585790634,
+  "successful_request_seconds": 12.742066139355302,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 88693,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 2280.391010975465,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00276_before.png",
+  "pre_execution_pixel_delta": 0.0,
+  "observation_age_seconds": 13.071059627458453,
+  "frozen_step": {
+    "host_seconds": 1.0027394071221352,
+    "nominal_seconds": 1.0,
+    "action_clamped": false
+  },
+  "after": "00276_after.png",
+  "action_seconds": 1.1771873943507671
+}

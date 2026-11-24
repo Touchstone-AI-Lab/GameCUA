@@ -1,0 +1,52 @@
+{
+  "step": 644,
+  "decision": {
+    "observation": "The board is static across several Left presses. Column layout: WALL(y~0.478), IS(y~0.522) at x~0.475, with YOU pushed left to (0.447,0.555) — no longer under IS. WIN sits at (0.485,0.555) glowing. Since 'WALL IS YOU' is now broken (YOU out of line), the player likely can't move anymore.",
+    "hypothesis": "Pushing WIN left shoved YOU out of the WALL-IS-YOU column and broke my control rule, softlocking movement. Undo (Z) should restore YOU under IS.",
+    "memory": "Level 2 'NOW WHAT IS THIS?': player = grey wall bricks via WALL IS YOU; FLAG IS STOP broken. Words: WALL(0.36,0.478), IS(0.36,0.522), YOU(0.447,0.555), WIN(0.485,0.555), FLAG(0.51,0.47), loose IS(0.46,0.27). Danger: pushing YOU out of its column breaks control. Alternative win: FLAG IS WIN (FLAG at 0.51,0.47; need IS and WIN below it) then step onto a flag.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "z"
+      ],
+      "duration": 0.12,
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 230615,
+    "completion_tokens": 2082,
+    "total_tokens": 232697,
+    "prompt_tokens_details": {
+      "cached_tokens": 227584
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1742
+    },
+    "prompt_cache_hit_tokens": 227584,
+    "prompt_cache_miss_tokens": 3031
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 15.149169791024178,
+  "successful_request_seconds": 15.14916666597128,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 270893,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7514.991214752197,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00644_before.png",
+  "pre_execution_pixel_delta": 1.7800546151620371,
+  "observation_age_seconds": 15.419081849977374,
+  "after": "00644_after.png",
+  "action_seconds": 0.5332658709958196
+}

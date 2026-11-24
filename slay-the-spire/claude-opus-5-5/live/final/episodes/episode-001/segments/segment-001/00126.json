@@ -1,0 +1,51 @@
+{
+  "step": 126,
+  "decision": {
+    "observation": "This map has a 'Return' banner — it's the view-only map overlay, not the travel screen, which is why node clicks do nothing. Pixel-measuring the banner: it spans roughly x 0–175 px, y 575–625 px, i.e. centered near (0.06, 0.83) — about 40 px lower than where I clicked before.",
+    "hypothesis": "Clicking the Return banner at its true center (0.06, 0.83) closes the overlay and reveals the real room/state behind it, which is what unlocks progress.",
+    "memory": "Map with a Return banner = non-interactive overlay; close it first. My earlier Return clicks were ~0.06 too high in normalized y.",
+    "action": {
+      "type": "pointer",
+      "x": 0.06,
+      "y": 0.83,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 19967,
+    "completion_tokens": 2177,
+    "total_tokens": 22144,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 19.30418091500178,
+  "successful_request_seconds": 19.304177145007998,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 27718,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 2183.608209480997,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00126_before.png",
+  "pre_execution_pixel_delta": 0.3010083912037037,
+  "observation_age_seconds": 19.76010382687673,
+  "after": "00126_after.png",
+  "action_seconds": 1.0383925379719585
+}

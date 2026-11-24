@@ -1,0 +1,56 @@
+{
+  "step": 357,
+  "decision": {
+    "observation": "Clock still 11:50 pm, same frame for many consecutive turns. Farmer (brown hair, blue overalls) stuck at counter gap ~x0.52,y0.37. Cursor landed on the gray rug at ~x0.65,y0.43 — rug tile is likely blocked and did not restore focus or move the farmer. Emily (blue hair) at ~x0.37,y0.37. Gus (orange) at ~x0.11,y0.37. Child NPC at lower floor ~x0.37,y0.73. '!' at right edge. Energy tiny sliver.",
+    "hypothesis": "Every click so far has either hit the rug, stools, or counter gap — all blocked tiles. The open lower floor directly south of the farmer at x~0.52,y0.52 (below the counter face, above the stools) is the most direct walkable tile. Clicking there should both restore focus AND pathfind the farmer one tile south, escaping the gap.",
+    "memory": "Farmer stuck at counter gap x~0.52,y~0.37 for 20+ turns. Focus drops after every keyboard action. Rug tiles at x0.65,y0.43 and x0.75,y0.43 appear blocked. Confirmed restore tile was x~0.75,y0.55 (open floor south of rug) but it doesn't escape the gap. Must pathfind to x~0.52,y0.52 — directly south of farmer, between counter face and stools. Time 11:50pm, energy critically low.",
+    "action": {
+      "type": "pointer",
+      "x": 0.52,
+      "y": 0.52,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 23425,
+    "completion_tokens": 5750,
+    "total_tokens": 29175,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 29.081027447711676,
+  "successful_request_seconds": 29.081018303055316,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 19889,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 5758.711556257214,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00357_before.png",
+  "pre_execution_pixel_delta": 0.0,
+  "observation_age_seconds": 29.198795865755528,
+  "frozen_step": {
+    "host_seconds": 2.023968882393092,
+    "nominal_seconds": 2.0,
+    "action_clamped": false
+  },
+  "after": "00357_after.png",
+  "action_seconds": 2.076944292988628
+}

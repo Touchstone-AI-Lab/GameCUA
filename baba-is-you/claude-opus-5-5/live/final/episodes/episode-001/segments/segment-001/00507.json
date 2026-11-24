@@ -1,0 +1,62 @@
+{
+  "step": 507,
+  "decision": {
+    "observation": "Baba moved UP to ~(221,412)! Baba (white ghost) at (221,412). Baba went UP from (221,449) to (221,412) - not blocked by rock row at y~342 yet (only moved one step). The rock row is at y~342, still above Baba.\n\nBaba is at (221,412). Looking at the screenshot: Baba is visible at approximately (221,412), just below the rock row level. The rock row at y~342 spans x~220-370. At x~221, y~342 might have a rock blocking the next UP move.\n\nLet me check: rock row leftmost rock at x~220. At x~221, is there a rock at y~342? Looking at the image, the leftmost visible rock of the bottom row is at approximately x~220 (left of the L-shape formation). The column starts at x~370. The bottom row goes from x~220 to x~370.\n\nBaba at x~221 going UP to y~375 first (no skull there), then y~342 (rock?). Let me continue UP and observe.",
+    "hypothesis": "Baba at (221,412). Rock row at y~342 has leftmost rock at x~220. x~221 is RIGHT at the edge. If x~221 cell corresponds to the leftmost rock cell (x~220), UP will be blocked. Test: execute UP.",
+    "memory": "LEVEL 06: Baba at (221,412). Rock row at y~342, x~220-370. Testing if x~221 is blocked by rock at y~342. Baba is just right of the left edge of rock row. Execute UP to test.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Up"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 50326,
+    "completion_tokens": 840,
+    "total_tokens": 51166,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cached_creation_tokens": 48830,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 50326,
+    "output_tokens": 840,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 7.8148983349092305,
+  "successful_request_seconds": 7.814895088318735,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 52353,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 8632.461354406085,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00507_before.png",
+  "pre_execution_pixel_delta": 0.014063585069444445,
+  "observation_age_seconds": 8.11134582804516,
+  "after": "00507_after.png",
+  "action_seconds": 0.5352350822649896
+}

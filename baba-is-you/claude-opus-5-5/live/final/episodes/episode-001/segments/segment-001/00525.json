@@ -1,0 +1,62 @@
+{
+  "step": 525,
+  "decision": {
+    "observation": "Baba moved UP to ~(407,160)! Baba (white ghost) is now at approximately (407,160), between the ROCK IS STOP text row (y~120) and the SK/ULL IS DEFEAT text row (y~197). Baba is to the RIGHT of the rock column (x~370).\n\nLooking at the screenshot:\n- Baba at (407,160) - between ROCK IS row (y~120) and SKULL IS row (y~197)\n- ROCK IS STOP at y~120: RO/CK(213,120), IS(258,120), ST/OP(305,120)\n- SK/ULL IS DEF/EAT at y~197\n- Rock column at x~370 (visible, blocking LEFT at y~160 since column spans y~120-305)\n\nAt y~160, x~370 has a rock (column spans y~120-305, so y~160 is within that range). Going LEFT from (407,160) would hit rock at (370,160).\n\nMust go UP one more step to y~83 (above rock column top at y~120), then go LEFT.\n\nActually: rock column top is at y~120. Above y~120 (y~83) there are no rocks. Continue UP to y~83.",
+    "hypothesis": "Baba at (407,160). Rock column at x~370 still blocks at y~160 (column spans y~120-305). One more UP to y~83 (above rock column top y~120), then LEFT to x~213 at y~83, then DOWN to push SK/ULL(213,197). Execute UP.",
+    "memory": "LEVEL 06: Baba at (407,160). Rock column (x~370, y~120-305) blocks LEFT at y~160. Need ONE more UP to y~83 (above rock column top), then LEFT to x~213, then DOWN to push SK/ULL(213,197). DOWN push moves SK/ULL from y~197 to y~234, disconnecting from IS(258,197). SKULL IS DEFEAT BROKEN! Execute UP.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Up"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 50292,
+    "completion_tokens": 934,
+    "total_tokens": 51226,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 724,
+      "cached_creation_tokens": 48904,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 50292,
+    "output_tokens": 934,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 7.821074356324971,
+  "successful_request_seconds": 7.821071439888328,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 65461,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 8841.544805007521,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00525_before.png",
+  "pre_execution_pixel_delta": 1.0965928819444444,
+  "observation_age_seconds": 8.31472836714238,
+  "after": "00525_after.png",
+  "action_seconds": 0.5485961916856468
+}

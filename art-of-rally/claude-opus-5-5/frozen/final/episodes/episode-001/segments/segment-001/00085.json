@@ -1,0 +1,60 @@
+{
+  "step": 85,
+  "decision": {
+    "observation": "Car at 3 mph, gear R, timer 01:44.668. S+A produced 3 mph reverse - car has reversed. Car nose should have pivoted rightward toward the tarmac road (reverse+left steer = front rotates right). Same barrel corridor position but car orientation may have changed. Green gate upper-center, tarmac road clear to the right.",
+    "hypothesis": "With S+A 0.7s the car reversed while pivoting nose right toward tarmac. Switching to W now should drive forward in the new facing direction - hopefully toward the tarmac road rather than straight into the barrel/truck wall. This is the moment to capitalize on the pivot.",
+    "memory": "S+A = reverse+left steer = nose rotates RIGHT. Car should now face more toward tarmac road on the right. W from this reversed+pivoted state may finally escape the barrel corridor toward tarmac. If W hits 0 again, try W+D 0.3s to assist the rightward angle. 30+ pure W attempts failed going north into barrels.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "w"
+      ],
+      "duration": 1.0,
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 15318,
+    "completion_tokens": 2633,
+    "total_tokens": 17951,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 21.050966019000043,
+  "successful_request_seconds": 21.050957279001523,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 13268,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 2401.8444014625657,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00085_before.png",
+  "pre_execution_pixel_delta": 0.5454329427083333,
+  "observation_age_seconds": 21.469038489000013,
+  "frozen_step": {
+    "host_seconds": 1.7204068920000282,
+    "nominal_seconds": 1.0,
+    "action_clamped": false
+  },
+  "after": "00085_after.png",
+  "action_seconds": 1.9094683220009756
+}

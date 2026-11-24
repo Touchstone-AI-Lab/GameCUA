@@ -1,0 +1,57 @@
+{
+  "step": 1563,
+  "decision": {
+    "observation": "19:50.332: with no keys held the dot strip still shows 4 blue dots (previously idle showed gray), and the car has not moved by a single pixel in many frames — it sits with its right flank against the pine trunk, nose at the lake verge, rear toward the bush and the guardrailed bridge road just south-east. Timer keeps advancing normally.",
+    "hypothesis": "Nose (light) is north, red tail south; to reach the bridge road the nose must swing counter-clockwise, which in reverse happens with right steer (S+D). Only 2 consecutive S+D steps were ever tried, so continue that exact chain and watch the car's pixel position.",
+    "memory": "Track car pixel bbox across frames; only continuous same-direction chains test yaw accumulation fairly.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "s",
+        "d"
+      ],
+      "duration": 1.0,
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 20489,
+    "completion_tokens": 7863,
+    "total_tokens": 28352,
+    "prompt_tokens_details": {
+      "cached_tokens": 17792
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 7629
+    },
+    "prompt_cache_hit_tokens": 17792,
+    "prompt_cache_miss_tokens": 2697
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 54.55905636699754,
+  "successful_request_seconds": 54.55905345499923,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 28883,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 10502.838619751208,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "01563_before.png",
+  "pre_execution_pixel_delta": 0.45601200810185183,
+  "observation_age_seconds": 54.99753989199962,
+  "frozen_step": {
+    "game_seconds": 1.759035256000061,
+    "action_clamped": false
+  },
+  "after": "01563_after.png",
+  "action_seconds": 1.9518935509986477
+}

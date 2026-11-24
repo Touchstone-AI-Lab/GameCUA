@@ -1,0 +1,45 @@
+{
+  "step": 1077,
+  "decision": {
+    "observation": "The Builder is reselected, 2/2 movement, 3 builds, at Tenochtitlan. The improvement action grid is at bottom-center (~0.51-0.68, 0.82-0.95). The '>' Move To at ~0.82,0.61 (between cities). Tooltip 'A unit needs orders.' The Builder is trapped in this pending state.\n\nKey realization: the Builder has 2/2 movement and 3 builds, fully idle but unable to act. The improvement buttons in the grid ARE the intended actions - maybe they DO work if clicked on the right tile, but my clicks produced hover. However, this Builder is standing in the middle of the city's worked tiles near a mountain (looks like it's on a tile adjacent to Tenochtitlan). \n\nLet me try clicking one specific improvement icon in the grid - the Farm icon (first in the bottom row of the grid, ~0.55,0.86) more precisely, OR just try the 'right-mouse' to move the builder. Actually - a cleaner approach: right-click directly on a map tile to MOVE the builder there (right-click = move order in Civ VI). Let me right-click on an adjacent tile, e.g., the tile just south of the builder (~0.55,0.45).",
+    "hypothesis": "Right-clicking a map tile issues a move command to the selected Builder, clearing its order.",
+    "memory": "Try right-click move on tile.",
+    "action": {
+      "type": "pointer",
+      "x": 0.55,
+      "y": 0.45,
+      "button": "right"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 26210,
+    "completion_tokens": 367,
+    "total_tokens": 26577,
+    "prompt_tokens_details": {
+      "cached_tokens": 23296
+    },
+    "prompt_cache_hit_tokens": 23296,
+    "prompt_cache_miss_tokens": 2914
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 4.41086675299448,
+  "successful_request_seconds": 4.410852061002515,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 37458,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 6303.313589993195,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "01077_before.png",
+  "pre_execution_pixel_delta": 1.2130512152777777,
+  "observation_age_seconds": 5.209900482004741,
+  "after": "01077_after.png",
+  "action_seconds": 0.8201136349816807
+}

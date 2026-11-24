@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "hollow-knight-silksong",
+  "title": "Hollow Knight: Silksong",
+  "status": "configured",
+  "steam_app_id": 1030300,
+  "window_title": "Hollow Knight Silksong",
+  "window_title_prefix": false,
+  "input_backend": "xtest",
+  "resolution": [
+    1280,
+    720
+  ],
+  "mouse_mode": "cursor",
+  "timing": "realtime",
+  "budget": "time",
+  "pause": {
+    "schema_version": 1,
+    "method": "process",
+    "settle_seconds": 0.03
+  },
+  "notes": "Native Linux Unity build (Steam build 22479045, save version 1.0.30000) through the official client, with this game's Steam Cloud sync disabled. Requires the wsl-d3d12 renderer: the game process sets GALLIUM_DRIVER=d3d12 and starts with -force-glcore45 -force-clamped, without which Mesa D3D12 renders corrupted frames; preparation verifies the D3D12 renderer for the named adapter, an OpenGL 4.5 context without extensions, a loaded libd3d12 and an open /dev/dxg. Timing is realtime: enemies, hazards and timers advance while the model decides. The pause stops the verified game process with SIGSTOP; after a thaw the game needs up to about 23 ms to render again and ignores keys pressed earlier, so input waits 0.03 s after resuming. Frozen steps last 0.4 s, the shortest tested step that allows a full jump still visible at the step end; attacks are visible only through their effects in end frames (release 0.7.0 has no frame-strip observation). Difficulty: the game has no difficulty setting, and its only other mode, Steel Soul (permadeath), unlocks only after an ending, so normal mode is the hardest available at the start. At the start Hornet has no dash, so the input profile's dash button does nothing until it is gained, and bind needs a full silk spool; the direction group still holds a key on every step. Each episode copies a read-only operator-prepared slot-1 save and preferences into an isolated XDG profile and loads it from the title screen; the prepared state is the start of Moss Grotto before any kill: a new normal-mode game in slot 1, saved with Save and Quit right after the opening's first bind. Death policy: the game writes its save on every native death, and a save at zero health is reported as the death outcome, which ends the episode; language-model Trials have one life (episode_limit 1) and Jev ends at its first death. The game itself would respawn Hornet at her last bench or at the Moss Grotto starting point (respawnScene Tut_01). Milestones use the native save only. The game writes it on every death, at benches, on Save and Quit, after the ending sequence and when some story events queue a save (starting act two queues one); defeating Moss Mother, the Bell Beast or the Widow does not write it. Progress after the last write before the deadline is not credited, so a run that neither dies nor rests after a milestone keeps no evidence of it. Budget form time. The points-v1 rubric has 52 independent points worth 100, read from the native save: 26 progress points (new scenes, areas from Moss Grotto to the Deep Docks, Moss Mother, the great bone gate, the bell bench, the Bell Beast, Silkspear and Swift Step, resting at a bench) and 26 collection points (Hunter's journal kinds and kills, shell shards, rosaries, an item, a tool, a wish, characters met). The rubric is uncalibrated.",
+  "introduction": "Hollow Knight: Silksong is a 2D action platformer. You play Hornet in the kingdom of Pharloom, a world of connected rooms with enemies, hazards and bosses, and gain abilities that open further paths. Act one climbs through many regions toward the Citadel at the top of Pharloom; act two takes place in and around the Citadel and ends with an ending sequence. Hornet has a row of masks as health and a silk spool that fills by hitting enemies; silk can be spent to bind, which restores masks. Resting at a bench restores health and sets the respawn point. When Hornet dies she respawns at the last bench she rested at, or at the starting point of Moss Grotto before she has rested at one, and leaves a cocoon where she fell; the game continues rather than restarting. The run starts in normal mode, the only mode available at the start, in Moss Grotto, the opening area, with full health and no enemy killed yet.",
+  "controls": "Arrow keys move. Up or Down, pressed without Left or Right, interacts, for example to talk or to sit on a bench. Z jumps (hold for a higher jump). X attacks with the needle. C dashes once Hornet has that ability; it is not available at the start. A binds. Escape opens the pause menu. In menus, arrow keys select and Z confirms."
+}

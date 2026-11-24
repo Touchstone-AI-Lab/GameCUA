@@ -1,0 +1,55 @@
+{
+  "step": 23,
+  "decision": {
+    "observation": "Car stationary at 0 mph on winding forest road; log pile visible on left side; timer 21:41.156; gear 1 shown; road curves right ahead.",
+    "hypothesis": "Previous 0.5s throttle hold rejected due to observation_age_limit; 1.0s throttle hold on this frame should succeed and accelerate the car forward.",
+    "memory": "W throttle 1.0s previously successful reaching 6 mph; short 0.5s and wait/pointer rejected for observation_age_limit; car now back to 0 mph; controls W=throttle, A/D=steer, Space=handbrake, Enter=confirm.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "w"
+      ],
+      "duration": 1.0,
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 9103,
+    "completion_tokens": 748,
+    "total_tokens": 9851,
+    "prompt_tokens_details": {
+      "cached_tokens": 4992,
+      "audio_tokens": 0,
+      "text_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 550,
+      "audio_tokens": 0,
+      "text_tokens": 198,
+      "image_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "grok-4.7",
+  "attempts": 1,
+  "latency_seconds": 38.37588190899987,
+  "successful_request_seconds": 38.375874594999914,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 11546,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 1412.5856543779603,
+  "execution_status": "rejected",
+  "executed": false,
+  "before": "00023_before.png",
+  "pre_execution_pixel_delta": 0.739130859375,
+  "observation_age_seconds": 38.81688604400006,
+  "reason": "observation_age_limit"
+}

@@ -1,0 +1,51 @@
+{
+  "step": 291,
+  "decision": {
+    "observation": "Tech Tree open, turn 38. Filter dropdown still visible top-left. Archery active (6 turns, blue bar, red '1' badge). Right edge shows three partially visible cards: 'Ma...' y≈0.487 (Masonry), 'Bro...' y≈0.553 (Bronze Working, gold helmet icon visible), 'Wh...' y≈0.657. The Bronze Working card icon is at approximately x=0.956, y=0.573 - my click landed there but the filter dropdown persists unchanged, meaning Bronze Working was NOT selected. The filter dropdown opened first and is intercepting clicks.",
+    "hypothesis": "The filter dropdown is blocking click interactions with the tech cards. Need to close the dropdown first by pressing Escape (confirmed to close Tech Tree - but that closes the whole thing). Alternative: click outside the dropdown on an empty background area that is NOT a tech card. The area at approximately x=0.4, y=0.6 (empty background between Mining and the right-side cards) should close the dropdown without selecting any tech.",
+    "memory": "Filter dropdown in Tech Tree persists and may be blocking clicks on partially visible Bronze Working card at right edge. Clicking background (x=0.45, y=0.45) showed Pottery tooltip - that area IS a tech card. Need truly empty background click to close dropdown. Try x=0.4, y=0.65 (below Animal Husbandry, above Mining level, in the empty corridor). Then attempt Bronze Working click again at x=0.956, y=0.573.",
+    "action": {
+      "type": "pointer",
+      "x": 0.4,
+      "y": 0.65,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 17682,
+    "completion_tokens": 1090,
+    "total_tokens": 18772,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 16.331608077000055,
+  "successful_request_seconds": 16.331594473000223,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 15698,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 6046.922316124,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00291_before.png",
+  "pre_execution_pixel_delta": 0.009076605902777778,
+  "observation_age_seconds": 17.0296175830008,
+  "after": "00291_after.png",
+  "action_seconds": 0.7804099170007248
+}

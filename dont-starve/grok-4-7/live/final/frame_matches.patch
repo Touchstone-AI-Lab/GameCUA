@@ -1,0 +1,20 @@
+diff --git a/gamescientist/games/dont_starve/integration.py b/gamescientist/games/dont_starve/integration.py
+index 44be57187..732a89999 100644
+--- a/gamescientist/games/dont_starve/integration.py
++++ b/gamescientist/games/dont_starve/integration.py
+@@ -34,7 +34,14 @@ def frame_matches(reference, image, region):
+         raise ValueError("Preparation requires 1280 by 720 reference frames")
+     a = np.asarray(reference.convert("RGB").crop(region), dtype=float)
+     b = np.asarray(image.convert("RGB").crop(region), dtype=float)
+-    return float(np.abs(a - b).mean()) < 8
++    if float(np.abs(a - b).mean()) < 8:
++        return True
++    ga, gb = a.mean(axis=2), b.mean(axis=2)
++    if float(np.abs(ga - gb).mean()) >= 30:
++        return False
++    za = (ga - ga.mean()) / (ga.std() + 1e-6)
++    zb = (gb - gb.mean()) / (gb.std() + 1e-6)
++    return float(np.abs(za - zb).mean()) < 0.25
+ 
+ 
+ def following_menu_matches(snapshot, steps, index, frame):

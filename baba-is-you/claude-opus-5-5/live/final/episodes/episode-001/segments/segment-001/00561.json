@@ -1,0 +1,62 @@
+{
+  "step": 561,
+  "decision": {
+    "observation": "Baba moved UP to ~(620,343)! Baba (white ghost) is now at approximately (620,343), back at the level of the skull column's bottom skull. Looking at this screenshot:\n\n- Baba at (620,343) - in the corridor between chamber right wall (~585) and skull column (~657)\n- Skull column: skulls visible at x~657, y~120, 157, 194, 232, 268, 305, 343 (7 skulls, last at y~343)\n- Skull ROW: y~375, starting at x~657 (visible horizontal row of skulls)\n- The GAP between skull column end (y~343) and skull row (y~375): at x~657, y~358 - there's NO skull there! \n- Looking at x~657 between y~343 and y~375: I can see a clear empty cell at (657,358)!\n\nNOW: From Baba at (620,343), going RIGHT: the skull at (657,343) would DEFEAT Baba! Can't go right here.\n\nGoing DOWN to (620,358): then RIGHT to (657,358) - this is the GAP cell! Then RIGHT to (695,358) - should be safe (no skull column, skull row is at y~375 above).\n\nExecute DOWN to move Baba from (620,343) to (620,358).",
+    "hypothesis": "Baba at (620,343). Skull at (657,343) blocks rightward movement. Go DOWN to (620,358) first, then RIGHT to (657,358) [gap between skull column and row]. Execute DOWN.",
+    "memory": "LEVEL 06: Baba at (620,343) in corridor. Skull at (657,343) blocks RIGHT. Must go DOWN to (620,358) then RIGHT at y~358 to pass x~657 safely (gap between skull column end y~343 and skull row y~375). Execute DOWN.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Down"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 33686,
+    "completion_tokens": 936,
+    "total_tokens": 34622,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 736,
+      "cached_creation_tokens": 32274,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 33686,
+    "output_tokens": 936,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 26.899401967413723,
+  "successful_request_seconds": 26.899398792069405,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 31283,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 9565.057413489092,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00561_before.png",
+  "pre_execution_pixel_delta": 0.009192346643518519,
+  "observation_age_seconds": 27.2164909071289,
+  "after": "00561_after.png",
+  "action_seconds": 0.5336687918752432
+}

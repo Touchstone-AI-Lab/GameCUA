@@ -1,0 +1,55 @@
+{
+  "step": 804,
+  "decision": {
+    "observation": "7 mph, gear 1, timer still 59:59.000; the car's rendered position is unchanged relative to the arch across several frames despite the speed readout, and it still sits at the left edge of the gravel. Beyond the arch the road swings left then back right through pines.",
+    "hypothesis": "Readout speed is no longer translating into rendered movement, which would explain the frozen timer and the repeated identical approaches — the run may be in a stuck/ended state where driving inputs have no effect on progress. A longer throttle hold is the cheapest test of whether anything ever advances.",
+    "memory": "Identical car position across multiple 0.9 s throttle beats while the speed readout changes (0 → 7 mph) is new: speed number and world position have decoupled. Timer still 59:59.000.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "w"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 2.5
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 21473,
+    "completion_tokens": 501,
+    "total_tokens": 21974,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 6.264096156999585,
+  "successful_request_seconds": 6.264087237002968,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 19853,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 9231.125237789835,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00804_before.png",
+  "pre_execution_pixel_delta": 22.975767144097222,
+  "observation_age_seconds": 6.7087963500016485,
+  "after": "00804_after.png",
+  "action_seconds": 3.0064806020018295
+}

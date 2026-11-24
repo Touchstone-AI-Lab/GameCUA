@@ -1,0 +1,62 @@
+{
+  "step": 320,
+  "decision": {
+    "observation": "PERFECT! Now I can see clearly:\n- Upper rock: at approximately (660,161) - this is about x=655-660, the target position!\n- Baba (white ghost showing collision/spiky animation): at approximately (623,161) - Baba is at (623,161), pushed the upper rock to (660,161)\n- Lower rock: at (440,198)\n- Rock inside chamber: at (692,305)\n- SKULL IS DEFEAT: SK ULL(765,298)/IS(765,342)/DEF EAT(765,378) - intact\n- FLAG(868,447) - clearly visible yellow flag\n- ROCK IS PUSH(RO CK 295,305/IS 332,305/PU SH 368,305)\n- FLAG IS WIN, BABA IS YOU at top-left\n- Small dot: (573,161) to the left\n\nThe upper rock is now at (660,161) - very close to x=655 (my target). The target was x=655, and the rock is at ~660 which is either (655) or (660) in grid coordinates. This is the correct position. \n\nNow I need to push the upper rock DOWN from (660,161) to (660,305) = 4 cells down. To do this, I need to be ABOVE the rock at (660,125). Navigate there: from Baba(623,161), go UP to (623,125), then RIGHT to (660,125).",
+    "hypothesis": "Navigate to above the upper rock to push it DOWN to y=305. From Baba(623,161): UP to (623,125), RIGHT to (660,125), then DOWN x4 to push rock from (660,161) to (660,305). Then position lower rock similarly.",
+    "memory": "LEVEL 04: Upper rock at (660,161). Need to push DOWN to (660,305). Go UP to (623,125), RIGHT to (660,125), then DOWN x4. Target: upper rock at (660,305). Then navigate lower rock (440,198) to (618,305). Chain: (618),(655=660),(692) with Baba at (581). Execute UP.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Up"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 223482,
+    "completion_tokens": 1010,
+    "total_tokens": 224492,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 794,
+      "cached_creation_tokens": 222054,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 223482,
+    "output_tokens": 1010,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 14.934192360844463,
+  "successful_request_seconds": 14.934188444167376,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 268109,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 5977.939261609223,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00320_before.png",
+  "pre_execution_pixel_delta": 0.578876953125,
+  "observation_age_seconds": 15.346413969062269,
+  "after": "00320_after.png",
+  "action_seconds": 0.5030454844236374
+}

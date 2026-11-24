@@ -1,0 +1,45 @@
+{
+  "step": 1119,
+  "decision": {
+    "observation": "Top-left icon = 'Build Improvement: Camp (+1 Gold, Provides 0.5 Housing)'. Still only hover, no build. So EVERY improvement icon only shows tooltip. This confirms a hard UI quirk: improvement builds cannot be committed via these icons in this session. The Builder has full movement and 3 builds but cannot act.\n\nThe Builder is on a tile that can hold a Camp? A Camp requires a resource (deer/fur/ivory). If none adjacent, the icon is 'available' but clicking won't place. But the tooltip appearing means the improvement is theoretically available.\n\nGiven the persistent inability to act, I think the actual problem might be that these Builder icons ARE clickable but the build happens on the TILE the builder stands on, and since it's a pre-existing valid tile the project completes instantly but I'm not seeing the movement/build register because... hmm.\n\nLet me step back. The single most important thing: END THE TURN. The Builder needs orders. I'll try the tried-and-true: click Move To '>' (0.909,735), verify armed, then click a NEARBY tile that's clearly empty grass and definitely reachable within 2 moves - like the grass tile immediately south of the builder (the coast tile ~0.47,0.42). Let me click '>' then that tile.",
+    "hypothesis": "Move To + immediate adjacent destination commits a move; earlier it worked once. Arm '>' then click tile just below builder (~0.46,0.43).",
+    "memory": "Improvements hover-only; use Move To to relocate. Builder at ~0.40,0.39 near coast.",
+    "action": {
+      "type": "pointer",
+      "x": 0.909,
+      "y": 0.735,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 41416,
+    "completion_tokens": 404,
+    "total_tokens": 41820,
+    "prompt_tokens_details": {
+      "cached_tokens": 38144
+    },
+    "prompt_cache_hit_tokens": 38144,
+    "prompt_cache_miss_tokens": 3272
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 4.955598489992553,
+  "successful_request_seconds": 4.955585974006681,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 57440,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 6573.509258341772,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "01119_before.png",
+  "pre_execution_pixel_delta": 0.7323332609953703,
+  "observation_age_seconds": 5.803383204998681,
+  "after": "01119_after.png",
+  "action_seconds": 0.8172117009817157
+}

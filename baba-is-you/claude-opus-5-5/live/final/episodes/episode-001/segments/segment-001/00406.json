@@ -1,0 +1,62 @@
+{
+  "step": 406,
+  "decision": {
+    "observation": "Baba moved RIGHT to ~(333,378) - now just LEFT of the rock vertical column's base at x~356. Baba is alive at (333,378). The rock vertical column is at x~356 (y~125-342), and the horizontal row is at y~342 (x~213-356). The rightmost rock of the horizontal row is at x~356, and the vertical column starts at x~356,y~125.\n\nBaba at (333,378). Going RIGHT to x~369 would be RIGHT of the rock vertical column (x~356). Then going UP from x~369 would avoid all rocks (vertical column is at x~356, not x~369).\n\nFrom x~369,y~378: UP to y~342 (no rock at x~369,y~342 - horizontal row ends at x~356), UP to y~305, y~268, y~231, y~194, y~157, y~120, y~83 - free path UP! Then LEFT from x~369 to x~258 (passing through y~109-125 area of ROCK IS STOP text). At y~109 or y~117 (IS position), Baba can push LEFT or RIGHT on the IS block to break ROCK IS STOP.\n\nExecute: RIGHT to x~369 (past rock column), then UP many times to y~109.",
+    "hypothesis": "Baba at (333,378). One more RIGHT to x~369 (right of rock column at x~356). Then UP to y~109 (top row). Then LEFT to position at (295,109) to push IS LEFT, OR push from right side of IS. ROCK IS STOP: RO(213)/CK(213)/IS(258)/ST(295)/OP(295). If Baba at x~295 pushes LEFT, IS at x~258 moves left to x~221, CK at x~213 - are x~221 and x~213 adjacent? Cell grid: if cells are at 213, 250, 287, 324... x~221 rounds to cell 213? Then they'd still be adjacent! Need to confirm cell positions.\n\nAlternatively: push ST/OP RIGHT. Baba approaches IS from LEFT (x~221), pushes RIGHT: IS stays... wait no. Push the whole block. Baba at (221,117) pushes RIGHT: IS(258) pushes ST(295) pushes OP... Baba is to the LEFT of IS, pressing RIGHT pushes IS rightward. IS goes from 258 to 295, ST goes from 295 to 332, OP goes to 369. CK stays at 213. CK(213) and IS(295) are now 82px apart = NOT adjacent. ROCK IS STOP broken! Execute.",
+    "memory": "LEVEL 06: Baba at (333,378). Plan: RIGHT to x~369 (clear of rock column), UP to y~109, LEFT to x~221 (left of IS at x~258), push RIGHT to shift IS-ST-OP chain right, leaving CK(213) and IS(295) not adjacent. ROCK IS STOP breaks! Then rocks passable, walk through L-shape to reach SKULL IS DEFEAT text. Execute RIGHT.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Right"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 48332,
+    "completion_tokens": 1420,
+    "total_tokens": 49752,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 800,
+      "cached_creation_tokens": 46892,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 48332,
+    "output_tokens": 1420,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 12.80452577630058,
+  "successful_request_seconds": 12.804522499907762,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 57010,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7265.357487930451,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00406_before.png",
+  "pre_execution_pixel_delta": 0.014044777199074075,
+  "observation_age_seconds": 13.231833537109196,
+  "after": "00406_after.png",
+  "action_seconds": 0.5213905549608171
+}

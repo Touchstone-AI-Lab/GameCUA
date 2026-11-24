@@ -1,0 +1,62 @@
+{
+  "step": 411,
+  "decision": {
+    "observation": "Baba moved RIGHT to ~(406,378) - alive! Now I can see the full layout CLEARLY:\n\nRock L-shape:\n- Vertical column: x~369, y~109-342 (7 rocks visible going from top to bottom)\n- Horizontal row: y~342, x~213-369 (4 rocks going left)\n\nWait - looking at the image: The vertical column of 7 rocks appears at approximately x~369, running from the top y~109 all the way to y~342. The horizontal row runs LEFT from the bottom of the vertical column (x~369,y~342) to x~213.\n\nSo the vertical column IS at x~369! Baba was right to go to x~406 to clear it.\n\nNow at (406,378), going UP: x~406, no rocks in the vertical column (x~369) to block. The vertical column ends at x~369, and Baba is at x~406. UP should be clear!\n\nAlso visible: 'x' text block at ~(809,244) in the right flag chamber - this is a small 'x' text. FLAG at (843,225) with '+' sparkle.\n\nNow path is clear: UP from (406,378) to y~117, then LEFT to x~221 (one cell left of IS at x~258), push RIGHT to break ROCK IS STOP.\n\nThe ROCK IS STOP text: RO(213,109), CK(213,125), IS(258,117), ST(295,109), OP(295,125). The IS block is at x~258,y~117. Baba needs to reach x~221,y~117 then push RIGHT.\n\nFrom (406,378), going UP to y~117: 406,342 → 406,305 → 406,268 → 406,231 → 406,194 → 406,157 → 406,120 → 406,83? Actually y~117 is between y~125 and y~109. The ROCK IS STOP text is at y~109-125. Let me count up: 378→342→305→268→231→194→157→120→~83 = 8 UP presses. But need y~117, so stop at y~120.",
+    "hypothesis": "Baba at (406,378). UP path clear (rock column at x~369, Baba at x~406). Go UP 8 times to y~120, then LEFT 4 cells to x~258 area to reach IS block of ROCK IS STOP. Then push RIGHT to break rule. Execute UP.",
+    "memory": "LEVEL 06: Baba at (406,378). Rock vertical column at x~369 (y~109-342). Baba at x~406 is clear. Go UP 8 times to y~120, then LEFT to x~221, RIGHT to push IS block of ROCK IS STOP. Execute UP repeatedly.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Up"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 44676,
+    "completion_tokens": 1290,
+    "total_tokens": 45966,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 700,
+      "cached_creation_tokens": 43332,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 44676,
+    "output_tokens": 1290,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 11.767355233896524,
+  "successful_request_seconds": 11.767352308612317,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 60139,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7315.343812734354,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00411_before.png",
+  "pre_execution_pixel_delta": 0.03623806423611111,
+  "observation_age_seconds": 12.09021376632154,
+  "after": "00411_after.png",
+  "action_seconds": 0.49372207885608077
+}

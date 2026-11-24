@@ -1,0 +1,52 @@
+{
+  "step": 601,
+  "decision": {
+    "observation": "The brick (player) moved down to ~(0.48,0.72); another grey brick tile sits right of it at (0.49,0.72) — all wall bricks move together. IS word at (0.475,0.525); FLAG word at (0.505,0.485); WIN word at (0.60,0.268) inside the flag pen; loose IS at (0.51,0.20). Flags remain passable (FLAG IS STOP broken).",
+    "hypothesis": "Plan: slide IS one cell right so it sits under FLAG (column 0.505), then bring WIN down and left to complete vertical 'FLAG IS WIN'; finally move a brick onto any flag to win.",
+    "memory": "Level 2 'NOW WHAT IS THIS?': player = all grey wall bricks (WALL IS YOU); flags passable. Words: FLAG(0.505,0.485), IS(0.475,0.525), WIN(0.60,0.268), loose IS(0.51,0.20), WALL/IS/YOU x~0.372, STOP low (0.66,0.63). Brick (0.48,0.72). Grid ~0.028w x 0.036h. Plan: Left, Up×5, Right(push IS to 0.505); then to above WIN (0.60,0.235), Down×8 (WIN to 0.56), Right, Left×3 (WIN to 0.505); then step onto a flag. Z=undo, R=restart.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Left"
+      ],
+      "duration": 0.12,
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 213178,
+    "completion_tokens": 1025,
+    "total_tokens": 214203,
+    "prompt_tokens_details": {
+      "cached_tokens": 209792
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 604
+    },
+    "prompt_cache_hit_tokens": 209792,
+    "prompt_cache_miss_tokens": 3386
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 6.6065000290982425,
+  "successful_request_seconds": 6.606497514992952,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 251640,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 6989.970676660538,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00601_before.png",
+  "pre_execution_pixel_delta": 1.3986266637731481,
+  "observation_age_seconds": 6.887060643173754,
+  "after": "00601_after.png",
+  "action_seconds": 0.4853764711879194
+}

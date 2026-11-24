@@ -1,0 +1,62 @@
+{
+  "step": 372,
+  "decision": {
+    "observation": "Baba moved DOWN to ~(621,449) - now at the SAME ROW as the WALL IS STOP text blocks! Baba is at (621,449). The text blocks are: WA/LL at ~(644,449), IS at ~(681,449), ST/OP at ~(719,449). Baba is at x~621, directly to the LEFT of WA/LL at x~644. If Baba moves RIGHT, it will push WA/LL right, which will push IS right, which will push ST/OP right - keeping them all aligned! That would NOT break the rule.\n\nInstead, I need to push ST/OP to the RIGHT WITHOUT pushing WA/LL and IS. To do that:\n1. Go to IS position (x~681) by going RIGHT through WA/LL... can't do that (WA/LL is a text block, pushable).\n2. Go AROUND to the right side of ST/OP and push it LEFT... but that would push ST/OP into IS keeping alignment.\n3. Push IS DOWN or UP to break vertical alignment - but it's a horizontal rule so horizontal alignment matters.\n4. Go to x~681 (IS) and push UP or DOWN to displace IS from the row - but that would require Baba to be ABOVE or BELOW IS.\n\nBetter: Get BELOW IS or ST/OP and push them UP, or get ABOVE and push DOWN - but the rule is horizontal so vertical displacement breaks it!\n\nBaba is at (621,449). IS is at (681,449). If Baba goes to (681,415) [ABOVE IS] and pushes DOWN, IS moves to (681,486) breaking WALL IS STOP!",
+    "hypothesis": "Push IS out of horizontal alignment. Go to position ABOVE IS (681,415) and push DOWN to move IS to (681,486), breaking WALL IS STOP. To get above IS, Baba needs to go UP to y~415, then RIGHT to x~681. Execute UP from current (621,449).",
+    "memory": "LEVEL 06: Baba at (621,449) same row as WA/LL IS ST/OP. Cannot push whole chain (keeps alignment). Must push IS or ST/OP vertically. Plan: go UP to y~415, RIGHT to x~681 (above IS), push DOWN to displace IS from row, breaking WALL IS STOP. Execute UP.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Up"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 28734,
+    "completion_tokens": 1162,
+    "total_tokens": 29896,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 688,
+      "cached_creation_tokens": 27414,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 28734,
+    "output_tokens": 1162,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 10.919653663411736,
+  "successful_request_seconds": 10.919651087839156,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 29227,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 6839.170766758267,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00372_before.png",
+  "pre_execution_pixel_delta": 0.017806351273148148,
+  "observation_age_seconds": 11.247579065151513,
+  "after": "00372_after.png",
+  "action_seconds": 0.5446709347888827
+}

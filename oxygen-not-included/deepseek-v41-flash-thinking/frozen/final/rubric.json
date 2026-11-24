@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "oni-development-v2",
+  "game_id": "oxygen-not-included",
+  "version": 2,
+  "calibrated": false,
+  "milestones": [
+    {
+      "schema_version": 1,
+      "id": "foundation",
+      "description": "Complete at least one new bed and at least one new toilet. Handwashing facilities are not required. Blueprints do not count.",
+      "predicate": "development_foundation_v2",
+      "points": 20,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "production",
+      "description": "After setup, produce at least 10000 joules of electricity, 20 kilograms of oxygen and 1000 kilocalories of food, established by native positive-production records rather than building counts or existing stock.",
+      "predicate": "development_production",
+      "points": 20,
+      "prerequisites": [
+        "foundation"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "research",
+      "description": "Complete at least one technology after setup.",
+      "predicate": "development_research",
+      "points": 20,
+      "prerequisites": [
+        "production"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "expansion",
+      "description": "Complete at least three technologies after setup, including at least one whose pinned native cost requires advanced research points.",
+      "predicate": "development_expansion",
+      "points": 20,
+      "prerequisites": [
+        "research"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "development",
+      "description": "Complete at least six technologies after setup, including at least two whose pinned native costs require advanced research points. No additional waiting-cycle requirement applies.",
+      "predicate": "development_deep",
+      "points": 20,
+      "prerequisites": [
+        "expansion"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "step": 57,
+  "decision": {
+    "observation": "Car at 0 mph, timer 01:16.627. Same logging yard junction. White lane markings run bottom-to-upper-right through junction. Trucks travel upper-right road. All forward W+D and W+A inputs produce 0 mph. Car appears pinned against barrels with its current heading. 20+ failed attempts at this junction.",
+    "hypothesis": "Car is trapped with its nose against a barrel regardless of steering direction. W+A also yielded 0 mph. Need to back up significantly more to create clearance for a wider turn. Longer reverse (S alone, ~1.0s) should create enough distance from barrels to then execute a right turn onto the truck road.",
+    "memory": "JUNCTION STUCK: W alone=0, W+D at all durations=0 (except one 1mph), W+A=0, S alone=2-4mph (works). Car must turn RIGHT onto upper-right truck road. Strategy: use S for full 1s to create clearance, then attempt W+D turn from greater distance.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "s"
+      ],
+      "duration": 1.0,
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 18984,
+    "completion_tokens": 3056,
+    "total_tokens": 22040,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 19.90695233599945,
+  "successful_request_seconds": 19.90694514400093,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 16499,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 1634.0830100605654,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00057_before.png",
+  "pre_execution_pixel_delta": 0.4940360966435185,
+  "observation_age_seconds": 20.33090516000084,
+  "frozen_step": {
+    "host_seconds": 1.6457909050004673,
+    "nominal_seconds": 1.0,
+    "action_clamped": false
+  },
+  "after": "00057_after.png",
+  "action_seconds": 1.8381684920004773
+}

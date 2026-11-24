@@ -1,0 +1,52 @@
+{
+  "step": 681,
+  "decision": {
+    "observation": "Clear board view: brick player at ~(765,420) plus another brick at (640,615). Words: pen IS at (690,450); FLAG word at (655,485); control column at x~475 with WALL(~480)/IS(520)/YOU pink(555); WIN word at (510,555). All flags passable (FLAG IS STOP broken). The area above the control column (~row 420) is open black floor.",
+    "hypothesis": "Plan 'FLAG IS WIN' horizontal on row 485: (1) push the WALL-IS-YOU column down one cell by standing above WALL and pressing Down, freeing cells (475,485) and (475,555); (2) push pen IS down to (690,485) — forming 'FLAG IS'; (3) push WIN up to row 485 and right to (725,485) via the freed left column. First walk the brick left along row 420 toward x~475.",
+    "memory": "Level 2 'NOW WHAT IS THIS?': player = grey wall bricks (WALL IS YOU; column x~475 rows 480/520/555; can shift whole column). Flags passable. Grid ~35px: columns 475/510/545/580/615/650/685/720; rows 420/450/485/520/555/590/615. Words: IS(690,450), FLAG(655,485), WIN(510,555). Goal: FLAG(655,485) IS(690,485) WIN(725,485); touch flag to win. Z=undo, R=restart.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Left"
+      ],
+      "duration": 1.0,
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 246574,
+    "completion_tokens": 9232,
+    "total_tokens": 255806,
+    "prompt_tokens_details": {
+      "cached_tokens": 243328
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 8818
+    },
+    "prompt_cache_hit_tokens": 243328,
+    "prompt_cache_miss_tokens": 3246
+  },
+  "purpose": "decision",
+  "returned_model": "deepseek-flash",
+  "attempts": 1,
+  "latency_seconds": 56.019386884057894,
+  "successful_request_seconds": 56.019384379033,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 289103,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 8537.150295734406,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00681_before.png",
+  "pre_execution_pixel_delta": 1.361234447337963,
+  "observation_age_seconds": 56.29799012793228,
+  "after": "00681_after.png",
+  "action_seconds": 1.3768466510809958
+}

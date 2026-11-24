@@ -1,0 +1,56 @@
+{
+  "step": 819,
+  "decision": {
+    "observation": "4 mph, gear 1, timer 59:59.000, dots pale. High-overhead view: the car sits fully on grass LEFT of the gravel, nose up-frame. The road bends right around a boulder on the right verge, then swings back left into the pines.",
+    "hypothesis": "The 0.4 s steer cost 15 -> 4 mph and pushed the car off the left edge — steering is far more expensive here than the speed model suggested. The road lies to the car's right, so a long W+D beat should build speed and swing it back onto the gravel, the pattern that worked before from grass.",
+    "memory": "A 0.4 s W+A at 15 mph costs ~11 mph and drops the car off-road — steering is expensive enough that even short steers need a long throttle beat afterwards. Off-road at 4 mph near boulders: W+D long beat is the recovery.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "w",
+        "d"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 1.3
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 15459,
+    "completion_tokens": 573,
+    "total_tokens": 16032,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 9.757150700002967,
+  "successful_request_seconds": 9.757142799004214,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 14132,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 9476.754965340835,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00819_before.png",
+  "pre_execution_pixel_delta": 18.94006763599537,
+  "observation_age_seconds": 10.200212053998257,
+  "after": "00819_after.png",
+  "action_seconds": 1.8023637829974177
+}

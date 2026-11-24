@@ -1,0 +1,81 @@
+{
+  "step": 523,
+  "decision": {
+    "observation": "Car stationary at 0 mph on winding forest road; log pile visible on left side; timer 59:59.000; gear 1 with no blue lights lit; road curves right ahead.",
+    "hypothesis": "W throttle 1.0s rejected due to observation_age_limit; blue lights none but car still at 0 mph; holding W+D (throttle + right steer) for 1.0s on fresh frame will accelerate and follow the curve.",
+    "memory": "W throttle 1.0s rejected due to observation_age_limit; car remained at 0 mph; prior W+D 1.0s completed but car remained at 0 mph; successful W throttle previously reached 6 mph; controls W=throttle, A/D=steer, Space=handbrake, Enter=confirm.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "w",
+        "d"
+      ],
+      "duration": 1.0,
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 6624,
+    "completion_tokens": 2180,
+    "total_tokens": 8804,
+    "prompt_tokens_details": {
+      "cached_tokens": 192,
+      "audio_tokens": 0,
+      "text_tokens": 3864,
+      "image_tokens": 2760
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1948,
+      "audio_tokens": 0,
+      "text_tokens": 232,
+      "image_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "grok-4.7",
+  "attempts": 1,
+  "latency_seconds": 34.651058542998726,
+  "successful_request_seconds": 56.19381296500069,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [
+      {
+        "usage": {
+          "prompt_tokens": 11451,
+          "completion_tokens": 1327,
+          "total_tokens": 12778,
+          "prompt_tokens_details": {
+            "cached_tokens": 192,
+            "audio_tokens": 0,
+            "text_tokens": 0,
+            "image_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1100,
+            "audio_tokens": 0,
+            "text_tokens": 227,
+            "image_tokens": 0
+          }
+        },
+        "purpose": "compaction",
+        "returned_model": "grok-4.7",
+        "attempts": 1,
+        "latency_seconds": 21.542767863000336,
+        "successful_request_seconds": 21.542761796001287
+      }
+    ],
+    "estimated_input_tokens": 7845,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7433.887192935961,
+  "execution_status": "rejected",
+  "executed": false,
+  "before": "00523_before.png",
+  "pre_execution_pixel_delta": 0.4360427517361111,
+  "observation_age_seconds": 56.6603540849992,
+  "reason": "observation_age_limit"
+}

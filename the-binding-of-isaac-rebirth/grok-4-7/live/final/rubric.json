@@ -1,0 +1,579 @@
+{
+  "schema_version": 1,
+  "id": "the-binding-of-isaac-rebirth-points-v1",
+  "game_id": "the-binding-of-isaac-rebirth",
+  "version": 1,
+  "calibrated": false,
+  "milestones": [
+    {
+      "schema_version": 1,
+      "id": "leave-start",
+      "description": "Leave the start room and enter another room",
+      "predicate": "left_start_room",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "floor1-clear-1",
+      "description": "On floor 1, clear a room that holds enemies (it is followed by another room; its doors stay closed until its enemies die)",
+      "predicate": "floor1_cleared_1",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "floor1-clear-2",
+      "description": "On floor 1, clear a second room that holds enemies",
+      "predicate": "floor1_cleared_2",
+      "points": 1,
+      "prerequisites": [
+        "floor1-clear-1"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "floor1-closer-1",
+      "description": "On floor 1, enter a room 3 room transitions from the boss room through normal doors (the start room is four)",
+      "predicate": "floor1_closer_1",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "floor1-closer-2",
+      "description": "On floor 1, enter a room 2 room transitions from the boss room through normal doors (the start room is four)",
+      "predicate": "floor1_closer_2",
+      "points": 1,
+      "prerequisites": [
+        "floor1-closer-1"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "floor1-closer-3",
+      "description": "On floor 1, enter a room 1 room transition from the boss room through normal doors (the start room is four)",
+      "predicate": "floor1_closer_3",
+      "points": 1,
+      "prerequisites": [
+        "floor1-closer-2"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "floor1-closer-4",
+      "description": "On floor 1, enter the boss room",
+      "predicate": "floor1_closer_4",
+      "points": 2,
+      "prerequisites": [
+        "floor1-closer-3"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "floor1-explored",
+      "description": "On floor 1, enter every normal room of the floor (660, 941, 916 and 85 on this seed)",
+      "predicate": "floor1_explored",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "floor-2",
+      "description": "Defeat the floor 1 boss and reach the second floor",
+      "predicate": "second_floor",
+      "points": 4,
+      "prerequisites": [
+        "floor1-closer-4"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "floor-3",
+      "description": "Reach the third floor in the same episode",
+      "predicate": "caves",
+      "points": 4,
+      "prerequisites": [
+        "floor-2"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "floor-4",
+      "description": "Reach the fourth floor in the same episode",
+      "predicate": "fourth_floor",
+      "points": 4,
+      "prerequisites": [
+        "floor-3"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "floor-5",
+      "description": "Reach the fifth floor in the same episode",
+      "predicate": "depths",
+      "points": 5,
+      "prerequisites": [
+        "floor-4"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "floor-6",
+      "description": "Reach the sixth floor in the same episode",
+      "predicate": "sixth_floor",
+      "points": 5,
+      "prerequisites": [
+        "floor-5"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "floor-7",
+      "description": "Reach the seventh floor in the same episode",
+      "predicate": "seventh_floor",
+      "points": 5,
+      "prerequisites": [
+        "floor-6"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "floor-8",
+      "description": "Reach the eighth floor in the same episode",
+      "predicate": "eighth_floor",
+      "points": 5,
+      "prerequisites": [
+        "floor-7"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "mom",
+      "description": "Defeat Mom (the native Mom clear time is logged)",
+      "predicate": "mom_defeated",
+      "points": 6,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "rooms-3",
+      "description": "Enter 3 different rooms besides the start room (distinct floor, room type and variant)",
+      "predicate": "rooms_3",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "rooms-5",
+      "description": "Enter 5 different rooms besides the start room (distinct floor, room type and variant)",
+      "predicate": "rooms_5",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "rooms-8",
+      "description": "Enter 8 different rooms besides the start room (distinct floor, room type and variant)",
+      "predicate": "rooms_8",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "rooms-12",
+      "description": "Enter 12 different rooms besides the start room (distinct floor, room type and variant)",
+      "predicate": "rooms_12",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "rooms-16",
+      "description": "Enter 16 different rooms besides the start room (distinct floor, room type and variant)",
+      "predicate": "rooms_16",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "rooms-20",
+      "description": "Enter 20 different rooms besides the start room (distinct floor, room type and variant)",
+      "predicate": "rooms_20",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "rooms-25",
+      "description": "Enter 25 different rooms besides the start room (distinct floor, room type and variant)",
+      "predicate": "rooms_25",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "rooms-30",
+      "description": "Enter 30 different rooms besides the start room (distinct floor, room type and variant)",
+      "predicate": "rooms_30",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "rooms-35",
+      "description": "Enter 35 different rooms besides the start room (distinct floor, room type and variant)",
+      "predicate": "rooms_35",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "rooms-40",
+      "description": "Enter 40 different rooms besides the start room (distinct floor, room type and variant)",
+      "predicate": "rooms_40",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "rooms-50",
+      "description": "Enter 50 different rooms besides the start room (distinct floor, room type and variant)",
+      "predicate": "rooms_50",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "collectible-1",
+      "description": "Pick up a collectible item",
+      "predicate": "collectible_1",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "collectible-2",
+      "description": "Pick up 2 collectible items in the same episode",
+      "predicate": "collectible_2",
+      "points": 1,
+      "prerequisites": [
+        "collectible-1"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "collectible-3",
+      "description": "Pick up 3 collectible items in the same episode",
+      "predicate": "collectible_3",
+      "points": 1,
+      "prerequisites": [
+        "collectible-2"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "collectible-4",
+      "description": "Pick up 4 collectible items in the same episode",
+      "predicate": "collectible_4",
+      "points": 1,
+      "prerequisites": [
+        "collectible-3"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "collectible-5",
+      "description": "Pick up 5 collectible items in the same episode",
+      "predicate": "collectible_5",
+      "points": 2,
+      "prerequisites": [
+        "collectible-4"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "collectible-6",
+      "description": "Pick up 6 collectible items in the same episode",
+      "predicate": "collectible_6",
+      "points": 2,
+      "prerequisites": [
+        "collectible-5"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "collectible-7",
+      "description": "Pick up 7 collectible items in the same episode",
+      "predicate": "collectible_7",
+      "points": 2,
+      "prerequisites": [
+        "collectible-6"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "collectible-8",
+      "description": "Pick up 8 collectible items in the same episode",
+      "predicate": "collectible_8",
+      "points": 2,
+      "prerequisites": [
+        "collectible-7"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "collectible-9",
+      "description": "Pick up 9 collectible items in the same episode",
+      "predicate": "collectible_9",
+      "points": 2,
+      "prerequisites": [
+        "collectible-8"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "collectible-10",
+      "description": "Pick up 10 collectible items in the same episode",
+      "predicate": "collectible_10",
+      "points": 3,
+      "prerequisites": [
+        "collectible-9"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "collectible-11",
+      "description": "Pick up 11 collectible items in the same episode",
+      "predicate": "collectible_11",
+      "points": 3,
+      "prerequisites": [
+        "collectible-10"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "collectible-12",
+      "description": "Pick up 12 collectible items in the same episode",
+      "predicate": "collectible_12",
+      "points": 3,
+      "prerequisites": [
+        "collectible-11"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "visit-shop",
+      "description": "Enter a shop",
+      "predicate": "visited_shop",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "visit-treasure",
+      "description": "Enter a treasure room",
+      "predicate": "visited_treasure",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "visit-miniboss",
+      "description": "Enter a mini-boss room",
+      "predicate": "visited_miniboss",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "visit-secret",
+      "description": "Enter a secret room",
+      "predicate": "visited_secret",
+      "points": 2,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "visit-super-secret",
+      "description": "Enter a super secret room",
+      "predicate": "visited_super_secret",
+      "points": 2,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "visit-arcade",
+      "description": "Enter an arcade",
+      "predicate": "visited_arcade",
+      "points": 1,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "visit-challenge",
+      "description": "Enter a challenge room",
+      "predicate": "visited_challenge",
+      "points": 2,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "visit-library",
+      "description": "Enter a library",
+      "predicate": "visited_library",
+      "points": 2,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "visit-devil",
+      "description": "Enter a devil deal room",
+      "predicate": "visited_devil",
+      "points": 2,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "visit-angel",
+      "description": "Enter an angel room",
+      "predicate": "visited_angel",
+      "points": 2,
+      "prerequisites": [],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "treasure-floors-2",
+      "description": "Enter a treasure room on 2 different floors",
+      "predicate": "treasure_floors_2",
+      "points": 1,
+      "prerequisites": [
+        "visit-treasure"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "treasure-floors-3",
+      "description": "Enter a treasure room on 3 different floors",
+      "predicate": "treasure_floors_3",
+      "points": 1,
+      "prerequisites": [
+        "treasure-floors-2"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    },
+    {
+      "schema_version": 1,
+      "id": "treasure-floors-4",
+      "description": "Enter a treasure room on 4 different floors",
+      "predicate": "treasure_floors_4",
+      "points": 1,
+      "prerequisites": [
+        "treasure-floors-3"
+      ],
+      "duplicate_credit": "once_per_trial",
+      "scope": "episode"
+    }
+  ]
+}

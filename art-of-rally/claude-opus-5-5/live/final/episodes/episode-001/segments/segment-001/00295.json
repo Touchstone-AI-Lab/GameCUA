@@ -1,0 +1,55 @@
+{
+  "step": 295,
+  "decision": {
+    "observation": "Car at 4 mph, slightly right of centre with a blue puddle under its right flank; large puddle left of the lane, more up-screen. Lane bends left then eases right toward a pale-lit stretch. Red X lit, all dots dark, timer 59:59.",
+    "hypothesis": "This frame is nearly pixel-identical to one from several actions ago (same puddle and bottom-right barrel positions), which suggests the car may be oscillating around the same spot rather than advancing. Plain throttle first, then compare landmarks across frames.",
+    "memory": "Watch for frame-to-frame duplication: if consecutive frames repeat landmark positions, the car is stalled in place rather than moving, and steering should not be added on top of a stall.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "w"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 1.0
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 15969,
+    "completion_tokens": 1104,
+    "total_tokens": 17073,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 2,
+  "latency_seconds": 18.573742133005,
+  "successful_request_seconds": 9.841035903002194,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 14582,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 3633.736293571834,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00295_before.png",
+  "pre_execution_pixel_delta": 10.005003255208333,
+  "observation_age_seconds": 18.9790330859978,
+  "after": "00295_after.png",
+  "action_seconds": 1.482317858004535
+}

@@ -1,0 +1,56 @@
+{
+  "step": 438,
+  "decision": {
+    "observation": "Clock still 7:50 am. Farmer at ~x0.50,y0.79 near the rug, unchanged position for 55+ consecutive turns. Decorative Bowl tooltip fading at bottom-left; slot 8 shows empty again. The click at x0.65,y0.55 did not advance the clock, confirming focus is lost. Energy bar critically low (green sliver). Exit notch at bottom center ~x0.49,y0.90.",
+    "hypothesis": "S advances the clock but has never moved the farmer even one pixel in 55 turns. Need to test W (north) to determine if any WASD direction produces sprite movement. If W also fails, movement is broken for keyboard entirely and Escape menu may be the only way to reset state.",
+    "memory": "STUCK 55+ TURNS: S advances clock but zero movement at x0.50,y0.79. Must test W (north). If W works: rug or exit tile is blocking south path, need to detour around it. If W also fails: WASD movement is fundamentally broken in this session and Escape menu or waiting for pass-out at 2am is the only reset option. Farmhouse exit at x0.49,y0.90. Wed Spring 3, 7:50 am, 450g, rain day, energy critically low.",
+    "action": {
+      "type": "pointer",
+      "x": 0.5,
+      "y": 0.35,
+      "button": "left"
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 33842,
+    "completion_tokens": 3057,
+    "total_tokens": 36899,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 17.36365566821769,
+  "successful_request_seconds": 17.363648070953786,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 29322,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7744.04980487423,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00438_before.png",
+  "pre_execution_pixel_delta": 0.0,
+  "observation_age_seconds": 17.44842060888186,
+  "frozen_step": {
+    "host_seconds": 2.0064880386926234,
+    "nominal_seconds": 2.0,
+    "action_clamped": false
+  },
+  "after": "00438_after.png",
+  "action_seconds": 2.02518492564559
+}

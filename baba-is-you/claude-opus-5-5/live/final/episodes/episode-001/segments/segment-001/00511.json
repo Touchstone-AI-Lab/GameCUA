@@ -1,0 +1,62 @@
+{
+  "step": 511,
+  "decision": {
+    "observation": "Baba moved LEFT to ~(184,375)! Baba (white ghost) is now at approximately (184,375), which is LEFT of the rock row's leftmost rock. Looking at the screenshot:\n\n- Baba at (184,375) - to the LEFT of all rock row rocks\n- Rock row: rocks visible at approximately x~220 to x~370, y~342\n- SK/ULL text at (213,197), IS at (258,197), DEF/EAT at (305,197)\n- FL/AG text at (213,272), IS at (258,272), WIN at (305,272)\n- ROCK IS STOP at (213,120) etc.\n- The 'x' text near FLAG(843,230) is gone\n\nIMPORTANT: Baba is now at (184,375), LEFT of the rock row. At x~184, going UP:\n- y~342: rock row starts at x~220, so x~184 at y~342 is CLEAR\n- y~305: clear\n- y~272: FL/AG is at (213,272) - x~213 not x~184, so clear\n- y~197: SK/ULL is at (213,197) - x~213 not x~184, so clear\n- y~120: RO/CK is at (213,120) - x~213 not x~184, so clear\n\nBaba can go UP at x~184 freely! But I need to get to x~213 to push SK/ULL. \n\nPlan: Go UP from (184,375) to (184,160) [between ROCK IS at y~120 and SKULL IS at y~197], then go RIGHT to (213,160), then DOWN to push SK/ULL(213,197) DOWN, breaking SKULL IS DEFEAT.\n\nExecute UP!",
+    "hypothesis": "Baba at (184,375), LEFT of rock row. Go UP at x~184 to y~160 (clear of all obstacles), then RIGHT to x~213, then DOWN to push SK/ULL(213,197) down. SKULL IS DEFEAT broken! Execute UP.",
+    "memory": "LEVEL 06: Baba at (184,375). x~184 is LEFT of rock row (starts x~220). Path UP at x~184 is clear. Plan: UP to y~160, RIGHT to x~213, DOWN pushes SK/ULL(213,197) to (213,234) - disconnects from IS(258,197). SKULL IS DEFEAT BROKEN! Then skulls harmless, walk to FLAG(843,232). Execute UP repeatedly to reach y~160.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Up"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 49168,
+    "completion_tokens": 1090,
+    "total_tokens": 50258,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 1080,
+      "cached_creation_tokens": 47426,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 49168,
+    "output_tokens": 1090,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 9.791485148947686,
+  "successful_request_seconds": 9.791480781044811,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 55527,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 8678.579125373159,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00511_before.png",
+  "pre_execution_pixel_delta": 1.175083912037037,
+  "observation_age_seconds": 10.166330848820508,
+  "after": "00511_after.png",
+  "action_seconds": 0.5741100609302521
+}

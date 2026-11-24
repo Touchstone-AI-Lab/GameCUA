@@ -1,0 +1,62 @@
+{
+  "step": 385,
+  "decision": {
+    "observation": "Baba moved LEFT to ~(584,231) - passing through the stone wall of the main chamber (WALL IS STOP broken, walls passable)! Baba is now OUTSIDE the main chamber on the left side, alive. The flag with '+' sparkle is visible at ~(843,222) in the right chamber. FLAG IS WIN active.\n\nBaba at (584,231). The SK/ULL IS DEF/EAT text blocks are at the far left: SK(213,188), ULL(213,206), IS(251,197), DEF(289,188), EAT(289,206). Baba needs to navigate LEFT to x~213 area.\n\nThe rock L-shape is in the way: vertical column at x~370 (y~125-342), horizontal row at y~342 (x~213-370). ROCK IS STOP = rocks are solid, Baba cannot pass through rocks (rocks are NOT walls, they are ROCKS - ROCK IS STOP makes them stop objects, not walls, so WALL IS STOP breaking doesn't affect rocks!).\n\nBaba cannot pass through rocks. The vertical rock column at x~370 runs from y~125 to y~342. To get LEFT of the rock column, Baba needs to go around it - either ABOVE the top rock (y~125 - top of level?) or BELOW the bottom rock at y~342 (go to y~378 area which has skull row, or y~415 area below).\n\nFrom Baba at (584,231), going LEFT: hits stone wall (passable, go through) then hits rock column at x~370 (NOT passable - rocks STOP).\n\nBaba needs to go BELOW the rock column (y > 342, around y~415) then LEFT past x~370, then UP to y~197 area to reach SK/ULL IS DEF/EAT.",
+    "hypothesis": "Navigate: LEFT through stone walls to just right of rock column, then DOWN to y~415 (below rock column bottom at y~342), then LEFT past x~370, then UP to y~197, then RIGHT to SK/ULL IS DEF/EAT. But skull row at y~378 starts at x~658, and Baba will be at x~370 area which is safe from skull row. Execute LEFT to approach rock column.",
+    "memory": "LEVEL 06: Baba at (584,231) outside main chamber, alive, walls passable. Rock column at x~370 (y~125-342) blocks leftward movement (ROCK IS STOP). Must go BELOW rock column: go DOWN to y~415 (below rock bottom at y~342), then LEFT past x~370, then UP to reach SK/ULL IS DEF/EAT at (213,188-206). Execute LEFT toward rock column then navigate around it below.",
+    "action": {
+      "type": "control",
+      "keys": [
+        "Left"
+      ],
+      "buttons": [],
+      "dx": 0.0,
+      "dy": 0.0,
+      "duration": 0.1
+    },
+    "terminal_candidate": false,
+    "request_compaction": false
+  },
+  "usage": {
+    "prompt_tokens": 33636,
+    "completion_tokens": 1350,
+    "total_tokens": 34986,
+    "usage_semantic": "openai",
+    "usage_source": "anthropic",
+    "prompt_tokens_details": {
+      "cached_tokens": 680,
+      "cached_creation_tokens": 32332,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "input_tokens": 33636,
+    "output_tokens": 1350,
+    "input_tokens_details": null
+  },
+  "purpose": "decision",
+  "returned_model": "claude-opus-5-5",
+  "attempts": 1,
+  "latency_seconds": 10.718660360202193,
+  "successful_request_seconds": 10.718657365068793,
+  "context": {
+    "engine": "openai-agents.SQLiteSession",
+    "compactions": [],
+    "estimated_input_tokens": 38978,
+    "token_accounting": "ceil UTF-8 bytes / 3 plus fixed image allowance"
+  },
+  "elapsed": 7009.57327424828,
+  "execution_status": "completed",
+  "executed": true,
+  "before": "00385_before.png",
+  "pre_execution_pixel_delta": 1.1297985387731482,
+  "observation_age_seconds": 11.00883682211861,
+  "after": "00385_after.png",
+  "action_seconds": 0.49551302334293723
+}
