@@ -31,6 +31,7 @@ def webp(src, dst, width=None, q=78, im=None):
 
 def tex_plain(s):
     """Strip the few LaTeX constructs used in the paper's game texts."""
+    s = re.sub(r'\\benchmark(\{\})?', 'GameCUA', s)
     s = re.sub(r'\\par\\smallskip|\\par\b', ' ', s)
     s = re.sub(r'\\(emph|textit|textbf|texttt)\{([^}]*)\}', r'\2', s)
     s = s.replace('~', ' ').replace('\\,', ' ').replace('---', '—').replace('--', '–').replace("\\'", "'")
@@ -115,7 +116,8 @@ def main():
         steps = []
         for i, r in enumerate(replays.get(slug, [])):
             webp(f"{DATA}/{r['img']}", f'{PUB}/replay/{slug}/{i:02d}.webp', 1100, 74)
-            steps.append({k: r[k] for k in ('observation', 'hypothesis', 'action')})
+            steps.append({**{k: r[k] for k in ('observation', 'hypothesis', 'action')},
+                          'decision': int(os.path.basename(r['img']).split('_')[0])})
         agent, mode = picked[slug]['trial'].split('/')
         meta = rows.get(name, rows.get(name.replace('The Binding of Isaac', 'The Binding of Isaac'), {}))
         gi, gc = intro.get(name, ('', ''))

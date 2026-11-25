@@ -5,7 +5,7 @@ export type Action = {
   type: string; keys?: string[]; duration?: number; buttons?: string[]; dx?: number; dy?: number;
   x?: number; y?: number; button?: string; to_x?: number; to_y?: number; seconds?: number; text?: string;
 };
-export type Step = { observation: string; hypothesis: string; action: Action };
+export type Step = { observation: string; hypothesis: string; action: Action; decision: number };
 export type Game = {
   slug: string; name: string; genre: string; timing: string; milestones: number; trials: number;
   intro: string; controls: string; logo: boolean; shots: number; best: { agent: string; mode: string };

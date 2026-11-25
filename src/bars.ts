@@ -1,17 +1,17 @@
 // Scores: a 3D field of 15 games x 6 agents. Bar height is the milestone score; the Live/Frozen switch
-// animates every bar to the other mode. Hover shows the exact number, drag orbits the field.
+// animates every bar to the other mode. Pointing at a bar dims the other games and prints that game's six scores.
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { data, type Mode } from './data';
 
 export const MODEL_COLORS = ['#d9714f', '#d9a63a', '#80a99c', '#8fa7c4', '#c98fa5', '#e9e2cf'];
 
-export function bars(canvas: HTMLCanvasElement, tip: HTMLElement) {
+export function bars(canvas: HTMLCanvasElement) {
   const wrap = canvas.parentElement!;
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.shadowMap.enabled = true;
-    const night = new THREE.Color('#121b17');
+  const night = new THREE.Color('#121b17');
   const scene = new THREE.Scene();
   scene.background = night;
   scene.fog = new THREE.Fog(night, 30, 60);
@@ -55,11 +55,13 @@ export function bars(canvas: HTMLCanvasElement, tip: HTMLElement) {
     el.textContent = text;
     wrap.appendChild(el);
     labels.push({ el, p });
+    return el;
   };
-  G.forEach((g, gi) => label(g.name.replace('The Binding of Isaac', 'Isaac').replace('Hollow Knight: ', '').replace('Oxygen Not Included', 'ONI').replace('Untitled Goose Game', 'Goose').replace('Civilization VI', 'Civ VI'),
-    new THREE.Vector3(gi * GX - ox, 0, oz + 1.6)));
-  M.forEach((m, mi) => label(m, new THREE.Vector3(ox + 1.9, 0, mi * MZ - oz), 'model'));
+  const gameLabels = G.map((g, gi) => label(g.name.replace('The Binding of Isaac', 'Isaac').replace('Hollow Knight: ', '').replace('Oxygen Not Included', 'ONI').replace('Untitled Goose Game', 'Goose').replace('Civilization VI', 'Civ VI'),
+    new THREE.Vector3(gi * GX - ox, 0, oz + 1.6), 'game'));
+  M.forEach((m, mi) => label(m, new THREE.Vector3(-ox - 1.1, 0, mi * MZ - oz), 'model'));
   labels.forEach((l, i) => { if (i >= G.length) l.el.style.color = MODEL_COLORS[i - G.length]; });
+  const vals = M.map(() => { const p = new THREE.Vector3(); const el = label('', p, 'val'); el.style.opacity = '0'; return { el, p }; });
 
   const controls = new OrbitControls(camera, canvas);
   controls.target.set(0, 1.2, 1);
@@ -111,7 +113,8 @@ export function bars(canvas: HTMLCanvasElement, tip: HTMLElement) {
   for (const b of meshes) b.userData.target = 0.01;
 
   const v = new THREE.Vector3();
-  let hovered: THREE.Mesh | null = null;
+  const base = meshes.map(b => (b.material as THREE.MeshStandardMaterial).color.clone());
+  let col = -1;
   const tick = () => {
     requestAnimationFrame(tick);
     if (!visible) return;
@@ -127,21 +130,23 @@ export function bars(canvas: HTMLCanvasElement, tip: HTMLElement) {
     }
     ray.setFromCamera(ptr, camera);
     const hit = ray.intersectObjects(meshes)[0]?.object as THREE.Mesh | undefined;
-    if (hovered !== (hit ?? null)) {
-      if (hovered) (hovered.material as THREE.MeshStandardMaterial).emissive.set(0);
-      hovered = hit ?? null;
-      if (hovered) (hovered.material as THREE.MeshStandardMaterial).emissive.set('#3a2a10');
+    const c = hit ? G.indexOf(hit.userData.game) : -1;
+    if (c !== col) {
+      col = c;
+      meshes.forEach((b, k) => (b.material as THREE.MeshStandardMaterial).color.copy(base[k]).multiplyScalar(c < 0 || G.indexOf(b.userData.game) === c ? 1 : 0.35));
+      gameLabels.forEach((el, k) => { el.classList.toggle('on', k === c); el.style.opacity = c < 0 || k === c ? '1' : '0.35'; });
     }
-    if (hovered) {
-      const u = hovered.userData;
-      const s = data.scores[u.model][mode][u.game.slug];
-      tip.innerHTML = `<b>${s == null ? 'no frozen run' : s.toFixed(1)}</b>${u.model} in ${u.game.name}`;
-      tip.style.left = `${mx}px`; tip.style.top = `${my}px`; tip.style.opacity = '1';
-    } else tip.style.opacity = '0';
+    vals.forEach((l, mi) => {
+      l.el.style.opacity = col < 0 ? '0' : '1';
+      if (col < 0) return;
+      const b = meshes[mi * G.length + col], s = data.scores[M[mi]][mode][G[col].slug];
+      l.el.textContent = s == null ? '–' : s.toFixed(1);
+      l.p.set(b.position.x, b.userData.h + 0.45, b.position.z);
+    });
     const w = canvas.clientWidth, h = canvas.clientHeight;
     for (const l of labels) {
       v.copy(l.p).project(camera);
-      l.el.style.transform = `translate(${(v.x + 1) * w / 2}px, ${(1 - v.y) * h / 2}px) translate(${l.el.classList.contains('model') ? '0' : '-50%'}, -50%)`;
+      l.el.style.transform = `translate(${(v.x + 1) * w / 2}px, ${(1 - v.y) * h / 2}px) translate(${l.el.classList.contains('model') ? '-100%' : '-50%'}, -50%)`;
     }
     renderer.render(scene, camera);
   };

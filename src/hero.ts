@@ -10,7 +10,7 @@ export function hero(canvas: HTMLCanvasElement, open: (slug: string) => void) {
   const paper = new THREE.Color('#f2ede0');
   const scene = new THREE.Scene();
   scene.background = paper;
-  scene.fog = new THREE.Fog(paper, 13, 27);
+  scene.fog = new THREE.Fog(paper, 17, 32);
   const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
 
   const ring = new THREE.Group();
@@ -70,9 +70,9 @@ export function hero(canvas: HTMLCanvasElement, open: (slug: string) => void) {
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     const narrow = w < 900;
-    camera.position.set(0, narrow ? 3.4 : 2.4, narrow ? 24 : 19);
+    camera.position.set(0, narrow ? 3.4 : 2.6, narrow ? 24 : 17);
     camera.lookAt(narrow ? 0 : -0.4, narrow ? 1.6 : 0.2, 0);
-    tilt.position.x = narrow ? 0 : 4.6;
+    tilt.position.x = narrow ? 0 : 6.1;
     camera.updateProjectionMatrix();
   };
   addEventListener('resize', resize);
