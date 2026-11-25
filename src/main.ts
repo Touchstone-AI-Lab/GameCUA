@@ -8,6 +8,8 @@ import { data, img, best, say, type Game, type Mode } from './data';
 import { hero } from './hero';
 import { bars, MODEL_COLORS } from './bars';
 import { timeDemo } from './time';
+import { planet } from './planet';
+import unis from './unis.json';
 
 const $ = <T extends HTMLElement = HTMLElement>(s: string) => document.querySelector(s) as T;
 const h = (tag: string, cls = '', html = '') => Object.assign(document.createElement(tag), { className: cls, innerHTML: html });
@@ -199,3 +201,9 @@ $('#authors').innerHTML =
   `<p class="au-label">Equal contribution</p><div class="au-lead">${data.authors.filter(a => a.equal).map(person).join('')}</div>` +
   `<div class="au-rest">${data.authors.filter(a => !a.equal).map(person).join('')}</div>` +
   '<p class="authors-note"><sup>†</sup> Corresponding author</p>';
+
+/* Institution logos: one row, duplicated so the scroll loops seamlessly. */
+const row = unis.map(u => `<img src="${img(`uni/${u.k}.webp`)}" alt="${u.name}" title="${u.name}" style="height:${u.h}px">`).join('');
+$('#unis-track').innerHTML = row + row.replace(/alt="[^"]*"/g, 'alt="" aria-hidden="true"');
+
+planet($('#planet-gl') as HTMLCanvasElement, img('planet.jpg'));
