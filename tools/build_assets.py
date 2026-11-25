@@ -127,10 +127,14 @@ def main():
     errs = []
     for f, cat in [('err_plan_baba', 'plan'), ('err_vis_isaac', 'vis'), ('err_know_peak', 'know'),
                    ('err_act_oni', 'act'), ('err_rt_rally', 'rt')]:
+        # Only the raw game screenshots embedded in the paper figure; the site draws its own annotations.
         tmp = f'{SITE}/.tmp_{f}'
-        subprocess.run(['pdftoppm', '-r', '160', '-png', '-singlefile', f'{PAPER}/figures/appx/{f}.pdf', tmp], check=True)
-        webp(f'{tmp}.png', f'{PUB}/err/{cat}.webp', 1400, 80)
-        os.remove(f'{tmp}.png')
+        subprocess.run(['pdfimages', '-png', f'{PAPER}/figures/appx/{f}.pdf', tmp], check=True)
+        raw = sorted(glob.glob(f'{tmp}-*.png'))
+        for i, x in enumerate([x for x in raw if Image.open(x).width >= 400]):
+            webp(x, f'{PUB}/err/{cat}{i + 1 if i else ""}.webp', 1100, 80)
+        for x in raw:
+            os.remove(x)
         errs.append(cat)
     abstract, authors, lat = paper_text()
     json.dump({'games': games, 'models': MODELS, 'scores': scores(), 'abstract': abstract, 'authors': authors,

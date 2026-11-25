@@ -11,107 +11,207 @@
   <link rel="icon" href="img/touchstone.png" />
 </head>
 <body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+
   <header class="nav">
-    <a class="nav-mark" href="#top">GameCUA</a>
-    <nav>
-      <a href="#watch">Watch</a>
-      <a href="#games">Games</a>
-      <a href="#scores">Scores</a>
-      <a href="#failures">Failures</a>
-      <a href="#paper">Paper</a>
-    </nav>
+    <div class="nav-in">
+      <a class="brand" href="#top"><img src="img/touchstone.png" alt="" />GameCUA</a>
+      <a class="nav-org" href="https://touchstoneai.org/">Touchstone AI ↗</a>
+      <nav id="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#playground">Playground</a>
+        <a href="#games">Games</a>
+        <a href="#results">Results</a>
+        <a href="#failures">Failures</a>
+        <a href="#paper">Paper</a>
+      </nav>
+      <button class="menu" id="menu" aria-label="Menu">Menu</button>
+      <a class="icon-btn" href="https://github.com/Touchstone-AI-Lab/GameCUA" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+    </div>
   </header>
 
   <main>
     <section id="top" class="hero">
-      <canvas id="hero-gl"></canvas>
-      <div class="hero-copy">
-        <h1>Fifteen real games.<br /><em>Screenshots in,</em><br />keystrokes out.</h1>
-        <p class="hero-lede">GameCUA puts computer-use agents in front of commercial games with nothing but the screen, a keyboard and a mouse, and checks every point of progress against the game's own records.</p>
-        <div class="hero-links">
-          <a href="https://github.com/Touchstone-AI-Lab/GameCUA">Code</a>
-          <a href="https://huggingface.co/datasets/Zhuhan/GameCUA">Trials</a>
-          <a href="#paper">Paper</a>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="kicker"><i></i>Game-world benchmark</p>
+          <h1>GameCUA</h1>
+          <p class="hero-title">Evaluating Computer-Use Agents in Live Game Runtimes</p>
+          <p class="hero-lede">GameCUA puts computer-use agents in front of fifteen commercial games with nothing but the screen, a keyboard and a mouse, and checks every point of progress against the game's own records.</p>
+          <div class="hero-btns">
+            <a class="btn primary" href="#playground">Watch an agent play ↗</a>
+            <a class="btn" href="#results">View results</a>
+            <a class="text-link" href="#games">Browse games →</a>
+          </div>
+          <a class="small-link" href="#paper">Paper, code &amp; trials ↗</a>
+        </div>
+        <div class="hero-stage">
+          <canvas id="disc-gl"></canvas>
+          <div class="disc-label">
+            <button class="pill" id="disc-play"><svg viewBox="0 0 12 12" width="11" height="11"><path d="M3 1.5v9l7-4.5z" fill="currentColor"/></svg><span>Play <b id="disc-name">PEAK</b></span></button>
+            <span class="hint">Drag to turn · Click a disc to load it</span>
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <dl class="facts">
+          <div><dt>15</dt><dd>commercial games</dd></div>
+          <div><dt>11</dt><dd>run in real time</dd></div>
+          <div><dt>6</dt><dd>evaluated agents</dd></div>
+          <div><dt id="fact-best">20.9</dt><dd>best real-time score / 100</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="playground" class="band">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">The games, on a real screen</p>
+          <h2 class="title">Watch an agent play.<br /><span class="hl">Every frame is a recorded trial.</span></h2>
+          <p class="sub">Pick a game. The monitor replays its strongest run, and the log below shows what the agent did, what it saw and what it was thinking at each decision.</p>
+        </div>
+        <div class="tabs" id="pg-tabs" role="tablist">
+          <button data-f="all" class="on">All games <small>15</small></button>
+          <button data-f="real-time">Real-time <small>11</small></button>
+          <button data-f="turn-based">Turn-based <small>4</small></button>
+        </div>
+        <div class="pg">
+          <div class="monitor">
+            <div class="mon-body">
+              <div class="mon-screen">
+                <div class="mon-bar"><span class="dots"><i></i><i></i><i></i></span><span id="mon-title"></span><span id="mon-step"></span></div>
+                <div class="mon-view" id="mon-view"><div class="mon-strip" id="mon-strip"></div><i class="cursor-dot" id="cursor-dot"></i></div>
+              </div>
+              <div class="mon-chin"><i></i></div>
+            </div>
+            <div class="mon-neck"></div>
+            <div class="mon-foot"></div>
+          </div>
+          <aside class="pg-side">
+            <p class="side-h">Games · <span id="pg-count">15</span></p>
+            <div class="pg-grid" id="pg-grid"></div>
+          </aside>
+        </div>
+        <div class="card log">
+          <div class="log-top">
+            <button class="play" id="pg-play" aria-label="Pause"></button>
+            <div class="steps" id="pg-steps"></div>
+          </div>
+          <div class="log-cols" id="pg-log"></div>
         </div>
       </div>
     </section>
 
-    <section id="watch" class="watch">
-      <div class="watch-pin">
-        <div class="watch-screen">
-          <div class="screen-frame" id="screen-frame"></div>
+    <section id="overview" class="band">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">Overview</p>
+          <h2 class="title">Fifteen real games.<br /><span class="hl">Screenshots in, keystrokes out.</span></h2>
         </div>
-        <div class="watch-voice">
-          <h2 class="watch-title" id="watch-title"></h2>
-          <div class="voice" id="voice"></div>
-          <div class="timeline" id="timeline"></div>
+        <div class="card overview">
+          <div class="abstract" id="abstract"></div>
+          <ol class="contrib">
+            <li><b>Commercial games, untouched.</b> Every game is someone else's product. No hooks, no APIs, no simplified ports.</li>
+            <li><b>Progress from the game itself.</b> Milestones are checked against native game evidence, not against the agent's own report.</li>
+            <li><b>Two clocks.</b> Each real-time game runs live, where the world keeps moving while the agent thinks, and frozen, where it waits.</li>
+          </ol>
         </div>
       </div>
-      <div class="watch-picker" id="watch-picker"></div>
     </section>
 
-    <section id="games" class="games">
-      <h2 class="games-head">Every game is <span>someone else's</span> product.<br />No hooks, no APIs, no simplified ports.</h2>
-      <ol class="game-index" id="game-index"></ol>
-      <div class="cursor-poster" id="cursor-poster"><img alt="" /></div>
-    </section>
-
-    <section id="scores" class="scores">
-      <div class="scores-head">
-        <h2>Nobody finishes.<br />The best agent averages <span id="best-rt">20.9</span> on real-time games.</h2>
-      </div>
-      <div class="mode-row">
-        <div class="mode-switch" id="mode-switch">
-          <button data-mode="live" class="on">Live</button>
-          <button data-mode="frozen">Frozen</button>
+    <section id="games" class="band">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">The benchmark</p>
+          <h2 class="title">Every game is someone else's product.<br /><span class="hl">No hooks, no APIs, no simplified ports.</span></h2>
+          <p class="sub">The number on each card is the best score any agent reached, out of 100 milestone points. Open a game to see its runs.</p>
         </div>
-        <p class="mode-note" id="mode-note"></p>
+        <div class="game-grid" id="game-grid"></div>
       </div>
-      <div class="bars-wrap">
-        <canvas id="bars-gl"></canvas>
-      </div>
-      <div class="board" id="board"></div>
     </section>
 
-    <section id="time" class="time">
-      <div class="time-copy">
-        <h2>The world does not wait for the model to think.</h2>
-        <p>In <b>live</b> execution the game keeps running while the agent reasons, so its input lands on a later moment than the one it saw. In <b>frozen</b> execution the harness suspends the game during inference and lets it run only while the input is applied. Same agent, same game, two clocks.</p>
-      </div>
-      <div class="time-demo" id="time-demo"></div>
-    </section>
-
-    <section id="failures" class="failures">
-      <h2>Why the runs end.</h2>
-      <p class="fail-lede">We traced 88 failures back to the first decision without which the trial would most likely have survived.</p>
-      <div class="fail-band" id="fail-band"></div>
-      <figure class="fail-figure" id="fail-figure"><img alt="" /><figcaption></figcaption></figure>
-    </section>
-
-    <section id="paper" class="paper">
-      <div class="paper-main">
-        <h2>GameCUA: Evaluating Computer-Use Agents in Live Game Runtimes</h2>
-        <p class="pull">One trial in three earns no verified points at all.</p>
-        <p class="abstract" id="abstract"></p>
-        <div class="paper-links">
-          <a href="https://github.com/Touchstone-AI-Lab/GameCUA">github.com/Touchstone-AI-Lab/GameCUA</a>
-          <a href="https://huggingface.co/datasets/Zhuhan/GameCUA">huggingface.co/datasets/Zhuhan/GameCUA</a>
+    <section id="results" class="band">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">GameCUA / Results</p>
+          <h2 class="title">Nobody finishes.<br /><span class="hl">Best real-time average: <span id="best-rt">20.9</span> of 100.</span></h2>
+          <p class="sub">Milestone score out of 100, averaged over the eleven real-time and the four turn-based games. Click a column to rank by it.</p>
         </div>
-        <pre class="bibtex" id="bibtex"></pre>
-        <button class="copy" id="copy-bib">Copy BibTeX</button>
+        <div class="card board-card">
+          <div class="card-bar"><b>15 games</b><span>Milestone score (0–100)</span><a href="#field">Every game ↓</a></div>
+          <table class="board" id="board"></table>
+        </div>
+        <div class="card field-card" id="field">
+          <div class="card-bar">
+            <div class="seg" id="mode-switch"><button data-mode="live" class="on">Live</button><button data-mode="frozen">Frozen</button></div>
+            <span id="mode-note"></span>
+          </div>
+          <div class="heat-wrap"><table class="heat" id="heat"></table></div>
+        </div>
       </div>
-      <div class="authors" id="authors"></div>
-      <div class="unis" id="unis" aria-label="Author institutions"><div class="unis-track" id="unis-track"></div></div>
-      <p class="fine">Game artwork belongs to the respective publishers and is shown to identify the titles in the benchmark. Screenshots and agent text come from recorded GameCUA trials.</p>
+    </section>
+
+    <section id="time" class="band">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">Live versus frozen</p>
+          <h2 class="title">The world does not wait.<br /><span class="hl">Same agent, same game, two clocks.</span></h2>
+          <p class="sub">In <b>live</b> execution the game keeps running while the agent reasons, so its input lands on a later moment than the one it saw. In <b>frozen</b> execution the harness suspends the game during inference. Below, one agent drives two roads with its real median latency, sped up four times.</p>
+        </div>
+        <div class="card time-card"><div class="time-demo" id="time-demo"></div></div>
+      </div>
+    </section>
+
+    <section id="failures" class="band">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">Failure analysis</p>
+          <h2 class="title">Why the runs end.<br /><span class="hl">One trial in three earns no verified points.</span></h2>
+          <p class="sub">We traced 88 failures back to the first decision without which the trial would most likely have survived. Pick a cause to see one case.</p>
+        </div>
+        <div class="card fail-card">
+          <div class="fail-band" id="fail-band"></div>
+          <div class="fail-case" id="fail-case"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="paper" class="band">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">Resources</p>
+          <h2 class="title">Get the code.<br /><span class="hl">Replay every trial.</span></h2>
+        </div>
+        <div class="res">
+          <a class="card" href="https://github.com/Touchstone-AI-Lab/GameCUA"><b>Code</b><span>Harness, game adapters and scoring.</span><small>github.com/Touchstone-AI-Lab/GameCUA ↗</small></a>
+          <a class="card" href="https://huggingface.co/datasets/Zhuhan/GameCUA"><b>Trials</b><span>Every recorded screenshot, action and score.</span><small>huggingface.co/datasets/Zhuhan/GameCUA ↗</small></a>
+          <a class="card" href="#cite"><b>Cite</b><span>BibTeX for the paper.</span><small>gamecua.bib ↓</small></a>
+        </div>
+        <h3 class="sub-h">Authors</h3>
+        <div class="authors" id="authors"></div>
+        <div class="unis" id="unis" aria-label="Author institutions"><div class="unis-track" id="unis-track"></div></div>
+        <div class="card bib" id="cite">
+          <div class="card-bar"><span class="dots"><i></i><i></i><i></i></span><span class="mono">gamecua.bib</span><button class="copy" id="copy-bib">Copy</button></div>
+          <pre id="bibtex"></pre>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="foot">
-    <canvas id="planet-gl"></canvas>
-    <a class="foot-in" href="https://touchstoneai.org/">
-      <div><img class="foot-icon" src="img/touchstone.png" alt="" /><p class="foot-tag">Data to Train.<br /><span>Benchmarks to Prove.</span></p></div>
-      <span class="foot-word">Touchstone</span>
-    </a>
+  <footer class="site">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a class="brand big" href="#top"><img src="img/touchstone.png" alt="" />GameCUA</a>
+          <p>A benchmark of computer-use agents in fifteen live commercial games, from Touchstone AI.</p>
+        </div>
+        <div><h4>Project</h4><a href="#overview">Overview</a><a href="#playground">Playground</a><a href="#games">Games</a><a href="#results">Results</a><a href="#failures">Failures</a><a href="#cite">Cite</a></div>
+        <div><h4>Artifacts</h4><a href="https://github.com/Touchstone-AI-Lab/GameCUA">Code</a><a href="https://huggingface.co/datasets/Zhuhan/GameCUA">Trials</a><a href="https://touchstoneai.org/">Touchstone AI</a></div>
+      </div>
+      <div class="foot-bottom"><span>© 2026 GameCUA Team, Touchstone AI.</span><span>Game artwork belongs to the respective publishers and is shown to identify the titles. Screenshots and agent text come from recorded GameCUA trials.</span></div>
+    </div>
   </footer>
 
   <div class="sheet" id="sheet" aria-hidden="true"></div>

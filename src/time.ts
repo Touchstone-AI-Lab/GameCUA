@@ -80,8 +80,8 @@ export function timeDemo(root: HTMLElement) {
     const x = x0 + rk.lane * LW + LW / 2;
     ctx.beginPath();
     ctx.ellipse(x, rk.y, 36, 26, 0, 0, Math.PI * 2);
-    if (ghost) { ctx.setLineDash([7, 6]); ctx.strokeStyle = '#d9714f'; ctx.lineWidth = 3; ctx.stroke(); ctx.setLineDash([]); }
-    else { ctx.fillStyle = rk.hit ? '#c8372d' : '#f2ede0'; ctx.fill(); }
+    if (ghost) { ctx.setLineDash([7, 6]); ctx.strokeStyle = '#e2c377'; ctx.lineWidth = 3; ctx.stroke(); ctx.setLineDash([]); }
+    else { ctx.fillStyle = rk.hit ? '#e0736b' : '#c4d1e5'; ctx.fill(); }
   };
 
   const drawRoad = (x0: number, rd: Road) => {
@@ -90,31 +90,31 @@ export function timeDemo(root: HTMLElement) {
     ctx.beginPath();
     ctx.rect(x0, 0, RW, H);
     ctx.clip();
-    ctx.fillStyle = '#1d2e27';
+    ctx.fillStyle = '#0f1a2b';
     ctx.fillRect(x0, 0, RW, H);
-    ctx.fillStyle = '#d9a63a';
+    ctx.fillStyle = '#2c4366';
     for (let l = 1; l < LANES; l++)
       for (let y = -80 + rd.scroll; y < H; y += 80) ctx.fillRect(x0 + l * LW - 3, y, 6, 40);
     rd.rocks.forEach(rk => rock(x0, rk));
     if (rd.live && rd.phase === 'think') rd.seen.forEach(rk => rock(x0, rk, true));
     const cx = x0 + rd.carX * LW + LW / 2;
-    ctx.fillStyle = '#d9714f';
+    ctx.fillStyle = '#8cb8ff';
     ctx.fillRect(cx - 26, CAR_Y - 40, 52, 80);
-    ctx.fillStyle = '#1d2e27';
+    ctx.fillStyle = '#0f1a2b';
     ctx.fillRect(cx - 17, CAR_Y - 24, 34, 18);
-    if (!rd.live && rd.phase === 'think') { ctx.fillStyle = 'rgba(242,237,224,0.22)'; ctx.fillRect(x0, 0, RW, H); }
+    if (!rd.live && rd.phase === 'think') { ctx.fillStyle = 'rgba(140,184,255,0.12)'; ctx.fillRect(x0, 0, RW, H); }
     ctx.restore();
-    const font = (w: number, px: number) => `${w} ${px}px "Bricolage Grotesque Variable", sans-serif`;
-    ctx.fillStyle = '#1d2e27';
-    ctx.font = font(800, 44);
+    const font = (w: number, px: number) => `${w} ${px}px "Inter Variable", Inter, sans-serif`;
+    ctx.fillStyle = '#eaf0fb';
+    ctx.font = font(600, 40);
     ctx.fillText(rd.live ? 'Live' : 'Frozen', x0, 40);
-    ctx.font = font(600, 17);
+    ctx.font = font(400, 16);
     ctx.fillText(rd.phase === 'act' ? 'steering' : rd.live ? 'thinking while the road moves' : 'thinking, game paused', x0, 64);
-    ctx.font = font(800, 52);
+    ctx.font = font(500, 48);
     const n = String(rd.crashes);
     ctx.fillText(n, x0, TOP + H + 56);
     const nw = ctx.measureText(n).width;
-    ctx.font = font(600, 17);
+    ctx.font = font(400, 16);
     ctx.fillText(`${rd.crashes === 1 ? 'crash' : 'crashes'} in ${rd.gameT.toFixed(0)} s of game time`, x0 + nw + 12, TOP + H + 54);
   };
 
