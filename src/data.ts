@@ -1,5 +1,6 @@
 // Typed view of data.json, which tools/build_assets.py generates from the paper and the trial data.
 import raw from './data.json';
+import rawReplays from './replays.json';
 
 export type Action = {
   type: string; keys?: string[]; duration?: number; buttons?: string[]; dx?: number; dy?: number;
@@ -9,7 +10,7 @@ export type Step = { observation: string; hypothesis: string; action: Action; de
 export type Game = {
   slug: string; name: string; genre: string; timing: string; milestones: number; trials: number;
   intro: string; controls: string; logo: boolean; shots: number; best: { agent: string; mode: string };
-  case: string; replay: Step[];
+  case: string;
 };
 export type Mode = 'live' | 'frozen';
 export type Author = { name: string; inst: string; equal: boolean; corr: boolean };
@@ -18,6 +19,9 @@ export const data = raw as unknown as {
   games: Game[]; models: string[]; scores: Record<string, Record<Mode, Record<string, number | null>>>;
   abstract: string; authors: Author[]; latency: Record<string, number>;
 };
+
+/** Per game: the replay video's length and the trial's last decisions, shown in order over the video. */
+export const replays = rawReplays as unknown as Record<string, { seconds: number; steps: Step[] }>;
 
 export const img = (p: string) => `${import.meta.env.BASE_URL}img/${p}`;
 

@@ -70,7 +70,7 @@
         <div class="head">
           <p class="eyebrow">The games, on a real screen</p>
           <h2 class="title">Watch an agent play.<br /><span class="hl">Every frame is a recorded trial.</span></h2>
-          <p class="sub">Pick a game. The monitor replays its strongest run, and the log below shows what the agent did, what it saw and what it was thinking at each decision.</p>
+          <p class="sub">Pick a game. The monitor replays the end of its strongest run from the trial's own screen recording, with still frames left out, while the log below walks through its last decisions.</p>
         </div>
         <div class="tabs" id="pg-tabs" role="tablist">
           <button data-f="all" class="on">All games <small>15</small></button>
@@ -82,7 +82,7 @@
             <div class="mon-body">
               <div class="mon-screen">
                 <div class="mon-bar"><span class="dots"><i></i><i></i><i></i></span><span id="mon-title"></span><span id="mon-step"></span></div>
-                <div class="mon-view" id="mon-view"><div class="mon-strip" id="mon-strip"></div><i class="cursor-dot" id="cursor-dot"></i></div>
+                <div class="mon-view" id="mon-view"><video id="mon-video" muted playsinline loop preload="auto"></video><i class="cursor-dot" id="cursor-dot"></i></div>
               </div>
               <div class="mon-chin"><i></i></div>
             </div>
@@ -97,7 +97,7 @@
         <div class="card log">
           <div class="log-top">
             <button class="play" id="pg-play" aria-label="Pause"></button>
-            <div class="steps" id="pg-steps"></div>
+            <div class="track" id="pg-track"><i id="pg-fill"></i></div><span class="track-n" id="pg-n"></span>
           </div>
           <div class="log-cols" id="pg-log"></div>
         </div>

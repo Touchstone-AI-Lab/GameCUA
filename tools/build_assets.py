@@ -97,11 +97,10 @@ def paper_text():
 
 
 def main():
-    for d in ('poster', 'hero', 'logo', 'shot', 'replay', 'err'):
+    for d in ('poster', 'hero', 'logo', 'shot', 'err'):
         shutil.rmtree(f'{PUB}/{d}', ignore_errors=True)
     rows, intro, cases = games_meta()
     picked = json.load(open(f'{DATA}/picked.json'))
-    replays = json.load(open(f'{DATA}/replays.json'))
     games = []
     for slug, name in GAMES:
         p = f'{DATA}/posters/{slug}'
@@ -113,17 +112,12 @@ def main():
         shots = [s for s in picked[slug]['picked'] if s.endswith('.png')]
         for i, s in enumerate(shots):
             webp(f'{DATA}/{s}', f'{PUB}/shot/{slug}/{i:02d}.webp', 960, 72)
-        steps = []
-        for i, r in enumerate(replays.get(slug, [])):
-            webp(f"{DATA}/{r['img']}", f'{PUB}/replay/{slug}/{i:02d}.webp', 1100, 74)
-            steps.append({**{k: r[k] for k in ('observation', 'hypothesis', 'action')},
-                          'decision': int(os.path.basename(r['img']).split('_')[0])})
         agent, mode = picked[slug]['trial'].split('/')
         meta = rows.get(name, rows.get(name.replace('The Binding of Isaac', 'The Binding of Isaac'), {}))
         gi, gc = intro.get(name, ('', ''))
         games.append({'slug': slug, 'name': name, **meta, 'intro': gi, 'controls': gc, 'logo': has_logo,
                       'shots': len(shots), 'best': {'agent': AGENT_DIR.get(agent, agent), 'mode': mode},
-                      'case': cases.get(name, cases.get(name.split(':')[0], '')), 'replay': steps})
+                      'case': cases.get(name, cases.get(name.split(':')[0], ''))})
     errs = []
     for f, cat in [('err_plan_baba', 'plan'), ('err_vis_isaac', 'vis'), ('err_know_peak', 'know'),
                    ('err_act_oni', 'act'), ('err_rt_rally', 'rt')]:

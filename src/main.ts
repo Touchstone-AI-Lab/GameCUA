@@ -3,7 +3,7 @@
 import '@fontsource-variable/inter';
 import '@fontsource/jetbrains-mono/400.css';
 import './style.css';
-import { data, img, best, say, type Game, type Mode } from './data';
+import { data, img, best, say, replays, type Game, type Mode } from './data';
 import { stars } from './stars';
 import { discs } from './disc';
 import { timeDemo } from './time';
@@ -62,44 +62,51 @@ function closeSheet() {
 sheet.addEventListener('click', e => { if (e.target === sheet) closeSheet(); });
 addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
 
-/* Playground: the monitor scrolls through the eight recorded decisions of a game's best run. */
-const strip = $('#mon-strip'), dot = $('#cursor-dot'), steps = $('#pg-steps'), log = $('#pg-log'), playBtn = $('#pg-play');
-let cur = bySlug['peak'], step = 0, playing = true, timer = 0, pgVisible = false;
+/* Playground: the monitor loops the end of the trial's screen recording while the log walks through its last decisions. */
+const video = $('#mon-video') as HTMLVideoElement, dot = $('#cursor-dot'), log = $('#pg-log'), playBtn = $('#pg-play');
+const fill = $('#pg-fill'), track = $('#pg-track');
+let cur = bySlug['peak'], step = -1, playing = true, pgVisible = false;
+const vid = (f: string) => `${import.meta.env.BASE_URL}video/${f}`;
 function loadGame(g: Game) {
   cur = g;
-  strip.innerHTML = g.replay.map((_, i) => `<img src="${img(`replay/${g.slug}/${pad(i)}.webp`)}" alt="">`).join('');
-  steps.innerHTML = g.replay.map(s => `<button>#${s.decision}</button>`).join('');
-  steps.querySelectorAll('button').forEach((b, i) => b.addEventListener('click', () => { setPlaying(false); show(i); }));
+  step = -1;
+  video.innerHTML = `<source src="${vid(`${g.slug}.av1.mp4`)}" type='video/mp4; codecs="av01.0.05M.08"'><source src="${vid(`${g.slug}.h264.mp4`)}" type="video/mp4">`;
+  video.load();
   $('#mon-title').textContent = `${g.name} — ${g.best.agent}, ${g.best.mode}`;
   document.querySelectorAll<HTMLElement>('#pg-grid .tile').forEach(t => t.classList.toggle('on', t.dataset.slug === g.slug));
-  strip.style.transition = 'none';
-  show(0);
-  void strip.offsetHeight;
-  strip.style.transition = '';
+  sync();
+  setPlaying(true);
 }
-function show(i: number) {
+function sync() {
+  const r = replays[cur.slug], f = video.duration ? video.currentTime / video.duration : 0;
+  fill.style.width = `${f * 100}%`;
+  const i = Math.min(r.steps.length - 1, Math.floor(f * r.steps.length));
+  if (i === step) return;
   step = i;
-  const s = cur.replay[i], a = s.action;
-  strip.style.transform = `translateY(${-i * 100}%)`;
-  steps.querySelectorAll('button').forEach((b, j) => { b.classList.toggle('on', j === i); b.classList.toggle('done', j < i); });
-  $('#mon-step').textContent = `decision ${s.decision} · ${i + 1}/${cur.replay.length}`;
-  dot.style.opacity = '0';
-  if (a.x != null && a.y != null) setTimeout(() => { if (step === i) Object.assign(dot.style, { left: `${a.x! * 100}%`, top: `${a.y! * 100}%`, opacity: '1' }); }, 900);
+  const s = r.steps[i], a = s.action;
+  $('#mon-step').textContent = `decision ${s.decision}`;
+  $('#pg-n').textContent = `${i + 1} / ${r.steps.length}`;
+  const pointer = a.x != null && a.y != null;
+  if (pointer) Object.assign(dot.style, { left: `${a.x! * 100}%`, top: `${a.y! * 100}%` });
+  dot.style.opacity = pointer ? '1' : '0';
   log.innerHTML = `<div><h4>Action</h4><p class="do">${say(a)}</p></div><div><h4>Sees</h4><p>${s.observation}</p></div><div><h4>Thinks</h4><p>${s.hypothesis}</p></div>`;
 }
+video.addEventListener('timeupdate', sync);
+video.addEventListener('seeked', sync);
 function setPlaying(p: boolean) {
   playing = p;
   playBtn.classList.toggle('paused', !p);
   playBtn.setAttribute('aria-label', p ? 'Pause' : 'Play');
+  if (p && pgVisible && !document.hidden) video.play().catch(() => {});
+  else video.pause();
 }
 playBtn.addEventListener('click', () => setPlaying(!playing));
-setInterval(() => {
-  if (!playing || !pgVisible || document.hidden) return;
-  if (++timer < 5) return;
-  timer = 0;
-  show((step + 1) % cur.replay.length);
-}, 1000);
-new IntersectionObserver(([e]) => { pgVisible = e.isIntersecting; }, { threshold: 0.3 }).observe($('.monitor'));
+track.addEventListener('click', e => {
+  const r = track.getBoundingClientRect();
+  if (video.duration) video.currentTime = ((e.clientX - r.left) / r.width) * video.duration;
+});
+new IntersectionObserver(([e]) => { pgVisible = e.isIntersecting; setPlaying(playing); }, { threshold: 0.3 }).observe($('.monitor'));
+document.addEventListener('visibilitychange', () => setPlaying(playing));
 
 const grid = $('#pg-grid');
 const short = (n: string) => n.replace('The Binding of Isaac: Rebirth', 'Binding of Isaac').replace('Hollow Knight: Silksong', 'Silksong');
@@ -107,7 +114,7 @@ for (const g of data.games) {
   const t = h('button', 'tile', `<img src="${img(`poster/${g.slug}.webp`)}" alt="" loading="lazy">${short(g.name)}`);
   t.dataset.slug = g.slug;
   t.dataset.timing = g.timing;
-  t.addEventListener('click', () => { loadGame(g); timer = 0; setPlaying(true); loadDisc(g.slug); });
+  t.addEventListener('click', () => { loadGame(g); loadDisc(g.slug); });
   grid.appendChild(t);
 }
 document.querySelectorAll<HTMLElement>('#pg-tabs button').forEach(b => b.addEventListener('click', () => {
@@ -123,7 +130,7 @@ loadGame(cur);
 let heroSlug = 'peak';
 const loadDisc = discs($('#disc-gl') as HTMLCanvasElement, slug => { heroSlug = slug; $('#disc-name').textContent = bySlug[slug].name; });
 $('#disc-play').addEventListener('click', () => {
-  loadGame(bySlug[heroSlug]); timer = 0; setPlaying(true);
+  loadGame(bySlug[heroSlug]);
   $('#playground').scrollIntoView();
 });
 
