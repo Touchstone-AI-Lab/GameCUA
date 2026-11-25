@@ -1,6 +1,6 @@
 # GameCUA website
 
-Project page for GameCUA (Vite + TypeScript + three.js). This branch holds only the site.
+Project page for GameCUA (Vite + TypeScript + three.js). This branch holds only the site; pushes deploy it to https://touchstone-ai-lab.github.io/GameCUA/ via `.github/workflows/pages.yml`.
 
 ```bash
 npm install
