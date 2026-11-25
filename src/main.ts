@@ -193,5 +193,9 @@ $('#copy-bib').addEventListener('click', async e => {
   (e.target as HTMLElement).textContent = 'Copied';
   setTimeout(() => ((e.target as HTMLElement).textContent = 'Copy BibTeX'), 1600);
 });
-$('#authors').innerHTML = data.authors.map(a => `<span title="${a.inst}">${a.name}${a.equal ? '<sup>*</sup>' : ''}${a.corr ? '<sup>†</sup>' : ''}</span>`).join(' <i>/</i> ')
-  + '<p class="authors-note"><sup>*</sup> equal contribution &nbsp; <sup>†</sup> corresponding author. Hover a name for the affiliation.</p>';
+const person = (a: (typeof data.authors)[number]) =>
+  `<div class="au"><b>${a.name}${a.corr ? '<sup>†</sup>' : ''}</b><span>${a.inst}</span></div>`;
+$('#authors').innerHTML =
+  `<p class="au-label">Equal contribution</p><div class="au-lead">${data.authors.filter(a => a.equal).map(person).join('')}</div>` +
+  `<div class="au-rest">${data.authors.filter(a => !a.equal).map(person).join('')}</div>` +
+  '<p class="authors-note"><sup>†</sup> Corresponding author</p>';
