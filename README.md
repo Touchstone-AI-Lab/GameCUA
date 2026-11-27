@@ -2,6 +2,8 @@
 
 A benchmark of verified progress in commercial games, played from screenshots with ordinary keyboard and mouse input within one fixed wall-clock budget. Shared validation is in [VALIDATION](VALIDATION.md); each game's guide and validation record live next to its code.
 
+Questions, task proposals and results: join `#gamecua` on the [Touchstone AI Discord](https://discord.gg/fADJQaMTRb).
+
 ## Games
 
 ### V1
