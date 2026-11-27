@@ -1,6 +1,6 @@
 # GameCUA website
 
-Project page for GameCUA (Vite + TypeScript + three.js). This branch holds only the site. It is published at https://touchstone-ai-lab.github.io/bench/gamecua/ by the workflow in
+Project page for GameCUA (Vite + TypeScript + three.js). This branch holds only the site. It is published at https://touchstone-ai-lab.github.io/bench/game-cua/ by the workflow in
 [Touchstone-AI-Lab.github.io](https://github.com/Touchstone-AI-Lab/Touchstone-AI-Lab.github.io), which rebuilds from this branch within
 15 minutes of a push (`gh workflow run pages.yml -R Touchstone-AI-Lab/Touchstone-AI-Lab.github.io` publishes at once). This repo's own
 Pages (`/GameCUA/`) only redirects there.
